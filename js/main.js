@@ -113,24 +113,27 @@ function renderEducation(data) {
 
 function renderContact(data) {
   const { contact } = data;
-  document.getElementById('contact-content').innerHTML = `
-    <div class="contact-item">
+  const items = [
+    `<div class="contact-item">
       <span class="contact-label">Email</span>
       <a href="mailto:${contact.email}">${contact.email}</a>
-    </div>
-    <div class="contact-item">
+    </div>`,
+    `<div class="contact-item">
       <span class="contact-label">GitHub</span>
       <a href="${contact.github}" target="_blank" rel="noopener">${contact.github.replace('https://', '')}</a>
-    </div>
-    <div class="contact-item">
+    </div>`,
+  ];
+  if (contact.linkedin) {
+    items.push(`<div class="contact-item">
       <span class="contact-label">LinkedIn</span>
       <a href="${contact.linkedin}" target="_blank" rel="noopener">${contact.linkedin.replace('https://', '')}</a>
-    </div>
-    <div class="contact-item">
+    </div>`);
+  }
+  items.push(`<div class="contact-item">
       <span class="contact-label">Location</span>
       <span>${contact.location}</span>
-    </div>
-  `;
+    </div>`);
+  document.getElementById('contact-content').innerHTML = items.join('');
 }
 
 function renderFooter(data) {

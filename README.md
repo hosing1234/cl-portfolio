@@ -1,6 +1,8 @@
 # 個人作品集網站 — cl-portfolio
 
-面向 IT / 軟件開發公司見工用的個人 portfolio 網站。內容與呈現分離：完整個人資料存於 `data/master/`，對外展示的精簡版存於 `data/portfolio.json`，網站以靜態 HTML/CSS/JS 渲染並部署至 GitHub Pages。
+面向 IT / 軟件開發公司見工用的個人 portfolio 網站。
+
+**內容流程：** 先在 Markdown 整理個人資料 → 精選成 portfolio 稿 → 同步至 JSON → 網站渲染。目前於 local branch `content/profile-data` 進行資料收集，網站骨架及 JSON 為 placeholder。
 
 ---
 
@@ -8,26 +10,38 @@
 
 ```
 cl-portfolio/
+├── content/                # ★ 第一步：在這裡填寫個人資料（Markdown）
+│   ├── profile.md              # 完整個人資料（master，source of truth）
+│   └── portfolio-draft.md      # 對外精選稿（從 profile 整理）
+├── data/                   # 第二步：由 Markdown 同步過來的結構化資料
+│   ├── master/                 # JSON 版完整資料
+│   └── portfolio.json          # 網站直接讀取的精簡版
 ├── index.html              # 網站入口
-├── css/
-│   └── style.css           # 樣式
-├── js/
-│   └── main.js             # 讀取 JSON 並渲染頁面
-├── data/
-│   ├── master/             # 完整個人資料庫（內部整理用）
-│   │   ├── personal.json       # 基本資料、聯絡方式、自介
-│   │   ├── education.json      # 學歷
-│   │   ├── experience.json     # 工作經驗（含 showOnPortfolio 篩選）
-│   │   ├── skills.json         # 技能（分類、程度、年資）
-│   │   ├── projects.json       # 所有項目（含 showOnPortfolio 篩選）
-│   │   ├── certifications.json # 證書
-│   │   └── languages.json      # 語言能力
-│   └── portfolio.json      # 對外展示用精簡資料（網站直接讀取）
-├── .github/
-│   └── workflows/
-│       └── deploy.yml      # GitHub Pages 自動部署
+├── css/style.css
+├── js/main.js
+├── .github/workflows/deploy.yml
 └── README.md
 ```
+
+---
+
+## 建議工作流程
+
+```
+profile.md  ──精選改寫──▶  portfolio-draft.md  ──同步──▶  data/portfolio.json  ──▶  網站
+     │                                                          │
+     └──────────────────── 可選同步 ──────────────────────────▶ data/master/*.json
+```
+
+| 階段 | 檔案 | 做什麼 |
+|------|------|--------|
+| 1. 收集 | `content/profile.md` | 填寫所有個人資料，標記哪些要公開 |
+| 2. 精選 | `content/portfolio-draft.md` | 改寫成招聘方易讀的精簡版 |
+| 3. 同步 | `data/portfolio.json` | 轉成 JSON 供網站渲染 |
+| 4. 預覽 | 本地 HTTP server | 確認內容及排版 |
+| 5. 部署 | push 至 GitHub | GitHub Pages 自動更新 |
+
+**現階段：** 專注步驟 1–2，填好 Markdown 後再更新 JSON 及網站內容。
 
 ---
 
@@ -70,9 +84,10 @@ cl-portfolio/
 ```
 
 **更新流程：**
-1. 先在 `data/master/` 更新完整資料
-2. 將需要展示的內容精簡、改寫後寫入 `data/portfolio.json`
-3. Push 至 GitHub，網站自動更新
+1. 在 `content/profile.md` 更新完整資料
+2. 整理 `content/portfolio-draft.md` 精選稿
+3. 同步至 `data/portfolio.json`（及可選的 `data/master/`）
+4. Push 至 GitHub，網站自動更新
 
 ---
 
@@ -92,7 +107,27 @@ npx serve .
 
 ---
 
+## Git 分支策略
+
+| Branch | 用途 |
+|--------|------|
+| `master` | 穩定版 — 網站骨架及已確認內容 |
+| `content/profile-data` | **目前工作分支** — 填寫 Markdown 個人資料 |
+
+```bash
+# 目前在 content/profile-data 工作
+git checkout content/profile-data
+
+# 資料填妥、JSON 同步、網站確認後，合併回 master
+git checkout master
+git merge content/profile-data
+```
+
+---
+
 ## 部署至 GitHub Pages
+
+> 資料收集完成、內容確認後再 push 及部署。
 
 ### 首次設定
 
