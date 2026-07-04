@@ -1,0 +1,48 @@
+{
+  "categories": [
+    {
+      "id": "languages",
+      "name": { "en": "Languages", "zh": "程式語言" },
+      "items": [
+        { "name": "JavaScript / TypeScript", "level": "advanced", "yearsOfExperience": 3 },
+        { "name": "Python", "level": "intermediate", "yearsOfExperience": 2 },
+        { "name": "SQL", "level": "intermediate", "yearsOfExperience": 2 },
+        { "name": "HTML / CSS", "level": "advanced", "yearsOfExperience": 3 }
+      ]
+    },
+    {
+      "id": "frameworks",
+      "name": { "en": "Frameworks & Libraries", "zh": "框架及函式庫" },
+      "items": [
+        { "name": "React", "level": "advanced", "yearsOfExperience": 2 },
+        { "name": "Node.js / Express", "level": "intermediate", "yearsOfExperience": 2 },
+        { "name": "Next.js", "level": "intermediate", "yearsOfExperience": 1 }
+      ]
+    },
+    {
+      "id": "tools",
+      "name": { "en": "Tools & Platforms", "zh": "工具及平台" },
+      "items": [
+        { "name": "Git / GitHub", "level": "advanced", "yearsOfExperience": 3 },
+        { "name": "Docker", "level": "beginner", "yearsOfExperience": 1 },
+        { "name": "Azure / AWS", "level": "beginner", "yearsOfExperience": 1 },
+        { "name": "VS Code / Cursor", "level": "advanced", "yearsOfExperience": 3 }
+      ]
+    },
+    {
+      "id": "soft",
+      "name": { "en": "Soft Skills", "zh": "軟技能" },
+      "items": [
+        { "name": "Problem Solving", "level": "advanced" },
+        { "name": "Team Collaboration", "level": "advanced" },
+        { "name": "Technical Documentation", "level": "intermediate" },
+        { "name": "Agile / Scrum", "level": "intermediate" }
+      ]
+    }
+  ],
+  "levels": {
+    "beginner": { "en": "Beginner", "zh": "初級" },
+    "intermediate": { "en": "Intermediate", "zh": "中級" },
+    "advanced": { "en": "Advanced", "zh": "進階" }
+  }
+}

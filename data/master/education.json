@@ -1,0 +1,33 @@
+{
+  "items": [
+    {
+      "id": "edu-001",
+      "institution": {
+        "en": "University Name",
+        "zh": "大學名稱"
+      },
+      "degree": {
+        "en": "Bachelor of Science in Computer Science",
+        "zh": "計算機科學理學士"
+      },
+      "field": {
+        "en": "Computer Science",
+        "zh": "計算機科學"
+      },
+      "startDate": "2018-09",
+      "endDate": "2022-06",
+      "gpa": null,
+      "highlights": {
+        "en": [
+          "Relevant coursework: Data Structures, Algorithms, Database Systems",
+          "Final year project: [Project title]"
+        ],
+        "zh": [
+          "相關課程：數據結構、演算法、數據庫系統",
+          "畢業專題：[專題名稱]"
+        ]
+      },
+      "showOnPortfolio": true
+    }
+  ]
+}

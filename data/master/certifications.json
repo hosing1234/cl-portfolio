@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "id": "cert-001",
+      "name": {
+        "en": "Microsoft Azure Fundamentals (AZ-900)",
+        "zh": "Microsoft Azure 基礎 (AZ-900)"
+      },
+      "issuer": "Microsoft",
+      "issueDate": "2024-03",
+      "expiryDate": null,
+      "credentialUrl": null,
+      "showOnPortfolio": true
+    }
+  ]
+}

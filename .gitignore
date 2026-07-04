@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Env / secrets — never commit real credentials
+.env
+.env.*
+
+# Logs
+*.log

@@ -1,0 +1,131 @@
+{
+  "items": [
+    {
+      "id": "proj-001",
+      "title": {
+        "en": "Task Management Web App",
+        "zh": "任務管理 Web 應用"
+      },
+      "description": {
+        "short": {
+          "en": "A full-stack task manager with real-time updates and team collaboration features.",
+          "zh": "全端任務管理器，支援即時更新及團隊協作功能。"
+        },
+        "full": {
+          "en": "Detailed description: architecture decisions, challenges faced, and outcomes.",
+          "zh": "詳細描述：架構決策、面對的挑戰及成果。"
+        }
+      },
+      "role": {
+        "en": "Full-stack Developer",
+        "zh": "全端開發"
+      },
+      "status": "completed",
+      "startDate": "2024-01",
+      "endDate": "2024-06",
+      "technologies": ["React", "Node.js", "PostgreSQL", "Socket.io"],
+      "links": {
+        "live": "https://example.com",
+        "github": "https://github.com/fs-cyrus-lee/task-app",
+        "demo": null
+      },
+      "highlights": {
+        "en": [
+          "Implemented JWT authentication and role-based access control",
+          "Deployed on Azure with CI/CD pipeline via GitHub Actions"
+        ],
+        "zh": [
+          "實作 JWT 身份驗證及角色權限控制",
+          "透過 GitHub Actions 部署至 Azure 並建立 CI/CD 流程"
+        ]
+      },
+      "images": [],
+      "showOnPortfolio": true,
+      "portfolioPriority": 1
+    },
+    {
+      "id": "proj-002",
+      "title": {
+        "en": "Portfolio Website",
+        "zh": "個人作品集網站"
+      },
+      "description": {
+        "short": {
+          "en": "This portfolio site — JSON-driven, static, deployed on GitHub Pages.",
+          "zh": "此作品集網站 — 以 JSON 驅動內容，靜態部署於 GitHub Pages。"
+        },
+        "full": {
+          "en": "Demonstrates separation of content and presentation, and static site deployment.",
+          "zh": "展示內容與呈現分離的架構，以及靜態網站部署能力。"
+        }
+      },
+      "role": {
+        "en": "Developer & Designer",
+        "zh": "開發及設計"
+      },
+      "status": "in-progress",
+      "startDate": "2026-03",
+      "endDate": null,
+      "technologies": ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+      "links": {
+        "live": null,
+        "github": "https://github.com/fs-cyrus-lee/cl-portfolio",
+        "demo": null
+      },
+      "highlights": {
+        "en": [
+          "Content stored in JSON for easy maintenance",
+          "Responsive design optimized for recruiters"
+        ],
+        "zh": [
+          "內容以 JSON 儲存，方便維護更新",
+          "響應式設計，針對招聘方優化"
+        ]
+      },
+      "images": [],
+      "showOnPortfolio": true,
+      "portfolioPriority": 2
+    },
+    {
+      "id": "proj-003",
+      "title": {
+        "en": "Data Scraping Utility",
+        "zh": "數據爬蟲工具"
+      },
+      "description": {
+        "short": {
+          "en": "Python script to collect and normalize public datasets for analysis.",
+          "zh": "Python 腳本，用於收集及標準化公開數據集以供分析。"
+        },
+        "full": {
+          "en": "Side project for learning data pipelines and ETL concepts.",
+          "zh": "業餘項目，用於學習數據管道及 ETL 概念。"
+        }
+      },
+      "role": {
+        "en": "Solo Developer",
+        "zh": "獨立開發"
+      },
+      "status": "completed",
+      "startDate": "2023-08",
+      "endDate": "2023-10",
+      "technologies": ["Python", "BeautifulSoup", "Pandas"],
+      "links": {
+        "live": null,
+        "github": "https://github.com/fs-cyrus-lee/data-scraper",
+        "demo": null
+      },
+      "highlights": {
+        "en": [
+          "Processed 50k+ records with error handling and retry logic"
+        ],
+        "zh": [
+          "處理 50k+ 筆記錄，包含錯誤處理及重試邏輯"
+        ]
+      },
+      "images": [],
+      "showOnPortfolio": false,
+      "portfolioPriority": 99
+    }
+  ]
+}

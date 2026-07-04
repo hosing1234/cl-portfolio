@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "siteTitle": "Cyrus Lee — Portfolio",
+    "language": "zh",
+    "fallbackLanguage": "en",
+    "theme": "dark",
+    "lastUpdated": "2026-07-04"
+  },
+  "hero": {
+    "name": "Cyrus Lee",
+    "title": "Software Developer",
+    "tagline": "Building reliable software with clean code and thoughtful design.",
+    "cta": {
+      "primary": { "label": "View Projects", "target": "#projects" },
+      "secondary": { "label": "Contact Me", "target": "#contact" }
+    }
+  },
+  "about": {
+    "text": "Passionate software developer with experience building web applications and solving real-world problems. I enjoy turning complex requirements into maintainable, user-friendly solutions.",
+    "highlights": [
+      "3+ years web development experience",
+      "Strong in JavaScript / TypeScript ecosystem",
+      "Agile team collaboration"
+    ]
+  },
+  "skills": [
+    {
+      "category": "Languages",
+      "items": ["JavaScript", "TypeScript", "Python", "SQL"]
+    },
+    {
+      "category": "Frontend",
+      "items": ["React", "HTML", "CSS", "Responsive Design"]
+    },
+    {
+      "category": "Backend",
+      "items": ["Node.js", "REST APIs", "PostgreSQL"]
+    },
+    {
+      "category": "Tools",
+      "items": ["Git", "GitHub Actions", "Docker", "Azure"]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Company Name",
+      "role": "Junior Software Developer",
+      "period": "2023 — Present",
+      "summary": "Develop and maintain web applications in an Agile team environment.",
+      "bullets": [
+        "Built RESTful APIs serving 10k+ daily requests",
+        "Reduced page load time by 40% through optimization",
+        "Collaborated with designers and QA in two-week sprints"
+      ],
+      "technologies": ["JavaScript", "React", "Node.js", "PostgreSQL"]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Task Management Web App",
+      "description": "Full-stack task manager with real-time updates and team collaboration.",
+      "technologies": ["React", "Node.js", "PostgreSQL", "Socket.io"],
+      "links": {
+        "github": "https://github.com/fs-cyrus-lee/task-app",
+        "live": "https://example.com"
+      }
+    },
+    {
+      "title": "Portfolio Website",
+      "description": "JSON-driven static portfolio deployed on GitHub Pages.",
+      "technologies": ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+      "links": {
+        "github": "https://github.com/fs-cyrus-lee/cl-portfolio",
+        "live": null
+      }
+    }
+  ],
+  "education": [
+    {
+      "institution": "University Name",
+      "degree": "BSc Computer Science",
+      "period": "2018 — 2022"
+    }
+  ],
+  "contact": {
+    "email": "cyrus.lee@example.com",
+    "github": "https://github.com/fs-cyrus-lee",
+    "linkedin": "https://linkedin.com/in/your-profile",
+    "location": "Hong Kong"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": {
+    "en": "Cyrus Lee",
+    "zh": "李XX"
+  },
+  "title": {
+    "en": "Software Developer",
+    "zh": "軟件開發人員"
+  },
+  "location": {
+    "city": "Hong Kong",
+    "country": "Hong Kong SAR"
+  },
+  "contact": {
+    "email": "cyrus.lee@example.com",
+    "phone": "+852 XXXX XXXX",
+    "linkedin": "https://linkedin.com/in/your-profile",
+    "github": "https://github.com/fs-cyrus-lee"
+  },
+  "bio": {
+    "short": {
+      "en": "Passionate software developer with experience building web applications and solving real-world problems.",
+      "zh": "熱衷於軟件開發，具備網頁應用開發及解決實際問題的經驗。"
+    },
+    "full": {
+      "en": "Write a longer bio here — your background, what drives you, and what kind of roles you're looking for.",
+      "zh": "在此撰寫較詳細的自介 — 背景、動機、以及你期望的職位方向。"
+    }
+  },
+  "availability": {
+    "status": "open",
+    "note": {
+      "en": "Available for full-time opportunities",
+      "zh": "現正尋找全職工作機會"
+    }
+  }
+}
