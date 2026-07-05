@@ -59,17 +59,18 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 
 ## Experience
 
-### FirmStudio — Full Stack Web Developer | Oct 2022 — Present
+### FirmStudio — Web Developer | Oct 2022
 
 **一句概述：**
-> Full stack developer building multi-tenant internal systems and client web applications — owning both frontend and backend.
+> Full stack developer building multi-tenant internal systems, client web applications, and CMS platforms — owning both frontend and backend.
 
 - **KNSM (2024 — maintenance)** — full-stack development of an internal Po Leung Kuk kindergarten platform used by **20+ schools** (no public URL); Vue 3 frontend + Laravel backend
 - **DrugInSport (2025)** — [druginsport.hk](https://www.druginsport.hk/en) for ADOHK (`fs-anti-doping`); UI by design team, **all JavaScript (jQuery) and backend (Laravel) by me**; **10,000+** drugs; Excel import with **chunked processing** and **memory** optimization
-- **HKAB member area (2022–2023; maintenance; ops script revamp in 2025)** — complex permissions; **16-node on-premise infra**; revamped ops scripts cut key procedures from **20+ min to 5–10 min**; operation guide praised by client
+- **1O1O Corporate CMS (2025)** — [1010corporate.com](https://www.1010corporate.com/); CMS revamp with a colleague; **CMS UI/UX**, component-based page editor, version compare/approval, form builder, and detail refinements
+- **HKAB member area (2022–2023; maintenance; ops script revamp in 2025)** — CMS integration + complex permissions; **16-node on-premise infra**; revamped ops scripts cut key procedures from **20+ min to 5–10 min**; operation guide praised by client
 - **Led AI agent adoption (2026)** — evaluated AI agent solutions, gathered team feedback, rolled out **Cursor Skills** for code scanning, document generation, and plan mode optimization; built internal batch tools (e.g. FTP access testing)
 
-**Technologies:** PHP, Laravel, Vue 3, TypeScript, Inertia.js, MySQL, Oracle export, LDAP
+**Technologies:** PHP, Laravel, Vue 3, TypeScript, Inertia.js, MySQL, MS SQL, Oracle accounting integration
 
 ---
 
@@ -92,9 +93,9 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 **Period:** 2024 — Present (maintenance)
 
 **描述（1–2 句）：**
-> **Full stack** internal platform for Po Leung Kuk kindergartens and nurseries — **no public URL**. Built and maintained **both frontend (Vue 3 + TypeScript) and backend (Laravel)**; serving **20+ campuses** with student management, fee billing, and **Oracle** AR/RA exports.
+> **Full stack** internal platform for Po Leung Kuk kindergartens and nurseries — **no public URL**. Built and maintained **both frontend (Vue 3 + TypeScript) and backend (Laravel)**; serving **20+ campuses** with student management, fee billing, and **Oracle accounting integration** via AR/RA export files.
 
-**Technologies:** PHP, Laravel, Vue 3, TypeScript, Inertia.js, Vuetify, MySQL, Oracle export, LDAP
+**Technologies:** PHP, Laravel, Vue 3, TypeScript, Inertia.js, Vuetify, MS SQL, Oracle accounting integration
 
 - GitHub: N/A (company project)
 - Live: N/A — internal use only
@@ -115,6 +116,20 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 
 ---
 
+### 1O1O Corporate — Corporate CMS Revamp
+
+**Period:** 2025
+
+**描述（1–2 句）：**
+> CMS revamp for [1O1O Corporate Solutions](https://www.1010corporate.com/) — collaborated with a colleague. **Led CMS UI/UX**, component-based page editor, version compare/approval workflow, form builder, and ongoing detail refinements across the admin experience.
+
+**Technologies:** PHP, Laravel, Vue.js, JavaScript, CMS
+
+- GitHub: N/A (company project)
+- Live: https://www.1010corporate.com/
+
+---
+
 ### HIPPOS — Online Shop Module
 
 **描述（1–2 句）：**
@@ -129,6 +144,8 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 ---
 
 ### DentalMiles — Loyalty & Booking Platform
+
+**Period:** 2020
 
 **描述（1–2 句）：**
 > [DentalMiles](https://www.dentalmiles.com/) dental loyalty and booking platform (single web system). Points redemption (DentalMiles ↔ CDE), online booking with quota rules, Miles Rewards, and eShop.

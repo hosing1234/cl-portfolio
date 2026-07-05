@@ -18,7 +18,7 @@
     "title": "Full Stack Web Developer",
     "tagline": "Full-stack developer who excels where frontend and backend must work as one — integration, business logic, and delivery under pressure.",
     "cta": {
-      "primary": { "label": "View Projects", "target": "#projects" },
+      "primary": { "label": "View Projects", "target": "#work" },
       "secondary": { "label": "Contact Me", "target": "#contact" }
     }
   },
@@ -78,7 +78,7 @@
     },
     {
       "category": "Database & Integration",
-      "items": ["MySQL", "REST APIs", "POS API integration", "Payment gateway integration", "Oracle export"]
+      "items": ["MySQL", "MS SQL", "REST APIs", "POS API integration", "Payment gateway integration", "Oracle accounting integration"]
     },
     {
       "category": "AI & Workflow",
@@ -91,43 +91,38 @@
   ],
   "experience": [
     {
+      "id": "firmstudio",
       "company": "FirmStudio",
-      "role": "Full Stack Web Developer",
-      "period": "Oct 2022 — Present",
-      "summary": "Full-stack developer building multi-tenant internal systems, client web applications, and production operation tooling.",
-      "bullets": [
-        "KNSM (2024 — maintenance): full-stack development of an internal Po Leung Kuk kindergarten platform used by 20+ schools; Vue 3 frontend and Laravel backend.",
-        "DrugInSport (2025): built all JavaScript (jQuery) and backend (Laravel 11) for ADOHK's public anti-doping drug lookup; 10,000+ drug records with chunked Excel import and memory optimization.",
-        "HKAB (2022–2023; maintenance; ops script revamp in 2025): built member area permissions and revamped 16-server on-premise operation scripts, cutting key procedures from 20+ minutes to 5–10 minutes.",
-        "Led AI agent adoption (2026): evaluated agent solutions, gathered team feedback, and rolled out Cursor Skills for code scanning, document generation, and plan-mode workflows."
-      ],
-      "technologies": ["PHP", "Laravel", "Vue 3", "TypeScript", "Inertia.js", "MySQL", "Oracle export", "LDAP", "Cursor"]
+      "role": "Web Developer",
+      "period": "Oct 2022",
+      "summary": "Full-stack developer building multi-tenant internal systems, client web applications, CMS platforms, and production operation tooling.",
+      "otherWork": "Alongside the highlighted projects below, ongoing work includes CMS development & integration (HKAB is one example), internal tooling, client web maintenance, production deployment scripts, and AI workflow adoption across the team.",
+      "technologies": ["PHP", "Laravel", "Vue 3", "TypeScript", "Inertia.js", "MySQL", "MS SQL", "Oracle accounting integration", "Cursor"]
     },
     {
+      "id": "echk",
       "company": "ECHK",
       "role": "Web Developer",
       "period": "Aug 2020 — May 2022",
       "summary": "Full-stack web development across loyalty, e-commerce, booking, and POS-integrated online shop modules.",
-      "bullets": [
-        "Built DentalMiles, a dental loyalty and booking platform covering points redemption, online booking, Miles Rewards, and eShop features.",
-        "Developed HIPPOS online shop module for multiple retailers, integrating POS APIs, inventory sync, automatic discounts, promo codes, and online payments."
-      ],
+      "otherWork": "Additional loyalty, CMS, and client-specific web modules across the ECHK product suite.",
       "technologies": ["PHP", "Laravel", "JavaScript", "Vue.js", "MySQL", "REST API", "Payment gateway integration"]
     }
   ],
   "projects": [
     {
-      "title": "KNSM — Po Leung Kuk Kindergarten Management System",
-      "description": "2024 — Present (maintenance). Full-stack internal platform for Po Leung Kuk kindergartens and nurseries, serving 20+ campuses with student management, fee billing, reports, and Oracle AR/RA exports.",
-      "technologies": ["PHP 8", "Laravel 10", "Vue 3", "TypeScript", "Inertia.js", "Vuetify", "MySQL", "Oracle export", "LDAP"],
-      "links": {
-        "github": null,
-        "live": null
-      }
-    },
-    {
-      "title": "DrugInSport — Anti-Doping Drug Database",
-      "description": "2025. Public anti-doping drug lookup for ADOHK. UI by design team; I built all JavaScript and backend logic, including a 10,000+ drug-record import pipeline with chunked processing, memory tuning, approval flow, and scheduled launch.",
+      "id": "druginsport",
+      "company": "firmstudio",
+      "period": "2025",
+      "title": "DrugInSport",
+      "subtitle": "Anti-Doping Drug Database",
+      "summary": "Public anti-doping drug lookup for ADOHK with a 10,000+ drug-record import pipeline.",
+      "description": "Public anti-doping drug lookup for ADOHK. UI by design team; I built all JavaScript and backend logic, including a 10,000+ drug-record import pipeline with chunked processing, memory tuning, approval flow, and scheduled launch.",
+      "highlights": [
+        "Built all JavaScript (jQuery) and Laravel 11 backend logic end to end.",
+        "Designed chunked Excel import for 10,000+ drug records with memory optimization.",
+        "Implemented approval flow and scheduled launch for production release."
+      ],
       "technologies": ["PHP 8.2", "Laravel 11", "jQuery", "Blade", "Vite", "Tailwind CSS", "MySQL", "PhpSpreadsheet", "Laravel Queue"],
       "links": {
         "github": null,
@@ -135,8 +130,38 @@
       }
     },
     {
-      "title": "HKAB — Member Area & On-Premise Operations",
-      "description": "2022–2023 development; maintenance ongoing; operation script revamp in 2025. Member portal with granular permissions plus 16-server on-premise operations, covering CMS file sync, DB replication, backup, failover, restart procedures, and operation guide documentation.",
+      "id": "knsm",
+      "company": "firmstudio",
+      "period": "2024",
+      "title": "KNSM",
+      "subtitle": "Po Leung Kuk Kindergarten Management System",
+      "summary": "Full-stack internal platform serving 20+ kindergartens with billing, reports, and Oracle accounting integration.",
+      "description": "Full-stack internal platform for Po Leung Kuk kindergartens and nurseries, serving 20+ campuses with student management, fee billing, reports, and export files for the Oracle accounting system (AR/RA) — a form of system integration. Reportedly one of FirmStudio's most complex projects.",
+      "highlights": [
+        "Vue 3 + Laravel full-stack delivery across 20+ schools.",
+        "Built Oracle accounting integration via AR/RA export files for downstream finance workflows.",
+        "Clarified unclear requirements with designers and PMs under extreme time pressure.",
+        "Maintained client trust through biweekly demos; praised by client and school principals."
+      ],
+      "technologies": ["PHP 8", "Laravel 10", "Vue 3", "TypeScript", "Inertia.js", "Vuetify", "MS SQL", "Oracle accounting integration"],
+      "links": {
+        "github": null,
+        "live": null
+      }
+    },
+    {
+      "id": "hkab",
+      "company": "firmstudio",
+      "period": "2022–2023 · ops revamp 2025",
+      "title": "HKAB",
+      "subtitle": "Member Area & On-Premise Operations",
+      "summary": "Member portal, CMS integration, and 16-server on-premise ops; key procedures cut from 20+ min to 5–10 min.",
+      "description": "Member portal with granular permissions and CMS integration, plus 16-server on-premise operations covering CMS file sync, DB replication, backup, failover, restart procedures, and operation guide documentation. A troubled takeover restored through fast execution and candid client communication.",
+      "highlights": [
+        "Built member area permissions and core portal features.",
+        "Revamped 16-server operation scripts in 2025, cutting key procedures from 20+ minutes to 5–10 minutes.",
+        "Restored a severely delayed project close to legal escalation through tight PM reporting."
+      ],
       "technologies": ["PHP", "Laravel 9", "Laravel Passport", "MySQL replication", "Blade", "Linux servers", "SSH deployment", "Artisan CLI ops scripts"],
       "links": {
         "github": null,
@@ -144,21 +169,79 @@
       }
     },
     {
-      "title": "HIPPOS — Online Shop Module",
-      "description": "Online shop module for HIPPOS, an iPad retail management platform. Built multi-tenant storefronts with POS API integration, inventory and membership sync, discount rules, promo codes, and payment processing.",
-      "technologies": ["PHP", "Laravel", "JavaScript", "Vue.js", "MySQL", "REST API", "Payment gateway integration"],
+      "id": "corpsite1010",
+      "company": "firmstudio",
+      "period": "2025",
+      "title": "1O1O Corporate",
+      "subtitle": "CMS Revamp",
+      "summary": "CMS revamp for 1O1O Corporate Solutions — component page editor, version compare/approval, and form builder.",
+      "description": "Collaborated with a colleague to revamp the CMS behind 1O1O Corporate Solutions. Led CMS UI/UX, a component-based page editor, version compare and approval workflows, form builder, and ongoing refinements across the admin experience.",
+      "highlights": [
+        "Designed and built CMS UI/UX for editors managing the corporate marketing site.",
+        "Component-based page editor for flexible page composition from reusable blocks.",
+        "Version compare and approval workflow for safer content publishing.",
+        "Form builder and detail-level polish across the CMS admin."
+      ],
+      "technologies": ["PHP", "Laravel", "Vue.js", "JavaScript", "CMS"],
       "links": {
         "github": null,
-        "live": "https://hippos.systems/login"
+        "live": "https://www.1010corporate.com/"
       }
     },
     {
-      "title": "DentalMiles — Loyalty & Booking Platform",
+      "id": "ai-adoption",
+      "company": "firmstudio",
+      "kind": "initiative",
+      "period": "2026",
+      "title": "AI Agent Adoption",
+      "subtitle": "FirmStudio internal initiative",
+      "summary": "Led AI agent adoption: evaluated solutions, gathered team feedback, and rolled out Cursor Skills for code scanning, document generation, and plan-mode workflows.",
+      "description": "Led FirmStudio's AI agent evaluation and rollout — gathering team feedback, selecting tooling, and creating standardized Cursor Skills for code scanning, document generation, and plan-mode workflows.",
+      "highlights": [
+        "Evaluated AI agent solutions and aligned rollout with team needs.",
+        "Built standardized Cursor Skills for code scanning and document generation.",
+        "Introduced plan-mode workflows to improve accuracy and reduce review overhead."
+      ],
+      "technologies": ["Cursor", "AI Agents", "Cursor Skills", "MCP"],
+      "links": {
+        "github": null,
+        "live": null
+      }
+    },
+    {
+      "id": "dentalmiles",
+      "company": "echk",
+      "period": "2020",
+      "title": "DentalMiles",
+      "subtitle": "Loyalty & Booking Platform",
+      "summary": "Dental loyalty and booking platform with points, rewards, and eShop in one system.",
       "description": "Dental loyalty and booking platform combining points redemption, DentalMiles to CDE conversion, online booking with quota rules, Miles Rewards, and eShop features in one web system.",
+      "highlights": [
+        "Built points redemption and Miles Rewards flows.",
+        "Implemented online booking with quota rules and eShop features."
+      ],
       "technologies": ["PHP", "Laravel", "JavaScript", "Vue.js", "MySQL", "REST API"],
       "links": {
         "github": null,
         "live": "https://www.dentalmiles.com/"
+      }
+    },
+    {
+      "id": "hippos",
+      "company": "echk",
+      "period": "2020 — 2022",
+      "title": "HIPPOS",
+      "subtitle": "Online Shop Module",
+      "summary": "Multi-tenant storefronts with POS API integration, inventory sync, and payments.",
+      "description": "Online shop module for HIPPOS, an iPad retail management platform. Built multi-tenant storefronts with POS API integration, inventory and membership sync, discount rules, promo codes, and payment processing.",
+      "highlights": [
+        "Integrated POS APIs for inventory and membership sync.",
+        "Built discount rules, promo codes, and online payment processing for multiple retailers."
+      ],
+      "technologies": ["PHP", "Laravel", "JavaScript", "Vue.js", "MySQL", "REST API", "Payment gateway integration"],
+      "links": {
+        "github": null,
+        "live": null
       }
     }
   ],

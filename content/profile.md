@@ -225,7 +225,7 @@
 | 欄位            | 內容                       |
 | ------------- | ------------------------ |
 | 公司名稱          | FirmStudio               |
-| 職位            | Full Stack Web Developer |
+| 職位            | Web Developer            |
 | 性質            | 全職                       |
 | 地點            | 香港                       |
 | 開始日期          | 2022-10                  |
@@ -243,9 +243,10 @@
 
 **主要成就 / 貢獻：**
 
-- **KNSM 保良局幼稚園暨幼兒園服務管理系統**（**2024** — 維護中）— **全端開發**（frontend + backend 均由本人負責）；內部系統，超過 20 間園校使用；涵蓋學生管理、收費、帳務及 Oracle 會計匯出（AR/RA）；多校 SaaS 架構
+- **KNSM 保良局幼稚園暨幼兒園服務管理系統**（**2024** — 維護中）— **全端開發**（frontend + backend 均由本人負責）；內部系統，超過 20 間園校使用；涵蓋學生管理、收費、帳務及 Oracle 會計系統匯出檔（AR/RA integration）；多校 SaaS 架構
 - **DrugInSport 運動禁藥資料庫**（**2025**）— [druginsport.hk](https://www.druginsport.hk/en)（ADOHK）；codebase：`fs-anti-doping`；UI 由 design 團隊負責，**JavaScript 及 backend 均由本人開發**；含一萬數千種藥物及數千成份；Excel import 批次處理（chunk + memory 優化）
-- **HKAB 會員專區**（**2022–2023** 開發 — 維護中；**2025** operation script revamp）— 香港認證中心；複雜 member area + 權限；**4 組 on-premise server（P1–P4）** 架構；operation script 重構後 procedure **由 20+ 分鐘縮短至 5–10 分鐘**，operation guide 獲客戶讚賞
+- **1O1O Corporate CMS**（**2025**）— [1010corporate.com](https://www.1010corporate.com/)；與同事合作 revamp CMS；主力負責 **CMS UI/UX**、component-based page editor、version compare/approval、form builder 及細節調整
+- **HKAB 會員專區**（**2022–2023** 開發 — 維護中；**2025** operation script revamp）— 香港認證中心；CMS integration + 複雜 member area + 權限；**4 組 on-premise server（P1–P4）** 架構；operation script 重構後 procedure **由 20+ 分鐘縮短至 5–10 分鐘**，operation guide 獲客戶讚賞
 
 **內部 initiative — AI Agent 推廣（2026–）**  
 
@@ -360,7 +361,7 @@
 | 項目名稱          | DentalMiles — 牙科積分及預約平台                                      |
 | 你的角色          | Web Developer（ECHK）                                          |
 | 狀態            | 已完成（持續營運中）                                                   |
-| 日期            | 2020-08 — 2022-05                                            |
+| 日期            | 2020                                                             |
 | GitHub        | N/A（公司項目）                                                    |
 | Live          | [https://www.dentalmiles.com/](https://www.dentalmiles.com/) |
 | 是否放 portfolio | 是                                                            |
@@ -408,10 +409,10 @@
 
 **詳細描述（問題、做法、成果）：**
 
-> KNSM（Kindergarten & Nursery Service Management）為保良局屬下園校的一站式內部管理平台。本人**獨立負責全端開發**：backend 以 Laravel 處理業務邏輯、資料庫、報表及 Oracle 匯出；frontend 以 Vue 3 + TypeScript + Inertia.js 建構管理介面。系統以多校架構部署，每間園校獨立路由及權限，並支援跨校管理。功能包括：學生搜尋及 profile、入學/輪候、點名、暫託服務（OCCS/EHS）、學費及服務費管理、帳項處理及批量收款、Oracle AR/RA 匯出、37+ 報表（R01–R37）、LDAP 登入等。
+> KNSM（Kindergarten & Nursery Service Management）為保良局屬下園校的一站式內部管理平台。本人**獨立負責全端開發**：backend 以 Laravel 處理業務邏輯、資料庫、報表及 Oracle 會計系統匯出檔（AR/RA integration）；frontend 以 Vue 3 + TypeScript + Inertia.js 建構管理介面。系統以多校架構部署，每間園校獨立路由及權限，並支援跨校管理。功能包括：學生搜尋及 profile、入學/輪候、點名、暫託服務（OCCS/EHS）、學費及服務費管理、帳項處理及批量收款、Oracle AR/RA 匯出檔、37+ 報表（R01–R37）等。
 
 **技術棧：**
-`PHP 8, Laravel 10, Vue 3, TypeScript, Inertia.js, Vuetify, Vite, MySQL, Oracle export, LDAP, Aliyun OSS`
+`PHP 8, Laravel 10, Vue 3, TypeScript, Inertia.js, Vuetify, Vite, MS SQL, Oracle accounting integration, Aliyun OSS`
 
 **亮點（2–3 bullet）：**
 
@@ -512,6 +513,38 @@
 - 接手問題項目（進度嚴重落後）— high pace 開發、誠懇溝通挽回客戶信任
 - **16-node on-premise 架構** — P1–P4 ×（WEB / CMS / DB / HIBOR）；CMS file sync + DB replication
 - **Operation guide & scripts** — 關鍵 procedure **20+ min → 5–10 min**；獲客戶讚賞清晰易跟
+
+---
+
+### 項目 #6 — 1O1O Corporate CMS
+
+
+| 欄位            | 內容                                                                 |
+| ------------- | ------------------------------------------------------------------ |
+| 項目名稱          | 1O1O Corporate — Corporate CMS Revamp                              |
+| 客戶            | 1O1O Corporate Solutions（CSL Mobile / HKT）                         |
+| 你的角色          | CMS UI/UX & Feature Developer（FirmStudio）— 與同事合作 revamp CMS        |
+| 狀態            | 進行中（生產環境使用中）                                                       |
+| 日期            | 2025                                                               |
+| GitHub        | N/A（公司項目）                                                          |
+| 公開 URL        | https://www.1010corporate.com/                                       |
+| 是否放 portfolio | 是                                                                  |
+| Portfolio 優先序 | 4                                                                  |
+
+
+**一句描述（對外用）：**
+
+> 與同事合作 revamp [1O1O Corporate Solutions](https://www.1010corporate.com/) 的 CMS；主力負責 **CMS UI/UX**、component-based page editor、version compare/approval、form builder 及細節調整。
+
+**亮點（2–3 bullet）：**
+
+- **CMS UI/UX** — 為編輯團隊設計及實作後台介面與操作流程
+- **Component-based page editor** — 以可重用 component 組合 marketing pages
+- **Version compare / approval** — 內容發佈前的版本比對與審批流程
+- **Form builder** — 可配置表單建立工具及持續細節優化
+
+**技術棧：**
+`PHP, Laravel, Vue.js, JavaScript, CMS`
 
 ---
 

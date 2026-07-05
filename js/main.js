@@ -1,15 +1,51 @@
 const SECTION_CONFIG = [
   { label: 'About', id: 'about' },
   { label: 'AI Era', id: 'ai-era' },
+  { label: 'Work', id: 'work' },
   { label: 'Skills', id: 'skills' },
-  { label: 'Experience', id: 'experience' },
-  { label: 'Projects', id: 'projects' },
   { label: 'Contact', id: 'contact' },
 ];
+
+function parseTimelineSortYear(period = '') {
+  const years = (period.match(/\d{4}/g) || []).map(Number);
+  if (!years.length) return 0;
+  if (/present/i.test(period)) return years[0];
+  return Math.max(...years);
+}
+
+function formatTimelinePeriod(period = '') {
+  return period.replace(/\s*[—–]\s*present/gi, '').trim();
+}
+
+function parseTimelineDisplayYear(period = '') {
+  const match = formatTimelinePeriod(period).match(/\d{4}/);
+  return match ? match[0] : formatTimelinePeriod(period);
+}
+
+function formatWorkPreviewLabel(item) {
+  return `${parseTimelineDisplayYear(item.period)} — ${item.title}`;
+}
+
+function getEmploymentTimelineItems(employmentId, data) {
+  return data.projects
+    .filter((project) => project.company === employmentId)
+    .sort((a, b) => {
+      const yearDiff = parseTimelineSortYear(b.period) - parseTimelineSortYear(a.period);
+      return yearDiff !== 0 ? yearDiff : a.title.localeCompare(b.title);
+    });
+}
+
+function getWorkPanelOrder(data) {
+  return data.experience.flatMap((employment) =>
+    getEmploymentTimelineItems(employment.id, data).map((project) => project.id)
+  );
+}
 
 let portfolioData = null;
 let activeSection = 'About';
 let knowMoreOpen = false;
+let workPanelOpen = false;
+let activeWorkProjectId = null;
 let navOpen = false;
 
 function isDesktopViewport() {
@@ -41,8 +77,10 @@ function buildSectionPreviews(data) {
       'Friction, not replacement',
     ],
     Skills: topSkills,
-    Experience: data.experience.map((exp) => `${exp.role} @ ${exp.company}`),
-    Projects: data.projects.slice(0, 4).map((project) => project.title.split(' — ')[0]),
+    Work: [...data.projects]
+      .filter((project) => project.id !== 'ai-adoption')
+      .sort((a, b) => parseTimelineSortYear(b.period) - parseTimelineSortYear(a.period))
+      .map(formatWorkPreviewLabel),
     Contact: [
       data.contact.email,
       data.contact.github.replace('https://', ''),
@@ -171,50 +209,184 @@ function renderSkills(data) {
     .join('');
 }
 
-function renderExperience(data) {
-  document.getElementById('experience-list').innerHTML = data.experience
-    .map(
-      (exp) => `
-      <article class="experience-item">
-        <div class="experience-meta">
-          <div>
-            <h3 class="experience-role">${exp.role}</h3>
-            <p class="experience-company">${exp.company}</p>
-          </div>
-          <p class="experience-period">${exp.period}</p>
-        </div>
-        <p class="experience-summary">${exp.summary}</p>
-        <ul class="experience-bullets">
-          ${exp.bullets.map((bullet) => `<li>${bullet}</li>`).join('')}
-        </ul>
-      </article>`
-    )
-    .join('');
-}
+function renderTimeline(data) {
+  const html = data.experience
+    .map((employment) => {
+      const items = getEmploymentTimelineItems(employment.id, data);
 
-function renderProjects(data) {
-  document.getElementById('projects-list').innerHTML = data.projects
-    .map((project, index) => {
-      const title = project.links.live
-        ? `<a href="${project.links.live}" target="_blank" rel="noopener">${project.title}</a>`
-        : project.title;
+      const eventsHtml = items
+        .map(
+          (project) => `
+        <div class="timeline-event${project.kind === 'initiative' ? ' timeline-event--initiative' : ''}">
+          <button
+            type="button"
+            class="timeline-event-btn"
+            data-project-id="${project.id}"
+            aria-expanded="false"
+          >
+            <p class="timeline-event-period">${formatTimelinePeriod(project.period)}</p>
+            <h4 class="timeline-event-title">${project.title}</h4>
+            <p class="timeline-event-subtitle">${project.subtitle}</p>
+            <p class="timeline-event-summary">${project.summary}</p>
+            <span class="timeline-event-cta">View details</span>
+          </button>
+        </div>`
+        )
+        .join('');
 
       return `
-      <article class="project-item">
-        <p class="project-index">${String(index + 1).padStart(2, '0')}</p>
-        <div class="project-body">
-          <h3 class="project-title">${title}</h3>
-          <p class="project-description">${project.description}</p>
-          <div class="project-tags">
-            ${project.technologies
-              .slice(0, 5)
-              .map((tech) => `<span class="project-tag">${tech}</span>`)
-              .join('')}
-          </div>
-        </div>
+      <article class="timeline-employment">
+        <p class="timeline-employment-period">${formatTimelinePeriod(employment.period)}</p>
+        <h3 class="timeline-employment-role">${employment.role}</h3>
+        <p class="timeline-employment-company">${employment.company}</p>
+        <p class="timeline-employment-summary section-lead">${employment.summary}</p>
+        <p class="timeline-other-work">${employment.otherWork}</p>
+        ${eventsHtml}
       </article>`;
     })
     .join('');
+
+  document.getElementById('timeline').innerHTML = html;
+}
+
+function getProjectById(projectId) {
+  return portfolioData?.projects.find((project) => project.id === projectId);
+}
+
+function renderWorkPanel(project, slideDirection = 0) {
+  const liveLink = project.links?.live
+    ? `<a href="${project.links.live}" target="_blank" rel="noopener" class="work-panel-link">Visit site</a>`
+    : '';
+
+  const content = document.getElementById('work-panel-content');
+  content.classList.remove('is-enter-left', 'is-enter-right', 'is-enter-active');
+
+  document.getElementById('work-panel-label').textContent = 'Work';
+  content.innerHTML = `
+    <p class="work-panel-period">${formatTimelinePeriod(project.period)}</p>
+    <h3 class="work-panel-title">${project.title}</h3>
+    <p class="work-panel-subtitle">${project.subtitle}</p>
+    <p class="work-panel-description">${project.description}</p>
+    ${
+      project.highlights?.length
+        ? `<ul class="work-panel-highlights">
+            ${project.highlights.map((item) => `<li>${item}</li>`).join('')}
+          </ul>`
+        : ''
+    }
+    <div class="work-panel-tags">
+      ${(project.technologies || []).map((tech) => `<span class="project-tag">${tech}</span>`).join('')}
+    </div>
+    ${liveLink}
+  `;
+
+  if (slideDirection) {
+    content.classList.add(slideDirection > 0 ? 'is-enter-right' : 'is-enter-left');
+    requestAnimationFrame(() => {
+      content.classList.add('is-enter-active');
+    });
+  }
+}
+
+function updateWorkPanelNav() {
+  const order = getWorkPanelOrder(portfolioData);
+  const hasMultiple = order.length > 1;
+  const prevButton = document.getElementById('work-panel-prev');
+  const nextButton = document.getElementById('work-panel-next');
+
+  prevButton.disabled = !hasMultiple;
+  nextButton.disabled = !hasMultiple;
+}
+
+function setActiveWorkTimelineButton(projectId) {
+  document.querySelectorAll('.timeline-event-btn').forEach((button) => {
+    button.setAttribute('aria-expanded', button.dataset.projectId === projectId ? 'true' : 'false');
+  });
+}
+
+function openWorkPanel(projectId, slideDirection = 0) {
+  const project = getProjectById(projectId);
+  if (!project) return;
+
+  closeKnowMore();
+  activeWorkProjectId = projectId;
+  renderWorkPanel(project, slideDirection);
+  updateWorkPanelNav();
+
+  const panel = document.getElementById('work-panel');
+  workPanelOpen = true;
+  panel.classList.add('is-open');
+  panel.setAttribute('aria-hidden', 'false');
+  panel.removeAttribute('inert');
+  document.body.classList.add('work-panel-open');
+
+  setActiveWorkTimelineButton(projectId);
+}
+
+function navigateWorkPanel(delta) {
+  if (!portfolioData || !activeWorkProjectId) return;
+
+  const order = getWorkPanelOrder(portfolioData);
+  if (order.length < 2) return;
+
+  const index = order.indexOf(activeWorkProjectId);
+  const nextIndex = (index + delta + order.length) % order.length;
+
+  openWorkPanel(order[nextIndex], delta);
+}
+
+function closeWorkPanel() {
+  if (!workPanelOpen) return;
+
+  const panel = document.getElementById('work-panel');
+  workPanelOpen = false;
+  activeWorkProjectId = null;
+  panel.classList.remove('is-open');
+  panel.setAttribute('aria-hidden', 'true');
+  panel.setAttribute('inert', '');
+  document.body.classList.remove('work-panel-open');
+
+  document.getElementById('work-panel-prev').disabled = true;
+  document.getElementById('work-panel-next').disabled = true;
+  setActiveWorkTimelineButton(null);
+}
+
+function setupWorkPanelSwipe() {
+  const panelInner = document.getElementById('work-panel-inner');
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  panelInner.addEventListener(
+    'touchstart',
+    (event) => {
+      if (!workPanelOpen) return;
+      touchStartX = event.touches[0].clientX;
+      touchStartY = event.touches[0].clientY;
+    },
+    { passive: true }
+  );
+
+  panelInner.addEventListener(
+    'touchend',
+    (event) => {
+      if (!workPanelOpen) return;
+
+      const touch = event.changedTouches[0];
+      const deltaX = touch.clientX - touchStartX;
+      const deltaY = touch.clientY - touchStartY;
+
+      if (Math.abs(deltaX) < 48 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+
+      if (deltaX < 0) navigateWorkPanel(1);
+      else navigateWorkPanel(-1);
+    },
+    { passive: true }
+  );
+}
+
+function closeAllPanels() {
+  closeKnowMore();
+  closeWorkPanel();
 }
 
 function renderContact(data) {
@@ -293,7 +465,7 @@ function scrollToSection(sectionLabel) {
   const container = document.getElementById('content-scroll');
   if (!target || !container) return;
 
-  closeKnowMore();
+  closeAllPanels();
   container.scrollTo({
     top: target.offsetTop - 80,
     behavior: 'smooth',
@@ -302,6 +474,7 @@ function scrollToSection(sectionLabel) {
 }
 
 function openKnowMore() {
+  closeWorkPanel();
   const panel = document.getElementById('know-more-panel');
   knowMoreOpen = true;
   panel.classList.add('is-open');
@@ -419,10 +592,36 @@ function setupInteractions(sectionPreviews) {
     if (event.target.id === 'know-more-panel') closeKnowMore();
   });
 
+  document.getElementById('work-panel-close').addEventListener('click', closeWorkPanel);
+  document.getElementById('work-panel-prev').addEventListener('click', () => navigateWorkPanel(-1));
+  document.getElementById('work-panel-next').addEventListener('click', () => navigateWorkPanel(1));
+  document.getElementById('work-panel').addEventListener('click', (event) => {
+    if (event.target.id === 'work-panel') closeWorkPanel();
+  });
+
+  setupWorkPanelSwipe();
+
+  document.getElementById('timeline').addEventListener('click', (event) => {
+    const button = event.target.closest('.timeline-event-btn');
+    if (!button) return;
+    openWorkPanel(button.dataset.projectId);
+  });
+
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
-      closeKnowMore();
+      closeAllPanels();
       if (!isDesktopViewport()) closeNav();
+      return;
+    }
+
+    if (!workPanelOpen) return;
+
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      navigateWorkPanel(-1);
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      navigateWorkPanel(1);
     }
   });
 
@@ -440,8 +639,7 @@ async function init() {
     renderAiEra(portfolioData);
     renderKnowMore(portfolioData);
     renderSkills(portfolioData);
-    renderExperience(portfolioData);
-    renderProjects(portfolioData);
+    renderTimeline(portfolioData);
     renderContact(portfolioData);
     renderNavLinks(sectionPreviews);
     initNavState();
