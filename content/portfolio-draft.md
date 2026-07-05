@@ -2,8 +2,8 @@
 
 > **用途：** 從 `profile.md` 精選、改寫成對外展示版本，對應網站各 section。  
 > **原則：** 精簡、量化、對準 IT 軟件公司招聘方；一頁能看完的重點。  
-> **最後更新：** 2026-07-04  
-**狀態：** 草稿 — FirmStudio 三個主力 project 已填（KNSM、DrugInSport、HKAB），待自介
+> **最後更新：** 2026-07-05  
+**狀態：** 已對齊 profile，已同步至 `data/portfolio.json`
 
 ---
 
@@ -13,7 +13,7 @@
 |------|------|
 | Name | Lee Ho Sing Cyrus |
 | Title | Full Stack Web Developer |
-| Tagline | `[待填 — 一句話賣點，英文]` |
+| Tagline | Full-stack developer who excels where frontend and backend must work as one — integration, business logic, and delivery under pressure. |
 
 **CTA：**
 - Primary: View Projects → `#projects`
@@ -24,12 +24,12 @@
 ## About
 
 **正文（約 80–120 字）：**
-> `[待填 — 從 profile.md 中版自介精簡]`
+> Full-stack web developer with 5+ years of experience building production systems in Laravel, Vue, and JavaScript. My strongest value is **FE/BE integration and delivery under pressure**: I led KNSM for 20+ schools, handled DrugInSport's 10k+ drug-data imports, and revamped HKAB's 16-server operations, cutting key procedures from 20+ minutes to 5–10 minutes. I also lead AI agent adoption at FirmStudio, using AI to remove friction while keeping clear requirements and human communication at the centre of delivery.
 
 **Highlights（3 點）：**
-1. 5+ years full-stack web development (PHP/Laravel, Vue, jQuery)
-2. Led FirmStudio **AI agent adoption** (2026) — evaluated solutions, built standardized **Cursor skills** for code scanning, docs & plan mode
-3. Enterprise systems at scale — KNSM (20+ schools), DrugInSport (10k+ drugs), HKAB (16-node on-premise)
+1. **Full-stack integration** — KNSM lead (20+ schools); strongest where FE/BE are tightly coupled
+2. **Backend & crisis delivery** — HKAB ops turnaround (20+ min → 5–10 min); DrugInSport 10k+ import; restored client trust on troubled projects
+3. **AI with judgment** — lead AI agent rollout; clear requirements & communication over blind automation
 
 ---
 
@@ -59,9 +59,9 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 **一句概述：**
 > Full stack developer building multi-tenant internal systems and client web applications — owning both frontend and backend.
 
-- **Full stack** development of **KNSM** — internal Po Leung Kuk kindergarten platform used by **20+ schools** (no public URL); Vue 3 frontend + Laravel backend
-- Built **DrugInSport** — [druginsport.hk](https://www.druginsport.hk/en) for ADOHK (`fs-anti-doping`); UI by design team, **all JavaScript (jQuery) and backend (Laravel) by me**; **10,000+** drugs; Excel import with **chunked processing** and **memory** optimization
-- Built **HKAB member area** — complex permissions; **16-node on-premise infra**; revamped ops scripts cut key procedures from **20+ min to 5–10 min**; operation guide praised by client
+- **KNSM (2024 — maintenance)** — full-stack development of an internal Po Leung Kuk kindergarten platform used by **20+ schools** (no public URL); Vue 3 frontend + Laravel backend
+- **DrugInSport (2025)** — [druginsport.hk](https://www.druginsport.hk/en) for ADOHK (`fs-anti-doping`); UI by design team, **all JavaScript (jQuery) and backend (Laravel) by me**; **10,000+** drugs; Excel import with **chunked processing** and **memory** optimization
+- **HKAB member area (2022–2023; maintenance; ops script revamp in 2025)** — complex permissions; **16-node on-premise infra**; revamped ops scripts cut key procedures from **20+ min to 5–10 min**; operation guide praised by client
 - **Led AI agent adoption (2026)** — evaluated AI agent solutions, gathered team feedback, rolled out **Cursor Skills** for code scanning, document generation, and plan mode optimization; built internal batch tools (e.g. FTP access testing)
 
 **Technologies:** PHP, Laravel, Vue 3, TypeScript, Inertia.js, MySQL, Oracle export, LDAP
@@ -71,11 +71,10 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 ### ECHK — Web Developer | Aug 2020 — May 2022
 
 **一句概述：**
-> Full-stack web development across loyalty, e-commerce, and booking systems for multiple clients.
+> Full-stack web development across loyalty, e-commerce, and booking for multiple clients.
 
-- Built **DentalMiles redemption system** with cross-platform points transfer (DentalMiles ↔ CDE)
+- Built **[DentalMiles](https://www.dentalmiles.com/)** — dental loyalty and **booking platform** (single web system); points redemption (DentalMiles ↔ CDE), online booking, Miles Rewards & eShop
 - Developed **HIPPOS online shop module** — multi-tenant e-commerce with POS API integration, auto-discounts, promo codes, inventory sync, and online payments ([live](https://hippos.systems/login) · [product info](https://leaflet.hippos.systems/))
-- Built **online booking system** with configurable quota rules
 
 **Technologies:** PHP, Laravel, JavaScript, Vue.js, MySQL, REST API
 
@@ -84,6 +83,8 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 ## Projects
 
 ### KNSM — Po Leung Kuk Kindergarten Management System
+
+**Period:** 2024 — Present (maintenance)
 
 **描述（1–2 句）：**
 > **Full stack** internal platform for Po Leung Kuk kindergartens and nurseries — **no public URL**. Built and maintained **both frontend (Vue 3 + TypeScript) and backend (Laravel)**; serving **20+ campuses** with student management, fee billing, and **Oracle** AR/RA exports.
@@ -96,6 +97,8 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 ---
 
 ### DrugInSport — Anti-Doping Drug Database
+
+**Period:** 2025
 
 **描述（1–2 句）：**
 > Public anti-doping drug lookup for [ADOHK](https://www.druginsport.hk/en). UI by design team (partial generated CSS); **I built all JavaScript (jQuery) and backend (Laravel 11)**. **10,000+** drug records; Excel import pipeline with **500-row chunks**, memory tuning, and approval workflow.
@@ -120,7 +123,21 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 
 ---
 
+### DentalMiles — Loyalty & Booking Platform
+
+**描述（1–2 句）：**
+> [DentalMiles](https://www.dentalmiles.com/) dental loyalty and booking platform (single web system). Points redemption (DentalMiles ↔ CDE), online booking with quota rules, Miles Rewards, and eShop.
+
+**Technologies:** PHP, Laravel, JavaScript, Vue.js, MySQL, REST API
+
+- GitHub: N/A (company project)
+- Live: https://www.dentalmiles.com/
+
+---
+
 ### HKAB — Member Area & On-Premise Operations
+
+**Period:** 2022–2023 development; maintenance ongoing; operation script revamp in 2025
 
 **描述（1–2 句）：**
 > Member portal for Hong Kong Accreditation Body with granular **role-based permissions**. Also documented and scripted **on-premise operations** for a **16-server architecture**: 4 groups (P1–P4), each with WEB, CMS, DB, and HIBOR nodes — **CMS file sync**, **DB replication**, daily backup, failover, and restart procedures. Operation guide praised by client.
@@ -138,7 +155,7 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 
 | 學校 | 學位 | 年份 |
 |------|------|------|
-| IVE (Tsing Yi) | Diploma of Software Engineering (GPA 3.23) | 2020 |
+| IVE (Tsing Yi) | Diploma of Software Engineering (GPA 3.23) | 2018 — 2020 |
 
 ---
 
@@ -156,7 +173,7 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 
 完成此稿後，逐項對照更新：
 
-- [ ] `data/portfolio.json` — 網站直接讀取
+- [x] `data/portfolio.json` — 網站直接讀取
 - [ ] `data/master/*.json` — 完整結構化備份（可選，或由腳本生成）
 - [ ] 本地預覽確認：`python -m http.server 8080`
 

@@ -15,7 +15,7 @@ I am writing to apply for the Full-Stack Developer position at Apricot Medical T
 
 ## Main paragraph（核心段落 — 可直接使用）
 
-I am a full-stack web developer with five years of experience delivering reliable features across Laravel, Vue, and JavaScript in production environments. At FirmStudio, I own end-to-end development of a multi-tenant kindergarten management system used by 20+ schools, and I build backend systems handling 10,000+ drug records with performance-critical import pipelines. I also revamp complex on-premise infrastructure — for Hong Kong Accreditation Body, I redesigned operation scripts and guides for a 16-server architecture, cutting key procedures from over 20 minutes to 5–10 minutes, with documentation praised by the client for clarity. Since 2026, I have led FirmStudio's adoption of AI coding assistants: evaluating agent solutions, gathering team feedback, and creating standardized Cursor Skills for code scanning, document generation, and plan-mode workflows to improve accuracy and reduce review overhead. I use AI daily to plan, write, and review code — while maintaining a hands-on understanding of what is generated, when to verify manually, and when to build custom tooling instead. This portfolio site itself was built with an AI-assisted, content-driven workflow, which I am happy to walk through in an interview.
+I am a full-stack web developer with five years of experience delivering reliable features across Laravel, Vue, and JavaScript in production environments. At FirmStudio, I own end-to-end development of a multi-tenant kindergarten management system used by 20+ schools, and I build backend systems handling 10,000+ drug records with performance-critical import pipelines. I also revamp complex on-premise infrastructure — for Hong Kong Accreditation Body, I redesigned operation scripts and guides for a 16-server architecture, cutting key procedures from over 20 minutes to 5–10 minutes, with documentation praised by the client for clarity. Since 2026, I have led FirmStudio's adoption of AI coding assistants: evaluating agent solutions, gathering team feedback, and creating standardized Cursor Skills for code scanning, document generation, and plan-mode workflows. I use AI daily to accelerate development, but I believe its value depends on clear requirements and honest communication — our job is to clarify what users need and design workflows that work for them, not only to write code by hand. I verify AI outputs critically and know when to build custom tooling instead. This portfolio site was built with an AI-assisted, content-driven workflow, which I am happy to walk through in an interview.
 
 ---
 
@@ -38,7 +38,8 @@ https://github.com/fs-cyrus-lee
 | AI-Assisted Engineering | Led AI agent adoption; daily Cursor workflow |
 | AI agents / MCP | Evaluated solutions, built Cursor Skills |
 | AI-Built Portfolio | "This portfolio site itself was built with AI-assisted workflow" |
-| Critical Evaluation | "when to verify manually, when to build custom tooling" |
+| Critical Evaluation | Clear requirements + communication; verify AI outputs; custom tooling when needed |
+| Human + AI philosophy | "clarify what users need... not only to write code by hand" |
 | 2–3 years experience | "five years of experience" |
 | Reliability & execution | HKAB ops 20+ min → 5–10 min; production systems |
 
