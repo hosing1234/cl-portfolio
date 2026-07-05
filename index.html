@@ -29,7 +29,7 @@
       </div>
     </aside>
 
-    <main class="content-scroll" id="content-scroll">
+    <main class="content-scroll styled-scrollbar" id="content-scroll">
       <section id="about" class="content-section" data-section="About">
         <p class="section-index">01 / About</p>
         <div class="about-header">
@@ -72,26 +72,27 @@
       </section>
     </main>
 
-    <nav class="right-nav" id="right-nav" aria-label="Section navigation">
-      <div class="right-nav-line" id="right-nav-line"></div>
-      <div class="right-nav-links" id="right-nav-links"></div>
-    </nav>
+    <aside class="sidebar" id="sidebar">
+      <nav class="right-nav" id="right-nav" aria-label="Section navigation">
+        <div class="right-nav-line" id="right-nav-line"></div>
+        <div class="right-nav-links" id="right-nav-links"></div>
+      </nav>
 
-    <aside class="rail" id="rail" aria-label="Section menu">
-      <div class="rail-line rail-line-top"></div>
-      <button class="rail-toggle" id="rail-toggle" aria-label="Toggle section menu" aria-expanded="false">
-        <span class="rail-icon-open" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </span>
-        <span class="rail-icon-close hidden" aria-hidden="true">×</span>
-      </button>
-      <div class="rail-line rail-line-bottom"></div>
-      <div class="rail-menu hidden" id="rail-menu"></div>
+      <aside class="rail" id="rail" aria-label="Section menu">
+        <div class="rail-line rail-line-top"></div>
+        <button class="rail-toggle" id="rail-toggle" aria-label="Toggle section menu" aria-expanded="false">
+          <span class="rail-icon-open" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span class="rail-icon-close hidden" aria-hidden="true">×</span>
+        </button>
+        <div class="rail-line rail-line-bottom"></div>
+      </aside>
     </aside>
   </div>
 
   <div class="know-more-panel" id="know-more-panel" aria-hidden="true" inert>
-    <div class="know-more-inner">
+    <div class="know-more-inner styled-scrollbar">
       <div class="know-more-header">
         <p class="know-more-label" id="know-more-label">About</p>
         <button type="button" class="know-more-close" id="know-more-close" aria-label="Close">Close</button>
