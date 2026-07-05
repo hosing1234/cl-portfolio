@@ -476,6 +476,10 @@ function scrollToSection(sectionLabel) {
     behavior: 'smooth',
   });
   if (!isDesktopViewport()) closeNav();
+
+  if (!target.classList.contains('is-in-view')) {
+    window.setTimeout(() => target.classList.add('is-in-view'), 500);
+  }
 }
 
 function openKnowMore() {
@@ -503,9 +507,6 @@ function closeKnowMore() {
 function updateActiveSection() {
   const container = document.getElementById('content-scroll');
   const scrollTop = container.scrollTop;
-  const atTop = scrollTop < 50;
-
-  if (!atTop && navOpen && !isDesktopViewport()) closeNav();
 
   let current = 'About';
   for (const section of SECTION_CONFIG) {
@@ -579,6 +580,41 @@ function setupNavInset() {
   });
 }
 
+function setupSectionReveal() {
+  const container = document.getElementById('content-scroll');
+  const sections = document.querySelectorAll('.content-section:not(:first-child)');
+
+  if (!container || !sections.length) return;
+
+  const reveal = (section) => section.classList.add('is-in-view');
+
+  if (!window.IntersectionObserver) {
+    sections.forEach(reveal);
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const section = entry.target.closest('.content-section');
+        if (section) reveal(section);
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      root: container,
+      threshold: 0,
+      rootMargin: '-22% 0px -38% 0px',
+    }
+  );
+
+  sections.forEach((section) => {
+    const trigger = section.querySelector('.section-index') || section;
+    observer.observe(trigger);
+  });
+}
+
 function setupInteractions(sectionPreviews) {
   document.querySelectorAll('.nav-link').forEach((link) => {
     const section = link.dataset.section;
@@ -589,7 +625,10 @@ function setupInteractions(sectionPreviews) {
     link.addEventListener('click', () => scrollToSection(section));
   });
 
-  document.getElementById('rail-toggle').addEventListener('click', toggleNav);
+  document.getElementById('rail-toggle').addEventListener('click', (event) => {
+    event.stopPropagation();
+    toggleNav();
+  });
 
   document.getElementById('know-more-btn').addEventListener('click', openKnowMore);
   document.getElementById('know-more-close').addEventListener('click', closeKnowMore);
@@ -649,6 +688,7 @@ async function init() {
     renderNavLinks(sectionPreviews);
     initNavState();
     setupNavInset();
+    setupSectionReveal();
     setupInteractions(sectionPreviews);
     renderIntro(portfolioData.intro?.lines || [
       '> initializing...',

@@ -232,6 +232,19 @@ button {
   border-top: 1px solid var(--border);
 }
 
+.content-section:not(:first-child) {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.content-section:not(:first-child).is-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .content-section:first-child {
   border-top: none;
 }
@@ -1028,6 +1041,20 @@ button {
 
   .sidebar {
     grid-column: 2;
+    z-index: 25;
+  }
+
+  .rail {
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+  }
+
+  .rail-toggle {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .left-panel {
@@ -1120,7 +1147,8 @@ body.work-panel-open {
 
   .left-panel-default,
   .nav-link,
-  .right-nav-line::after {
+  .right-nav-line::after,
+  .content-section {
     opacity: 1;
     transform: none;
   }
