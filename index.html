@@ -9,94 +9,72 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="intro-screen" id="intro-screen" aria-hidden="true">
-    <div class="intro-type" id="intro-type"></div>
+    <div class="intro-lines" id="intro-lines"></div>
   </div>
 
-  <aside class="rail-menu" id="rail-menu" aria-label="Section navigation">
-    <button class="rail-toggle" id="rail-toggle" aria-label="Open section menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="rail-panel" id="rail-panel"></nav>
-  </aside>
-
-  <header class="header">
-    <nav class="nav container">
-      <a href="#" class="nav-logo">CL</a>
-      <ul class="nav-links" id="nav-links"></ul>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-  </header>
-
-  <main>
-    <section id="hero" class="hero section">
-      <div class="hero-shell">
-        <div class="hero-copy">
-          <p class="hero-greeting">Portfolio / Full Stack Web Developer</p>
-          <h1 class="hero-name" id="hero-name"></h1>
-          <p class="hero-title" id="hero-title"></p>
-          <p class="hero-tagline" id="hero-tagline"></p>
-          <div class="hero-preview" id="hero-preview"></div>
-          <div class="hero-cta" id="hero-cta"></div>
-        </div>
-        <nav class="hero-menu" id="hero-menu" aria-label="Portfolio sections"></nav>
+  <div class="app-shell" id="app-shell">
+    <aside class="left-panel" id="left-panel" aria-label="Portfolio identity">
+      <div class="left-panel-default" id="left-panel-default">
+        <p class="panel-label">Portfolio</p>
+        <p class="panel-name-light">Lee Ho Sing</p>
+        <p class="panel-name-strong">Cyrus</p>
       </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="container">
-        <h2 class="section-title">About</h2>
-        <p class="about-text" id="about-text"></p>
-        <ul class="about-highlights" id="about-highlights"></ul>
+      <div class="left-panel-hover hidden" id="left-panel-hover">
+        <p class="panel-label" id="left-panel-section"></p>
+        <ul class="panel-bullets" id="left-panel-bullets"></ul>
       </div>
-    </section>
+    </aside>
 
-    <section id="skills" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Skills</h2>
+    <main class="content-scroll" id="content-scroll">
+      <section id="about" class="content-section" data-section="About">
+        <p class="section-index">01 / About</p>
+        <h2 class="section-headline" id="about-headline"></h2>
+        <p class="section-lead" id="about-text"></p>
+      </section>
+
+      <section id="skills" class="content-section" data-section="Skills">
+        <p class="section-index">02 / Skills</p>
         <div class="skills-grid" id="skills-grid"></div>
-      </div>
-    </section>
+      </section>
 
-    <section id="experience" class="section">
-      <div class="container">
-        <h2 class="section-title">Experience</h2>
-        <div class="timeline" id="experience-list"></div>
-      </div>
-    </section>
+      <section id="experience" class="content-section" data-section="Experience">
+        <p class="section-index">03 / Experience</p>
+        <div class="experience-list" id="experience-list"></div>
+      </section>
 
-    <section id="projects" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid" id="projects-grid"></div>
-      </div>
-    </section>
+      <section id="projects" class="content-section" data-section="Projects">
+        <p class="section-index">04 / Projects</p>
+        <div class="projects-list" id="projects-list"></div>
+      </section>
 
-    <section id="education" class="section">
-      <div class="container">
-        <h2 class="section-title">Education</h2>
-        <div class="education-list" id="education-list"></div>
-      </div>
-    </section>
+      <section id="contact" class="content-section" data-section="Contact">
+        <p class="section-index">05 / Contact</p>
+        <h2 class="section-headline contact-headline">Let's build<br>something.</h2>
+        <div class="contact-list" id="contact-list"></div>
+      </section>
+    </main>
 
-    <section id="contact" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-content" id="contact-content"></div>
-      </div>
-    </section>
-  </main>
+    <nav class="right-nav" id="right-nav" aria-label="Section navigation">
+      <div class="right-nav-line" id="right-nav-line"></div>
+      <div class="right-nav-links" id="right-nav-links"></div>
+    </nav>
 
-  <footer class="footer">
-    <div class="container">
-      <p id="footer-text"></p>
-    </div>
-  </footer>
+    <aside class="rail" id="rail" aria-label="Section menu">
+      <div class="rail-line rail-line-top"></div>
+      <button class="rail-toggle" id="rail-toggle" aria-label="Toggle section menu" aria-expanded="false">
+        <span class="rail-icon-open" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span class="rail-icon-close hidden" aria-hidden="true">×</span>
+      </button>
+      <div class="rail-line rail-line-bottom"></div>
+      <div class="rail-menu hidden" id="rail-menu"></div>
+    </aside>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

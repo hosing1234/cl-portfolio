@@ -4,7 +4,14 @@
     "language": "en",
     "fallbackLanguage": "zh",
     "theme": "light",
-    "lastUpdated": "2026-07-05"
+    "lastUpdated": "2026-07-06"
+  },
+  "intro": {
+    "lines": [
+      "> initializing...",
+      "> loading portfolio...",
+      "> welcome."
+    ]
   },
   "hero": {
     "name": "Lee Ho Sing Cyrus",
@@ -16,6 +23,7 @@
     }
   },
   "about": {
+    "headline": ["Integrator.", "Builder.", "Problem solver."],
     "text": "Full-stack web developer with 5+ years of experience building production systems in Laravel, Vue, and JavaScript. My strongest value is FE/BE integration and delivery under pressure: I led KNSM for 20+ schools, handled DrugInSport's 10k+ drug-data imports, and revamped HKAB's 16-server operations, cutting key procedures from 20+ minutes to 5–10 minutes. I also lead AI agent adoption at FirmStudio, using AI to remove friction while keeping clear requirements and human communication at the centre of delivery.",
     "highlights": [
       "Full-stack integration — KNSM lead (20+ schools); strongest where FE/BE are tightly coupled",
