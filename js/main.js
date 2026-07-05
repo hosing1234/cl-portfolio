@@ -195,15 +195,20 @@ function renderSkills(data) {
       (group) => `
       <div class="skill-group">
         <p class="skill-group-label">${group.category}</p>
-        ${group.items
-          .map(
-            (item) => `
+        <div class="skill-rows">
+          ${group.items
+            .map(
+              (item) => `
             <div class="skill-row">
               <span>${item}</span>
               <span class="skill-dot"></span>
             </div>`
-          )
-          .join('')}
+            )
+            .join('')}
+        </div>
+        <div class="skill-tags">
+          ${group.items.map((item) => `<span class="skill-tag">${item}</span>`).join('')}
+        </div>
       </div>`
     )
     .join('');

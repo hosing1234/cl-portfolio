@@ -440,6 +440,23 @@ button {
   background: #e5e7eb;
 }
 
+.skill-tags {
+  display: none;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid #e5e7eb;
+  padding: 0.25rem 0.5rem;
+  line-height: 1.4;
+}
+
 /* Work timeline */
 .work-headline {
   margin-bottom: 3rem;
@@ -1062,9 +1079,20 @@ button {
   .work-panel-nav--next {
     right: 0.35rem;
   }
+}
 
+@media (max-width: 640px) {
   .skills-grid {
     grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .skill-rows {
+    display: none;
+  }
+
+  .skill-tags {
+    display: flex;
   }
 }
 
