@@ -24,10 +24,15 @@
 ## About
 
 **正文（約 80–120 字）：**
-> Full-stack web developer with 5+ years of experience building production systems in Laravel, Vue, and JavaScript. My strongest value is **FE/BE integration and delivery under pressure**: I led KNSM for 20+ schools, handled DrugInSport's 10k+ drug-data imports, and revamped HKAB's 16-server operations, cutting key procedures from 20+ minutes to 5–10 minutes. I also lead AI agent adoption at FirmStudio, using AI to remove friction while keeping clear requirements and human communication at the centre of delivery.
+
+> Full-stack web developer with 5+ years of experience building production systems in Laravel, Vue, and JavaScript. Core strengths include **FE/BE integration and delivery under pressure**.
+>
+> Selected work includes KNSM, a Po Leung Kuk kindergarten platform used by 20+ schools; DrugInSport's 10k+ drug-data import workflows; and HKAB's 16-server operations revamp, cutting key procedures from 20+ minutes to 5–10 minutes.
+>
+> Current work also includes leading AI agent adoption at FirmStudio, using AI to remove friction while keeping clear requirements and human communication at the centre of delivery.
 
 **Highlights（3 點）：**
-1. **Full-stack integration** — KNSM lead (20+ schools); strongest where FE/BE are tightly coupled
+1. **Full-stack integration** — developed KNSM, a multi-campus platform serving 20+ schools
 2. **Backend & crisis delivery** — HKAB ops turnaround (20+ min → 5–10 min); DrugInSport 10k+ import; restored client trust on troubled projects
 3. **AI with judgment** — lead AI agent rollout; clear requirements & communication over blind automation
 

@@ -1,8 +1,16 @@
-const SECTIONS = ['About', 'Skills', 'Experience', 'Projects', 'Contact'];
+const SECTION_CONFIG = [
+  { label: 'About', id: 'about' },
+  { label: 'AI Era', id: 'ai-era' },
+  { label: 'Skills', id: 'skills' },
+  { label: 'Experience', id: 'experience' },
+  { label: 'Projects', id: 'projects' },
+  { label: 'Contact', id: 'contact' },
+];
 
 let portfolioData = null;
 let activeSection = 'About';
 let menuOpen = false;
+let knowMoreOpen = false;
 
 async function loadPortfolio() {
   const response = await fetch('data/portfolio.json');
@@ -20,7 +28,13 @@ function buildSectionPreviews(data) {
       data.hero.title,
       `Based in ${data.contact.location}`,
       '5+ years production experience',
-      'AI-assisted engineering',
+      'Know more for full story',
+    ],
+    'AI Era': [
+      data.aiEra?.kicker || 'On work and tools',
+      'Communication over automation',
+      'Requirements before code',
+      'Friction, not replacement',
     ],
     Skills: topSkills,
     Experience: data.experience.map((exp) => `${exp.role} @ ${exp.company}`),
@@ -80,12 +94,56 @@ function renderIntro(lines) {
 
 function renderAbout(data) {
   document.title = data.meta.siteTitle;
-  document.getElementById('about-headline').innerHTML = (data.about.headline || [
+
+  document.getElementById('about-name').innerHTML = `
+    <span class="about-name-main">${data.hero.name}</span>
+    <span class="about-name-suffix">Portfolio</span>
+  `;
+  document.getElementById('about-role').textContent = data.hero.title;
+
+  const subhead = data.about.subhead || data.about.headline || [
     'Integrator.',
     'Builder.',
     'Problem solver.',
-  ]).join('<br>');
-  document.getElementById('about-text').textContent = data.about.text;
+  ];
+  document.getElementById('about-subhead').innerHTML = subhead.join('<br>');
+
+  const paragraphs = data.about.paragraphs || (data.about.text ? [data.about.text] : []);
+  document.getElementById('about-text').innerHTML = paragraphs
+    .map((paragraph) => `<p class="section-lead">${paragraph}</p>`)
+    .join('');
+}
+
+function renderAiEra(data) {
+  const aiEra = data.aiEra;
+  if (!aiEra) return;
+
+  document.getElementById('ai-era-index').textContent = aiEra.indexLabel;
+  document.getElementById('ai-era-title').textContent = aiEra.title;
+  document.getElementById('ai-era-kicker').textContent = aiEra.kicker;
+  document.getElementById('ai-era-body').innerHTML = aiEra.paragraphs
+    .map((paragraph) => `<p class="section-lead">${paragraph}</p>`)
+    .join('');
+}
+
+function renderKnowMore(data) {
+  const longForm = data.about.longForm;
+  if (!longForm) return;
+
+  document.getElementById('know-more-label').textContent = longForm.title || 'About';
+
+  const sections = longForm.sections
+    || (longForm.paragraphs || []).map((paragraph) => ({ title: '', text: paragraph }));
+
+  document.getElementById('know-more-content').innerHTML = sections
+    .map(
+      (section) => `
+      <div class="know-more-block">
+        ${section.title ? `<h3 class="know-more-block-title">${section.title}</h3>` : ''}
+        <p class="know-more-block-text">${section.text}</p>
+      </div>`
+    )
+    .join('');
 }
 
 function renderSkills(data) {
@@ -182,16 +240,17 @@ function renderContact(data) {
 }
 
 function renderNavLinks(sectionPreviews) {
-  const linkMarkup = SECTIONS.map(
+  const linkMarkup = SECTION_CONFIG.map(
     (section, index) => `
     <button
       type="button"
       class="nav-link"
-      data-section="${section}"
-      data-preview="${sectionPreviews[section].join('|')}"
+      data-section="${section.label}"
+      data-target="${section.id}"
+      data-preview="${sectionPreviews[section.label].join('|')}"
       style="--delay:${1 + index * 0.13}s"
     >
-      ${section}
+      ${section.label}
     </button>`
   ).join('');
 
@@ -224,16 +283,39 @@ function setLeftPanel(section, previewItems) {
     .join('');
 }
 
-function scrollToSection(section) {
-  const target = document.getElementById(section.toLowerCase());
+function scrollToSection(sectionLabel) {
+  const section = SECTION_CONFIG.find((item) => item.label === sectionLabel);
+  const target = document.getElementById(section?.id || sectionLabel.toLowerCase());
   const container = document.getElementById('content-scroll');
   if (!target || !container) return;
 
+  closeKnowMore();
   container.scrollTo({
     top: target.offsetTop - 80,
     behavior: 'smooth',
   });
   closeMenu();
+}
+
+function openKnowMore() {
+  const panel = document.getElementById('know-more-panel');
+  knowMoreOpen = true;
+  panel.classList.add('is-open');
+  panel.setAttribute('aria-hidden', 'false');
+  panel.removeAttribute('inert');
+  document.body.classList.add('know-more-open');
+  document.getElementById('know-more-btn').setAttribute('aria-expanded', 'true');
+}
+
+function closeKnowMore() {
+  if (!knowMoreOpen) return;
+  const panel = document.getElementById('know-more-panel');
+  knowMoreOpen = false;
+  panel.classList.remove('is-open');
+  panel.setAttribute('aria-hidden', 'true');
+  panel.setAttribute('inert', '');
+  document.body.classList.remove('know-more-open');
+  document.getElementById('know-more-btn').setAttribute('aria-expanded', 'false');
 }
 
 function closeMenu() {
@@ -260,9 +342,9 @@ function updateActiveSection() {
   if (!atTop && menuOpen) closeMenu();
 
   let current = 'About';
-  for (const section of SECTIONS) {
-    const element = document.getElementById(section.toLowerCase());
-    if (element && element.offsetTop <= scrollTop + 240) current = section;
+  for (const section of SECTION_CONFIG) {
+    const element = document.getElementById(section.id);
+    if (element && element.offsetTop <= scrollTop + 240) current = section.label;
   }
 
   activeSection = current;
@@ -283,6 +365,19 @@ function setupInteractions(sectionPreviews) {
 
   document.getElementById('rail-toggle').addEventListener('click', toggleMenu);
 
+  document.getElementById('know-more-btn').addEventListener('click', openKnowMore);
+  document.getElementById('know-more-close').addEventListener('click', closeKnowMore);
+  document.getElementById('know-more-panel').addEventListener('click', (event) => {
+    if (event.target.id === 'know-more-panel') closeKnowMore();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeKnowMore();
+      closeMenu();
+    }
+  });
+
   const container = document.getElementById('content-scroll');
   container.addEventListener('scroll', updateActiveSection, { passive: true });
   updateActiveSection();
@@ -294,6 +389,8 @@ async function init() {
     const sectionPreviews = buildSectionPreviews(portfolioData);
 
     renderAbout(portfolioData);
+    renderAiEra(portfolioData);
+    renderKnowMore(portfolioData);
     renderSkills(portfolioData);
     renderExperience(portfolioData);
     renderProjects(portfolioData);

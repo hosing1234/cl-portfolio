@@ -56,27 +56,27 @@
 
 **中文：**
 
-> 全端 Web 開發人員，5+ 年經驗（PHP、Laravel、Vue、JavaScript）。主力項目包括：20+ 園校管理平台（全端）、萬級藥物資料庫、16 部 on-premise 會員系統（營運 procedure 由 20+ 分鐘縮至 5–10 分鐘）。2026 年起負責公司 AI agent 推廣及 Cursor Skills 標準化。IVE 軟件工程文憑（GPA 3.23）。
+> 全端 Web 開發人員，5+ 年經驗（PHP、Laravel、Vue、JavaScript）。主力項目包括：KNSM 保良局幼稚園管理平台（全端，服務 20+ 園校）、萬級藥物資料庫、16 部 on-premise 會員系統（營運 procedure 由 20+ 分鐘縮至 5–10 分鐘）。2026 年起負責公司 AI agent 推廣及 Cursor Skills 標準化。IVE 軟件工程文憑（GPA 3.23）。
 
 **英文：**
 
-> Full-stack web developer with 5+ years of experience in PHP, Laravel, Vue, and JavaScript. I build production systems including a multi-tenant platform for 20+ kindergartens (full-stack ownership), a 10,000+ drug-record database, and a 16-server on-premise member portal — where I cut key ops procedures from 20+ minutes to 5–10 minutes. Since 2026, I lead AI agent adoption at FirmStudio: evaluating tools, building Cursor Skills for code scanning and documentation, and using AI daily while verifying outputs critically. Diploma in Software Engineering (IVE, GPA 3.23). Portfolio and GitHub available on request.
+> Full-stack web developer with 5+ years of experience in PHP, Laravel, Vue, and JavaScript. I build production systems including KNSM, a Po Leung Kuk kindergarten platform used by 20+ schools (full-stack ownership), a 10,000+ drug-record database, and a 16-server on-premise member portal — where I cut key ops procedures from 20+ minutes to 5–10 minutes. Since 2026, I lead AI agent adoption at FirmStudio: evaluating tools, building Cursor Skills for code scanning and documentation, and using AI daily while verifying outputs critically. Diploma in Software Engineering (IVE, GPA 3.23). Portfolio and GitHub available on request.
 
 ### 中版（約 100–200 字，用於 About section）
 
 **中文：**
 
-> 我是 5+ 年經驗的 full stack web developer，主要使用 PHP / Laravel、Vue 及 JavaScript 開發 production 系統。我的強項是**前後端緊密整合與高壓交付**：曾主力開發服務 20+ 園校的保良局幼稚園系統，亦處理 DrugInSport 萬級藥物資料 import、HKAB 16-server on-premise 營運流程重構，將關鍵 procedure 由 20+ 分鐘縮短至 5–10 分鐘。在 FirmStudio 我常被視為 backend 主力，也擅長在需求未明或項目落後時，以誠懇溝通、高頻匯報和快速交付重建客戶信任。2026 年起我亦負責公司 AI agent 方案選型及 Cursor Skills 標準化；我相信 AI 是強力助手，但**清晰需求與人與人的溝通**同樣重要——IT 的價值在於疏理客戶真正需要，設計好用的系統，讓 AI 幫人去除阻力，而非取代思考。
+> 我是 5+ 年經驗的 full stack web developer，主要使用 PHP / Laravel、Vue 及 JavaScript 開發 production 系統。我的強項是**前後端緊密整合與高壓交付**：曾主力開發保良局幼稚園系統 KNSM（服務 20+ 園校），亦處理 DrugInSport 萬級藥物資料 import、HKAB 16-server on-premise 營運流程重構，將關鍵 procedure 由 20+ 分鐘縮短至 5–10 分鐘。在 FirmStudio 我常被視為 backend 主力，也擅長在需求未明或項目落後時，以誠懇溝通、高頻匯報和快速交付重建客戶信任。2026 年起我亦負責公司 AI agent 方案選型及 Cursor Skills 標準化；我相信 AI 是強力助手，但**清晰需求與人與人的溝通**同樣重要——IT 的價值在於疏理客戶真正需要，設計好用的系統，讓 AI 幫人去除阻力，而非取代思考。
 
 **英文：**
 
-> I am a full-stack web developer with 5+ years of experience building production systems with PHP / Laravel, Vue, and JavaScript. My strongest value is **tight FE/BE integration and delivery under pressure**: I led development of a Po Leung Kuk kindergarten platform used by 20+ schools, built large-scale drug-data imports for DrugInSport, and revamped HKAB's 16-server on-premise operations, cutting key procedures from 20+ minutes to 5–10 minutes. At FirmStudio I am often the go-to backend developer, and I perform well when requirements are unclear or projects are already behind schedule — rebuilding client trust through honest communication, frequent updates, and fast execution. Since 2026, I have also led AI agent evaluation and standardized Cursor Skills for the team. I see AI as a powerful assistant, but **clear requirements and human communication** matter just as much: our value is understanding what clients need and designing systems that work for real users, using AI to remove friction rather than replace judgment.
+> Full-stack web developer with 5+ years of experience building production systems with PHP / Laravel, Vue, and JavaScript. Core strengths include **tight FE/BE integration and delivery under pressure**: KNSM, a Po Leung Kuk kindergarten platform used by 20+ schools; large-scale drug-data imports for DrugInSport; and HKAB's 16-server on-premise operations revamp, cutting key procedures from 20+ minutes to 5–10 minutes. At FirmStudio, often the go-to backend developer for unclear requirements or delayed projects — rebuilding client trust through honest communication, frequent updates, and fast execution. Since 2026, responsibilities also include AI agent evaluation and standardized Cursor Skills for the team. AI is treated as a powerful assistant, but **clear requirements and human communication** matter just as much: the real value is understanding what clients need and designing systems that work for real users, using AI to remove friction rather than replace judgment.
 
 ### 長版（可選，用於 CV 或 cover letter）
 
 **中文：**
 
-> 我是 5+ 年經驗的 full stack web developer，主要負責 Laravel、Vue、JavaScript production 系統開發。相比單純把自己包裝成「甚麼都懂」，我更想突出自己真正能為團隊帶來的價值：**前後端整合、backend problem-solving、以及在高壓項目中把事情交付出來**。我的經驗包括 20+ 園校使用的保良局幼稚園暨幼兒園服務管理系統（KNSM）、DrugInSport 萬級藥物資料庫、HKAB 16 部 on-premise server 營運流程重構等；當中 HKAB 的關鍵 procedure 由 20+ 分鐘縮短至 5–10 分鐘，操作文件亦獲客戶肯定清晰實用。
+> 我是 5+ 年經驗的 full stack web developer，主要負責 Laravel、Vue、JavaScript production 系統開發。相比單純把自己包裝成「甚麼都懂」，我更想突出自己真正能為團隊帶來的價值：**前後端整合、backend problem-solving、以及在高壓項目中把事情交付出來**。我的經驗包括保良局幼稚園暨幼兒園服務管理系統 KNSM（服務 20+ 園校）、DrugInSport 萬級藥物資料庫、HKAB 16 部 on-premise server 營運流程重構等；當中 HKAB 的關鍵 procedure 由 20+ 分鐘縮短至 5–10 分鐘，操作文件亦獲客戶肯定清晰實用。
 >
 > KNSM 是最能代表我 full-stack 價值的項目之一，傳聞為 FirmStudio 史上最複雜項目之一，我擔當主力開發員，全端負責 Vue 3 + Laravel，服務 20+ 園校。項目初期我未被納入需求討論，功能流程策劃不清，PM 在進入開發後才更換；我採取見步行步，與 Designer、PM 密密釐清用法與文件，在異常緊迫的時間表上推進，靠每兩週 Demo 與透明溝通保住客戶信任，最終獲客戶及各校校長一致好評。
 >
@@ -88,7 +88,7 @@
 
 **英文：**
 
-> I do not position myself as a specialist who beats dedicated frontend or backend developers on depth alone. I excel where the stack must work as one — especially when business logic spans the UI and API. KNSM (Po Leung Kuk, 20+ schools) is the clearest example: reportedly one of FirmStudio's most complex projects, with me as lead full-stack developer on Vue 3 and Laravel. I joined after early requirements were unclear and the PM changed mid-stream; I clarified flows with designers and PMs, shipped under extreme time pressure, and kept trust through biweekly demos — earning praise from the client and school principals.
+> I do not position myself as a specialist who beats dedicated frontend or backend developers on depth alone. I excel where the stack must work as one — especially when business logic spans the UI and API. KNSM — a Po Leung Kuk kindergarten platform serving 20+ schools — is the clearest example: reportedly one of FirmStudio's most complex projects, with me as lead full-stack developer on Vue 3 and Laravel. I joined after early requirements were unclear and the PM changed mid-stream; I clarified flows with designers and PMs, shipped under extreme time pressure, and kept trust through biweekly demos — earning praise from the client and school principals.
 >
 > On typical web projects, frontend colleagues own the UI, so I built deep backend experience: DrugInSport's 10,000+ record import pipeline; HKAB's 16-server on-premise ops (key procedures cut from 20+ minutes to 5–10). HKAB was a troubled takeover — severely behind, close to legal escalation — restored through fast execution, tight PM reporting, and candid client communication.
 >
@@ -98,7 +98,7 @@
 
 ### 3 個核心賣點（bullet points，用於 About highlights）
 
-1. **Full-stack integration** — strongest where FE/BE are tightly coupled and UI carries business logic (KNSM lead, 20+ schools)
+1. **Full-stack integration** — developed KNSM, a multi-campus platform serving 20+ schools; strongest where FE/BE are tightly coupled
 2. **Backend depth under pressure** — server ops & failover (HKAB), large-scale data import (DrugInSport); turned around at-risk projects through honest, high-frequency client communication
 3. **AI-assisted engineering** — lead AI agent rollout; AI removes friction, but clear requirements and communication remain essential
 

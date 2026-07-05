@@ -32,27 +32,41 @@
     <main class="content-scroll" id="content-scroll">
       <section id="about" class="content-section" data-section="About">
         <p class="section-index">01 / About</p>
-        <h2 class="section-headline" id="about-headline"></h2>
-        <p class="section-lead" id="about-text"></p>
+        <div class="about-header">
+          <h2 class="about-name" id="about-name"></h2>
+          <p class="about-role" id="about-role"></p>
+          <p class="about-subhead" id="about-subhead"></p>
+        </div>
+        <div class="about-intro" id="about-text"></div>
+        <button type="button" class="know-more-btn" id="know-more-btn">Know more</button>
+      </section>
+
+      <section id="ai-era" class="content-section" data-section="AI Era">
+        <p class="section-index" id="ai-era-index">02 / AI Era</p>
+        <div class="about-header">
+          <h2 class="about-subhead" id="ai-era-title"></h2>
+          <p class="about-role" id="ai-era-kicker"></p>
+        </div>
+        <div class="ai-era-body" id="ai-era-body"></div>
       </section>
 
       <section id="skills" class="content-section" data-section="Skills">
-        <p class="section-index">02 / Skills</p>
+        <p class="section-index">03 / Skills</p>
         <div class="skills-grid" id="skills-grid"></div>
       </section>
 
       <section id="experience" class="content-section" data-section="Experience">
-        <p class="section-index">03 / Experience</p>
+        <p class="section-index">04 / Experience</p>
         <div class="experience-list" id="experience-list"></div>
       </section>
 
       <section id="projects" class="content-section" data-section="Projects">
-        <p class="section-index">04 / Projects</p>
+        <p class="section-index">05 / Projects</p>
         <div class="projects-list" id="projects-list"></div>
       </section>
 
       <section id="contact" class="content-section" data-section="Contact">
-        <p class="section-index">05 / Contact</p>
+        <p class="section-index">06 / Contact</p>
         <h2 class="section-headline contact-headline">Let's build<br>something.</h2>
         <div class="contact-list" id="contact-list"></div>
       </section>
@@ -74,6 +88,16 @@
       <div class="rail-line rail-line-bottom"></div>
       <div class="rail-menu hidden" id="rail-menu"></div>
     </aside>
+  </div>
+
+  <div class="know-more-panel" id="know-more-panel" aria-hidden="true" inert>
+    <div class="know-more-inner">
+      <div class="know-more-header">
+        <p class="know-more-label" id="know-more-label">About</p>
+        <button type="button" class="know-more-close" id="know-more-close" aria-label="Close">Close</button>
+      </div>
+      <div class="know-more-content" id="know-more-content"></div>
+    </div>
   </div>
 
   <script src="js/main.js"></script>
