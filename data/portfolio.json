@@ -25,9 +25,7 @@
   "about": {
     "subhead": ["Integrator.", "Builder.", "Problem solver."],
     "paragraphs": [
-      "Full-stack web developer with 5+ years of experience building production systems in Laravel, Vue, and JavaScript. Core strengths include FE/BE integration and delivery under pressure.",
-      "Selected work includes KNSM, a Po Leung Kuk kindergarten platform used by 20+ schools; DrugInSport's 10k+ drug-data import workflows; and HKAB's 16-server operations revamp, cutting key procedures from 20+ minutes to 5–10 minutes.",
-      "Current work also includes leading AI agent adoption at FirmStudio, using AI to remove friction while keeping clear requirements and human communication at the centre of delivery."
+      "Full-stack web developer with 5+ years of experience building production systems in Laravel, Vue, and JavaScript. Core strengths include FE/BE integration and delivery under pressure."
     ],
     "highlights": [
       "Full-stack integration — developed KNSM, a multi-campus platform serving 20+ schools",
@@ -61,10 +59,29 @@
     "navLabel": "AI Era",
     "kicker": "On work, tools, and what remains human",
     "title": "In the AI Era",
-    "paragraphs": [
-      "In this period of rapid AI change, much of the conversation is about replacing labour or reshaping habits. Equally important remains clear human communication and well-defined requirements. AI is a powerful assistant, but it needs clear direction to do the right work.",
-      "Software development is no longer only about typing code by hand — that is what AI is best at taking over. The role is to understand what clients actually need, design UI and workflows that solve real problems, and build systems that help people who are not AI-savvy work more efficiently and comfortably.",
-      "AI removes friction. It does not replace the thinking and communication that people remain responsible for. The space that opens up is for sound system design, judgment, and the work only humans choose to do."
+    "statement": "AI changes how fast we can build, but the work itself has not changed. The real work is still understanding people, asking the right questions, shaping clear requirements, and designing systems that help non-technical users work better.",
+    "principles": [
+      {
+        "label": "01 / Listen",
+        "title": "Start with the human need",
+        "text": "Before choosing tools or writing code, the important work is understanding what clients are actually trying to solve."
+      },
+      {
+        "label": "02 / Shape",
+        "title": "Turn ambiguity into workflow",
+        "text": "Clear requirements, UI flow, and business logic give AI the direction it needs to produce useful work."
+      },
+      {
+        "label": "03 / Build",
+        "title": "Use AI with judgment",
+        "text": "AI removes friction, but responsibility stays human: verify outputs, design sound systems, and make the final call."
+      }
+    ],
+    "flow": [
+      "Human need",
+      "Clear requirement",
+      "AI-assisted build",
+      "Better system"
     ]
   },
   "skills": [

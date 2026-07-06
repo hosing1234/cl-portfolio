@@ -421,6 +421,79 @@ button {
   margin-top: 1.5rem;
 }
 
+.ai-era-statement {
+  max-width: var(--prose-width);
+  font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+  font-weight: 300;
+  line-height: 1.45;
+  letter-spacing: -0.035em;
+  color: var(--text);
+}
+
+.ai-era-principles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  max-width: var(--prose-width);
+  margin-top: 2.5rem;
+}
+
+.ai-era-principle {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-strong);
+}
+
+.ai-era-principle-label {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 1.25rem;
+}
+
+.ai-era-principle-title {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.75rem;
+}
+
+.ai-era-principle-text {
+  font-size: 0.75rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.ai-era-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: var(--prose-width);
+  margin-top: 2.25rem;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.ai-era-flow li {
+  min-height: 5rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  line-height: 1.6;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.ai-era-flow li + li {
+  border-left: 1px solid var(--border);
+}
+
 /* Skills */
 .skills-grid {
   display: grid;
@@ -1109,6 +1182,25 @@ button {
 }
 
 @media (max-width: 640px) {
+  .ai-era-principles {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .ai-era-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-era-flow li {
+    min-height: auto;
+    padding: 0.85rem 0;
+  }
+
+  .ai-era-flow li + li {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+
   .skills-grid {
     grid-template-columns: 1fr;
     gap: 1.75rem;

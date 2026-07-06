@@ -71,10 +71,7 @@ function buildSectionPreviews(data) {
       'Know more for full story',
     ],
     'AI Era': [
-      data.aiEra?.kicker || 'On work and tools',
-      'Communication over automation',
-      'Requirements before code',
-      'Friction, not replacement',
+      data.aiEra?.kicker || 'On work, tools, and what remains human',
     ],
     Skills: topSkills,
     Work: [...data.projects]
@@ -164,8 +161,34 @@ function renderAiEra(data) {
   document.getElementById('ai-era-index').textContent = aiEra.indexLabel;
   document.getElementById('ai-era-title').textContent = aiEra.title;
   document.getElementById('ai-era-kicker').textContent = aiEra.kicker;
-  document.getElementById('ai-era-body').innerHTML = aiEra.paragraphs
-    .map((paragraph) => `<p class="section-lead">${paragraph}</p>`)
+
+  const paragraphs = aiEra.paragraphs || [];
+  const statementMarkup = aiEra.statement
+    ? `<p class="ai-era-statement">${aiEra.statement}</p>`
+    : paragraphs.map((paragraph) => `<p class="section-lead">${paragraph}</p>`).join('');
+  const principlesMarkup = (aiEra.principles || []).length
+    ? `
+      <div class="ai-era-principles">
+        ${aiEra.principles.map((principle) => `
+          <article class="ai-era-principle">
+            <p class="ai-era-principle-label">${principle.label}</p>
+            <h3 class="ai-era-principle-title">${principle.title}</h3>
+            <p class="ai-era-principle-text">${principle.text}</p>
+          </article>
+        `).join('')}
+      </div>
+    `
+    : '';
+  const flowMarkup = (aiEra.flow || []).length
+    ? `
+      <ol class="ai-era-flow" aria-label="AI Era working flow">
+        ${aiEra.flow.map((step) => `<li>${step}</li>`).join('')}
+      </ol>
+    `
+    : '';
+
+  document.getElementById('ai-era-body').innerHTML = [statementMarkup, principlesMarkup, flowMarkup]
+    .filter(Boolean)
     .join('');
 }
 
@@ -541,7 +564,7 @@ function applyNavState() {
 }
 
 function initNavState() {
-  navOpen = isDesktopViewport();
+  navOpen = true;
   applyNavState();
 }
 
@@ -574,10 +597,6 @@ function setupNavInset() {
     window.addEventListener('resize', syncNavInset);
   }
 
-  window.matchMedia('(min-width: 901px)').addEventListener('change', (event) => {
-    navOpen = event.matches;
-    applyNavState();
-  });
 }
 
 function setupSectionReveal() {
