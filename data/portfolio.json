@@ -140,7 +140,31 @@
         "Designed chunked Excel import for 10,000+ drug records with memory optimization.",
         "Implemented approval flow and scheduled launch for production release."
       ],
-      "technologies": ["PHP 8.2", "Laravel 11", "jQuery", "Blade", "Vite", "Tailwind CSS", "MySQL", "PhpSpreadsheet", "Laravel Queue"],
+      "caseStudy": {
+        "context": "DrugInSport is a drug database where admins import large batches of drugs, ingredients, and their relationships through an online portal.",
+        "problem": "Each import could process 10,000+ creates, updates, and deletes, while also checking relationship data, input errors, confirmation steps, and approval flow.",
+        "role": "Built the JavaScript and Laravel backend logic for the import workflow, validation flow, confirmation page, and approval handling.",
+        "solution": "Added memory-related logging, release-memory handling, chunked processing, and frontend handling for an environment that would otherwise time out.",
+        "impact": "Stabilized a repeated high-volume import process so the system could handle complex drug and ingredient updates reliably.",
+        "visual": {
+          "type": "imagePair",
+          "layout": "equal",
+          "caption": "DrugInSport portal and frontend visual reference",
+          "images": [
+            {
+              "label": "Portal",
+              "src": "assets/projects/druginsport/portal.png",
+              "alt": "DrugInSport admin portal"
+            },
+            {
+              "label": "Frontend",
+              "src": "assets/projects/druginsport/frontend.png",
+              "alt": "DrugInSport public frontend"
+            }
+          ]
+        }
+      },
+      "technologies": ["PHP 8.2", "Laravel 11", "jQuery", "Blade", "Vite", "MySQL", "PhpSpreadsheet"],
       "links": {
         "github": null,
         "live": "https://www.druginsport.hk/en"
@@ -160,6 +184,18 @@
         "Clarified unclear requirements with designers and PMs under extreme time pressure.",
         "Maintained client trust through biweekly demos; praised by client and school principals."
       ],
+      "caseStudy": {
+        "context": "",
+        "problem": "",
+        "role": "",
+        "solution": "",
+        "impact": "",
+        "visual": {
+          "type": "",
+          "src": "",
+          "caption": ""
+        }
+      },
       "technologies": ["PHP 8", "Laravel 10", "Vue 3", "TypeScript", "Inertia.js", "Vuetify", "MS SQL", "Oracle accounting integration"],
       "links": {
         "github": null,
@@ -179,6 +215,18 @@
         "Revamped 16-server operation scripts in 2025, cutting key procedures from 20+ minutes to 5–10 minutes.",
         "Restored a severely delayed project close to legal escalation through tight PM reporting."
       ],
+      "caseStudy": {
+        "context": "",
+        "problem": "",
+        "role": "",
+        "solution": "",
+        "impact": "",
+        "visual": {
+          "type": "",
+          "src": "",
+          "caption": ""
+        }
+      },
       "technologies": ["PHP", "Laravel 9", "Laravel Passport", "MySQL replication", "Blade", "Linux servers", "SSH deployment", "Artisan CLI ops scripts"],
       "links": {
         "github": null,
@@ -199,6 +247,29 @@
         "Version compare and approval workflow for safer content publishing.",
         "Form builder and detail-level polish across the CMS admin."
       ],
+      "caseStudy": {
+        "context": "Revamped an in-house CMS for the 1O1O Corporate website, working with another backend developer and integrating the CMS output into a frontend-built website.",
+        "problem": "The client had a high expectation for user-friendliness. My view was: if users must read a guide before they can use the CMS, the CMS design has already failed.",
+        "role": "Worked as a backend developer with roughly half of the backend scope, while directly designing and implementing the CMS UI and editor experience.",
+        "solution": "Built the form builder, component-based page editor, version comparison, approval workflow, and inline remarks that made component choices and edited content easier to understand on screen.",
+        "impact": "The clearer CMS guidance received strong feedback and became a reference point for future company CMS and design system standards.",
+        "visual": {
+          "type": "imagePair",
+          "caption": "1O1O Corporate CMS visual reference",
+          "images": [
+            {
+              "label": "CMS Screen",
+              "src": "assets/projects/1010-corporate/cms_screen.png",
+              "alt": "1O1O Corporate CMS screen"
+            },
+            {
+              "label": "1010 Logo",
+              "src": "assets/projects/1010-corporate/logo.svg",
+              "alt": "1O1O Corporate Solutions logo"
+            }
+          ]
+        }
+      },
       "technologies": ["PHP", "Laravel", "Vue.js", "JavaScript", "CMS"],
       "links": {
         "github": null,
@@ -219,6 +290,44 @@
         "Built standardized Cursor Skills for code scanning and document generation.",
         "Introduced plan-mode workflows to improve accuracy and reduce review overhead."
       ],
+      "caseStudy": {
+        "context": "FirmStudio began evaluating AI agents to keep pace with the industry and understand their real impact on daily work.",
+        "problem": "The decision was not only about price. Claude was strong, but Hong Kong was outside its supported region, so we needed a stable solution instead of a grey-area workaround.",
+        "role": "I was asked to lead the rollout: gather team feedback, compare agents, recommend tooling, and turn early trials into a repeatable workflow.",
+        "solution": "After the first trial day, I studied Cursor Skills and built ways to make AI output more stable, reusable, and easier to review.",
+        "impact": "I shared skills, tools, and findings across the company, because AI adoption only matters when the whole team improves together.",
+        "visual": {
+          "type": "flow",
+          "caption": "AI Agent Adoption rollout flow",
+          "steps": [
+            {
+              "label": "01",
+              "title": "Business question",
+              "text": "How much can AI change daily work?"
+            },
+            {
+              "label": "02",
+              "title": "Team feedback",
+              "text": "Gather needs, concerns, and trial feedback."
+            },
+            {
+              "label": "03",
+              "title": "Tool decision",
+              "text": "Choose Cursor for stable regional support."
+            },
+            {
+              "label": "04",
+              "title": "Skills & workflow",
+              "text": "Stabilize outputs with reusable Cursor Skills."
+            },
+            {
+              "label": "05",
+              "title": "Team rollout",
+              "text": "Share tools and findings company-wide."
+            }
+          ]
+        }
+      },
       "technologies": ["Cursor", "AI Agents", "Cursor Skills", "MCP"],
       "links": {
         "github": null,
@@ -237,6 +346,18 @@
         "Built points redemption and Miles Rewards flows.",
         "Implemented online booking with quota rules and eShop features."
       ],
+      "caseStudy": {
+        "context": "",
+        "problem": "",
+        "role": "",
+        "solution": "",
+        "impact": "",
+        "visual": {
+          "type": "",
+          "src": "",
+          "caption": ""
+        }
+      },
       "technologies": ["PHP", "Laravel", "JavaScript", "Vue.js", "MySQL", "REST API"],
       "links": {
         "github": null,
@@ -255,6 +376,18 @@
         "Integrated POS APIs for inventory and membership sync.",
         "Built discount rules, promo codes, and online payment processing for multiple retailers."
       ],
+      "caseStudy": {
+        "context": "",
+        "problem": "",
+        "role": "",
+        "solution": "",
+        "impact": "",
+        "visual": {
+          "type": "",
+          "src": "",
+          "caption": ""
+        }
+      },
       "technologies": ["PHP", "Laravel", "JavaScript", "Vue.js", "MySQL", "REST API", "Payment gateway integration"],
       "links": {
         "github": null,

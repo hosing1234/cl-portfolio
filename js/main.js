@@ -6,6 +6,39 @@ const SECTION_CONFIG = [
   { label: 'Contact', id: 'contact' },
 ];
 
+const CASE_STUDY_SECTIONS = [
+  {
+    key: 'context',
+    label: '01 / Context',
+    title: 'What this was',
+    placeholder: 'Add: what the system was, who used it, scale, and public/private constraints.',
+  },
+  {
+    key: 'problem',
+    label: '02 / Problem',
+    title: 'What made it difficult',
+    placeholder: 'Add: unclear requirements, data complexity, timeline pressure, legacy constraints, or operational risk.',
+  },
+  {
+    key: 'role',
+    label: '03 / My Role',
+    title: 'What I owned',
+    placeholder: 'Add: your concrete responsibilities, boundaries with PM/design/other developers, and ownership level.',
+  },
+  {
+    key: 'solution',
+    label: '04 / Solution',
+    title: 'How I approached it',
+    placeholder: 'Add: how you broke down the work, designed the flow, handled integration, and shipped safely.',
+  },
+  {
+    key: 'impact',
+    label: '05 / Impact',
+    title: 'What changed',
+    placeholder: 'Add: measurable result, client/team feedback, risk reduced, speed improved, or production outcome.',
+  },
+];
+
 function parseTimelineSortYear(period = '') {
   const years = (period.match(/\d{4}/g) || []).map(Number);
   if (!years.length) return 0;
@@ -281,6 +314,87 @@ function getProjectById(projectId) {
   return portfolioData?.projects.find((project) => project.id === projectId);
 }
 
+function renderCaseStudySections(project) {
+  const caseStudy = project.caseStudy || {};
+
+  return CASE_STUDY_SECTIONS.map((section) => {
+    const text = (caseStudy[section.key] || '').trim();
+    const isPlaceholder = !text;
+
+    return `
+      <article class="work-case-section${isPlaceholder ? ' is-placeholder' : ''}">
+        <p class="work-case-label">${section.label}</p>
+        <h4 class="work-case-title">${section.title}</h4>
+        <p class="work-case-text">${text || section.placeholder}</p>
+      </article>
+    `;
+  }).join('');
+}
+
+function renderCaseStudyVisual(project) {
+  const visual = project.caseStudy?.visual || {};
+  const hasImage = visual.src && visual.type === 'image';
+  const hasImagePair = visual.type === 'imagePair' && (visual.images || []).length;
+  const hasDiagram = visual.caption && visual.type === 'diagram';
+  const hasFlow = visual.type === 'flow' && (visual.steps || []).length;
+
+  if (hasImage) {
+    return `
+      <figure class="work-case-visual">
+        <img src="${visual.src}" alt="${visual.caption || `${project.title} project visual`}">
+        ${visual.caption ? `<figcaption>${visual.caption}</figcaption>` : ''}
+      </figure>
+    `;
+  }
+
+  if (hasImagePair) {
+    const pairLayoutClass = visual.layout === 'equal' ? ' work-case-image-pair--equal' : '';
+    return `
+      <figure class="work-case-visual work-case-image-pair${pairLayoutClass}">
+        ${visual.caption ? `<figcaption>${visual.caption}</figcaption>` : ''}
+        <div class="work-case-image-pair-grid">
+          ${visual.images.map((image) => `
+            <div class="work-case-image-card">
+              <p>${image.label}</p>
+              <img src="${image.src}" alt="${image.alt || image.label}">
+            </div>
+          `).join('')}
+        </div>
+      </figure>
+    `;
+  }
+
+  if (hasFlow) {
+    return `
+      <figure class="work-case-visual work-case-flow">
+        ${visual.caption ? `<figcaption>${visual.caption}</figcaption>` : ''}
+        <ol class="work-case-flow-list">
+          ${visual.steps.map((step) => `
+            <li class="work-case-flow-step">
+              <span class="work-case-flow-index">${step.label}</span>
+              <span class="work-case-flow-content">
+                <strong>${step.title}</strong>
+                <span>${step.text}</span>
+              </span>
+            </li>
+          `).join('')}
+        </ol>
+      </figure>
+    `;
+  }
+
+  return `
+    <figure class="work-case-visual${hasDiagram ? '' : ' is-placeholder'}">
+      <div class="work-case-visual-frame">
+        <span>${hasDiagram ? visual.caption : 'Visual placeholder'}</span>
+      </div>
+      <figcaption>
+        ${hasDiagram ? 'Convert this into a simple diagram later.' : 'Optional: add one sanitized screenshot, simple flow diagram, or metric block.'}
+      </figcaption>
+    </figure>
+  `;
+}
+
 function renderWorkPanel(project, slideDirection = 0) {
   const liveLink = project.links?.live
     ? `<a href="${project.links.live}" target="_blank" rel="noopener" class="work-panel-link">Visit site</a>`
@@ -295,13 +409,20 @@ function renderWorkPanel(project, slideDirection = 0) {
     <h3 class="work-panel-title">${project.title}</h3>
     <p class="work-panel-subtitle">${project.subtitle}</p>
     <p class="work-panel-description">${project.description}</p>
-    ${
-      project.highlights?.length
-        ? `<ul class="work-panel-highlights">
+    ${renderCaseStudyVisual(project)}
+    <div class="work-case-grid">
+      ${renderCaseStudySections(project)}
+    </div>
+    ${project.highlights?.length
+      ? `
+        <section class="work-proof">
+          <p class="work-proof-label">Proof points</p>
+          <ul class="work-panel-highlights">
             ${project.highlights.map((item) => `<li>${item}</li>`).join('')}
-          </ul>`
-        : ''
-    }
+          </ul>
+        </section>
+      `
+      : ''}
     <div class="work-panel-tags">
       ${(project.technologies || []).map((tech) => `<span class="project-tag">${tech}</span>`).join('')}
     </div>
