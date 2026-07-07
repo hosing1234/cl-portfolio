@@ -176,24 +176,36 @@
       "period": "2024",
       "title": "KNSM",
       "subtitle": "Po Leung Kuk Kindergarten Management System",
-      "summary": "Full-stack internal platform serving 20+ kindergartens with billing, reports, and Oracle accounting integration.",
-      "description": "Full-stack internal platform for Po Leung Kuk kindergartens and nurseries, serving 20+ campuses with student management, fee billing, reports, and export files for the Oracle accounting system (AR/RA) — a form of system integration. Reportedly one of FirmStudio's most complex projects.",
+      "summary": "FirmStudio's most complex project — interconnected student, billing, and subsidy flows across 20+ schools, with Oracle accounting integration and 30+ reports.",
+      "description": "Multi-campus internal platform for Po Leung Kuk kindergartens and nurseries — reportedly FirmStudio's most complex project. Student management, fee records and settings, subsidies, refunds, enrollment and waitlist flows, temporary care, and extension services are all interconnected, with money logic spanning every module. Export files integrate with the Oracle accounting system; 30+ styled reports support daily school operations.",
       "highlights": [
-        "Vue 3 + Laravel full-stack delivery across 20+ schools.",
-        "Built Oracle accounting integration via AR/RA export files for downstream finance workflows.",
-        "Clarified unclear requirements with designers and PMs under extreme time pressure.",
+        "Owned UI implementation and all money-related features — billing, subsidies, refunds, and fee settings across interconnected modules.",
+        "Built more than half of 30+ styled operational reports and Oracle AR/RA export integration.",
+        "Co-designed workflows when requirements were unclear; realigned with the team every other day under an unreasonably short timeline.",
         "Maintained client trust through biweekly demos; praised by client and school principals."
       ],
       "caseStudy": {
-        "context": "",
-        "problem": "",
-        "role": "",
-        "solution": "",
-        "impact": "",
+        "context": "KNSM is a multi-campus internal platform for Po Leung Kuk kindergartens and nurseries — reportedly FirmStudio's most complex project. It connects student management, fee records and settings, subsidies, refunds, enrollment and waitlist flows, temporary care, and extension services into one system where every feature relates to the others. Export files feed the Oracle accounting system; 30+ styled reports support day-to-day school operations.",
+        "problem": "Development began after the original project manager left, leaving requirements vague and early documentation incomplete. The replacement PM was still learning the domain, while 20+ schools each handled the same processes differently. The schedule was unreasonably tight for a system where money logic cuts across enrollment, student records, temporary care, and finance exports — isolated ticket work would not have been enough.",
+        "role": "I owned UI implementation, everything money-related — fee records, fee settings, subsidies, refunds — usage-flow adjustments, and more than half of the 30+ reports. Because billing touched nearly every module, my work had to stay aligned with enrollment, student management, temporary care, and Oracle export paths, not just a single backend area.",
+        "solution": "Success depended on team collaboration, not siloed delivery. We realigned understanding every other day, called out what did not fit the plan, and filled gaps the early specs missed. Developers became part of system design; the PM made final calls, but flows were shaped together. I implemented money logic end to end, adjusted usage flows as schools' real practices surfaced, and built reports schools could run their finance on.",
+        "impact": "Delivered a production platform serving 20+ campuses under extreme pressure, keeping client trust through biweekly demos. The client and school principals praised the outcome. The clearest lesson: on a system this interconnected, communication and clarified requirements mattered more than dividing work into isolated tasks.",
         "visual": {
-          "type": "",
-          "src": "",
-          "caption": ""
+          "type": "imagePair",
+          "layout": "equal",
+          "caption": "KNSM dashboard and navigation menu",
+          "images": [
+            {
+              "label": "Dashboard",
+              "src": "assets/projects/knsm/dashboard.png",
+              "alt": "KNSM dashboard overview"
+            },
+            {
+              "label": "Menu",
+              "src": "assets/projects/knsm/menu.png",
+              "alt": "KNSM navigation menu"
+            }
+          ]
         }
       },
       "technologies": ["PHP 8", "Laravel 10", "Vue 3", "TypeScript", "Inertia.js", "Vuetify", "MS SQL", "Oracle accounting integration"],
@@ -216,15 +228,65 @@
         "Restored a severely delayed project close to legal escalation through tight PM reporting."
       ],
       "caseStudy": {
-        "context": "",
-        "problem": "",
-        "role": "",
-        "solution": "",
-        "impact": "",
+        "context": "Joined HKAB in the middle-to-late stage, when the project was already too delayed to launch on time. The first priority was to regain client trust through visible progress.",
+        "problem": "In 2025, a serious hidden flaw was found in the operation scripts and procedures, damaging trust with the hosting-side team. The root cause had stayed unnoticed for two years.",
+        "role": "Worked with the PM to recover delivery momentum through daily extra hours and weekend focus, then later owned maintenance and the operation recovery work.",
+        "solution": "Found and fixed the root cause, then rebuilt the operation scripts from slow PHP scripts into clearer shell-based menu tools with status display, logs, warnings, and operator-focused guides.",
+        "impact": "Weekly delivery rebuilt client confidence for launch, while the 2025 ops revamp cut the main procedure from 20+ minutes to around 5 minutes and produced guides operators could actually follow.",
         "visual": {
-          "type": "",
-          "src": "",
-          "caption": ""
+          "type": "phaseFlow",
+          "caption": "HKAB: two recoveries, one trust problem",
+          "intro": "HKAB was not a single clean delivery story. It had two separate moments where trust was at risk: first before launch, then again two years later during operations.",
+          "phases": [
+            {
+              "label": "Phase 01",
+              "title": "Delivery recovery",
+              "prologue": "The first recovery was about credibility. We could not change the fact that the project was late, so the only way forward was to make progress visible every week.",
+              "description": "The project was already late when I joined. Before solving features, we had to prove to the client that the team could still deliver.",
+              "steps": [
+                {
+                  "label": "Late-stage takeover",
+                  "text": "Joined when launch timing was already unrealistic."
+                },
+                {
+                  "label": "Brute-force recovery",
+                  "text": "Daily extra hours and weekend focus to regain momentum."
+                },
+                {
+                  "label": "Weekly proof",
+                  "text": "Showed visible progress, collected feedback, and adjusted fast."
+                },
+                {
+                  "label": "Trust restored",
+                  "text": "The project stayed smooth through launch after confidence returned."
+                }
+              ]
+            },
+            {
+              "label": "Phase 02",
+              "title": "Ops recovery",
+              "prologue": "The second recovery was quieter but more dangerous. A hidden operations issue had stayed buried for two years, and the fix had to rebuild confidence with the people running the system.",
+              "description": "Two years later, a hidden operation flaw surfaced. The work shifted from feature delivery to root-cause fixing and operator-safe tooling.",
+              "steps": [
+                {
+                  "label": "Hidden flaw surfaced",
+                  "text": "A long-standing ops issue damaged trust with the hosting-side team."
+                },
+                {
+                  "label": "Root cause hunt",
+                  "text": "Traced and fixed a problem nobody had noticed for two years."
+                },
+                {
+                  "label": "Script redesign",
+                  "text": "Rebuilt slow PHP scripts into shell menus with status, colors, and logs."
+                },
+                {
+                  "label": "Operator-ready guide",
+                  "text": "Cut the main procedure from 20+ minutes to about 5, with warning and error handling."
+                }
+              ]
+            }
+          ]
         }
       },
       "technologies": ["PHP", "Laravel 9", "Laravel Passport", "MySQL replication", "Blade", "Linux servers", "SSH deployment", "Artisan CLI ops scripts"],
@@ -347,16 +409,7 @@
         "Implemented online booking with quota rules and eShop features."
       ],
       "caseStudy": {
-        "context": "",
-        "problem": "",
-        "role": "",
-        "solution": "",
-        "impact": "",
-        "visual": {
-          "type": "",
-          "src": "",
-          "caption": ""
-        }
+        "collapsed": true
       },
       "technologies": ["PHP", "Laravel", "JavaScript", "Vue.js", "MySQL", "REST API"],
       "links": {
@@ -377,16 +430,7 @@
         "Built discount rules, promo codes, and online payment processing for multiple retailers."
       ],
       "caseStudy": {
-        "context": "",
-        "problem": "",
-        "role": "",
-        "solution": "",
-        "impact": "",
-        "visual": {
-          "type": "",
-          "src": "",
-          "caption": ""
-        }
+        "collapsed": true
       },
       "technologies": ["PHP", "Laravel", "JavaScript", "Vue.js", "MySQL", "REST API", "Payment gateway integration"],
       "links": {

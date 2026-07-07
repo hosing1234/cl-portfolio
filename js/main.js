@@ -314,6 +314,27 @@ function getProjectById(projectId) {
   return portfolioData?.projects.find((project) => project.id === projectId);
 }
 
+function hasCaseStudyContent(caseStudy = {}) {
+  const hasText = CASE_STUDY_SECTIONS.some((section) => (caseStudy[section.key] || '').trim());
+
+  const visual = caseStudy.visual || {};
+  const hasVisual = Boolean(
+    (visual.src && visual.type === 'image')
+    || (visual.type === 'imagePair' && (visual.images || []).length)
+    || (visual.caption && visual.type === 'diagram')
+    || (visual.type === 'flow' && (visual.steps || []).length)
+    || (visual.type === 'phaseFlow' && (visual.phases || []).length),
+  );
+
+  return hasText || hasVisual;
+}
+
+function shouldRenderCaseStudy(project) {
+  const caseStudy = project.caseStudy || {};
+  if (caseStudy.collapsed) return false;
+  return hasCaseStudyContent(caseStudy);
+}
+
 function renderCaseStudySections(project) {
   const caseStudy = project.caseStudy || {};
 
@@ -337,6 +358,7 @@ function renderCaseStudyVisual(project) {
   const hasImagePair = visual.type === 'imagePair' && (visual.images || []).length;
   const hasDiagram = visual.caption && visual.type === 'diagram';
   const hasFlow = visual.type === 'flow' && (visual.steps || []).length;
+  const hasPhaseFlow = visual.type === 'phaseFlow' && (visual.phases || []).length;
 
   if (hasImage) {
     return `
@@ -383,6 +405,35 @@ function renderCaseStudyVisual(project) {
     `;
   }
 
+  if (hasPhaseFlow) {
+    return `
+      <figure class="work-case-visual work-case-phase-flow">
+        ${visual.caption ? `<figcaption>${visual.caption}</figcaption>` : ''}
+        ${visual.intro ? `<p class="work-case-phase-intro">${visual.intro}</p>` : ''}
+        <div class="work-case-phase-flow-list">
+          ${visual.phases.map((phase) => `
+            ${phase.prologue ? `<p class="work-case-phase-prologue">${phase.prologue}</p>` : ''}
+            <section class="work-case-phase">
+              <div class="work-case-phase-heading">
+                <p>${phase.label}</p>
+                <h4>${phase.title}</h4>
+                ${phase.description ? `<span>${phase.description}</span>` : ''}
+              </div>
+              <ol class="work-case-phase-steps">
+                ${(phase.steps || []).map((step) => `
+                  <li class="work-case-phase-step">
+                    <strong>${step.label}</strong>
+                    <span>${step.text}</span>
+                  </li>
+                `).join('')}
+              </ol>
+            </section>
+          `).join('')}
+        </div>
+      </figure>
+    `;
+  }
+
   return `
     <figure class="work-case-visual${hasDiagram ? '' : ' is-placeholder'}">
       <div class="work-case-visual-frame">
@@ -404,15 +455,21 @@ function renderWorkPanel(project, slideDirection = 0) {
   content.classList.remove('is-enter-left', 'is-enter-right', 'is-enter-active');
 
   document.getElementById('work-panel-label').textContent = 'Work';
+  const caseStudyHtml = shouldRenderCaseStudy(project)
+    ? `
+    ${renderCaseStudyVisual(project)}
+    <div class="work-case-grid">
+      ${renderCaseStudySections(project)}
+    </div>
+  `
+    : '';
+
   content.innerHTML = `
     <p class="work-panel-period">${formatTimelinePeriod(project.period)}</p>
     <h3 class="work-panel-title">${project.title}</h3>
     <p class="work-panel-subtitle">${project.subtitle}</p>
     <p class="work-panel-description">${project.description}</p>
-    ${renderCaseStudyVisual(project)}
-    <div class="work-case-grid">
-      ${renderCaseStudySections(project)}
-    </div>
+    ${caseStudyHtml}
     ${project.highlights?.length
       ? `
         <section class="work-proof">
