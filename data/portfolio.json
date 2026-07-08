@@ -15,7 +15,7 @@
   },
   "hero": {
     "name": "Lee Ho Sing Cyrus",
-    "title": "Full Stack Web Developer",
+    "title": "Full Stack Developer",
     "tagline": "Full-stack developer who excels where frontend and backend must work as one — integration, business logic, and delivery under pressure.",
     "cta": {
       "primary": { "label": "View Projects", "target": "#work" },
@@ -25,7 +25,7 @@
   "about": {
     "subhead": ["Integrator.", "Builder.", "Problem solver."],
     "paragraphs": [
-      "Full-stack web developer with 6 years of experience building production systems in Laravel, Vue, and JavaScript. Core strengths include FE/BE integration and delivery under pressure.",
+      "Full-stack developer with 6 years of experience building production systems in Laravel, Vue, and JavaScript. Core strengths include FE/BE integration and delivery under pressure.",
       "Since 2026, I have led team AI adoption at FirmStudio — evaluating agent solutions, gathering colleague feedback, and rolling out company-wide AI-assisted workflows, with clear requirements and human communication at the centre."
     ],
     "highlights": [
@@ -38,7 +38,7 @@
       "sections": [
         {
           "title": "Where the value sits",
-          "text": "Full-stack web developer with 6 years of experience in Laravel, Vue, and JavaScript production systems. The clearest value lies in FE/BE integration, backend problem-solving, and delivery under pressure — not in competing with specialists on depth alone. Selected work includes KNSM, a Po Leung Kuk kindergarten platform serving 20+ schools; DrugInSport's 10,000+ drug-record import pipeline; and HKAB's 16-server on-premise operations revamp, where key procedures were cut from 20+ minutes to 5–10 minutes."
+          "text": "Full-stack developer with 6 years of experience in Laravel, Vue, and JavaScript production systems. The clearest value lies in FE/BE integration, backend problem-solving, and delivery under pressure — not in competing with specialists on depth alone. Selected work includes KNSM, a Po Leung Kuk kindergarten platform serving 20+ schools; DrugInSport's 10,000+ drug-record import pipeline; and HKAB's 16-server on-premise operations revamp, where key procedures were cut from 20+ minutes to 5–10 minutes."
         },
         {
           "title": "Turning ambiguity into working systems",

@@ -31,7 +31,7 @@
 | 欄位          | 中文                                                                                                                     | 英文                                                  |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
 | 姓名          | 李皓聲                                                                                                                    | Lee Ho Sing Cyrus                                   |
-| 職稱 / Title  | 全端 Web 開發人員                                                                                                            | Full Stack Web Developer                            |
+| 職稱 / Title  | 全端 Web 開發人員                                                                                                            | Full Stack Developer                                |
 | 所在地         | 香港                                                                                                                     | Hong Kong SAR                                       |
 | Email（見工用）  | [lhs.cyrus@gmail.com](mailto:lhs.cyrus@gmail.com)                                                                    | [lhs.cyrus@gmail.com](mailto:lhs.cyrus@gmail.com) |
 | 電話          | `67622353`                                                                                                             |                                                     |
@@ -60,23 +60,23 @@
 
 **英文：**
 
-> Full-stack web developer with 6 years of experience in PHP, Laravel, Vue, and JavaScript. I build production systems including KNSM, a Po Leung Kuk kindergarten platform used by 20+ schools (full-stack ownership), a 10,000+ drug-record database, and a 16-server on-premise member portal — where I cut key ops procedures from 20+ minutes to 5–10 minutes. Since 2026, I lead AI agent adoption at FirmStudio: evaluating tools, building Cursor Skills for code scanning and documentation, and using AI daily while verifying outputs critically. Diploma in Software Engineering (IVE, GPA 3.23). Portfolio and GitHub available on request.
+> Full-stack developer with 6 years of experience in PHP, Laravel, Vue, and JavaScript. I build production systems including KNSM, a Po Leung Kuk kindergarten platform used by 20+ schools (full-stack ownership), a 10,000+ drug-record database, and a 16-server on-premise member portal — where I cut key ops procedures from 20+ minutes to 5–10 minutes. Since 2026, I lead AI agent adoption at FirmStudio: evaluating tools, building Cursor Skills for code scanning and documentation, and using AI daily while verifying outputs critically. Diploma in Software Engineering (IVE, GPA 3.23). Portfolio and GitHub available on request.
 
 ### 中版（約 100–200 字，用於 About section）
 
 **中文：**
 
-> 我是 5+ 年經驗的 full stack web developer，主要使用 PHP / Laravel、Vue 及 JavaScript 開發 production 系統。我的強項是**前後端緊密整合與高壓交付**：曾主力開發保良局幼稚園系統 KNSM（服務 20+ 園校），亦處理 DrugInSport 萬級藥物資料 import、HKAB 16-server on-premise 營運流程重構，將關鍵 procedure 由 20+ 分鐘縮短至 5–10 分鐘。在 FirmStudio 我常被視為 backend 主力，也擅長在需求未明或項目落後時，以誠懇溝通、高頻匯報和快速交付重建客戶信任。2026 年起我亦負責公司 AI agent 方案選型及 Cursor Skills 標準化；我相信 AI 是強力助手，但**清晰需求與人與人的溝通**同樣重要——IT 的價值在於疏理客戶真正需要，設計好用的系統，讓 AI 幫人去除阻力，而非取代思考。
+> 我是 5+ 年經驗的 full stack developer，主要使用 PHP / Laravel、Vue 及 JavaScript 開發 production 系統。我的強項是**前後端緊密整合與高壓交付**：曾主力開發保良局幼稚園系統 KNSM（服務 20+ 園校），亦處理 DrugInSport 萬級藥物資料 import、HKAB 16-server on-premise 營運流程重構，將關鍵 procedure 由 20+ 分鐘縮短至 5–10 分鐘。在 FirmStudio 我常被視為 backend 主力，也擅長在需求未明或項目落後時，以誠懇溝通、高頻匯報和快速交付重建客戶信任。2026 年起我亦負責公司 AI agent 方案選型及 Cursor Skills 標準化；我相信 AI 是強力助手，但**清晰需求與人與人的溝通**同樣重要——IT 的價值在於疏理客戶真正需要，設計好用的系統，讓 AI 幫人去除阻力，而非取代思考。
 
 **英文：**
 
-> Full-stack web developer with 6 years of experience building production systems with PHP / Laravel, Vue, and JavaScript. Core strengths include **tight FE/BE integration and delivery under pressure**: KNSM, a Po Leung Kuk kindergarten platform used by 20+ schools; large-scale drug-data imports for DrugInSport; and HKAB's 16-server on-premise operations revamp, cutting key procedures from 20+ minutes to 5–10 minutes. At FirmStudio, often the go-to backend developer for unclear requirements or delayed projects — rebuilding client trust through honest communication, frequent updates, and fast execution. Since 2026, responsibilities also include AI agent evaluation and standardized Cursor Skills for the team. AI is treated as a powerful assistant, but **clear requirements and human communication** matter just as much: the real value is understanding what clients need and designing systems that work for real users, using AI to remove friction rather than replace judgment.
+> Full-stack developer with 6 years of experience building production systems with PHP / Laravel, Vue, and JavaScript. Core strengths include **tight FE/BE integration and delivery under pressure**: KNSM, a Po Leung Kuk kindergarten platform used by 20+ schools; large-scale drug-data imports for DrugInSport; and HKAB's 16-server on-premise operations revamp, cutting key procedures from 20+ minutes to 5–10 minutes. At FirmStudio, often the go-to backend developer for unclear requirements or delayed projects — rebuilding client trust through honest communication, frequent updates, and fast execution. Since 2026, responsibilities also include AI agent evaluation and standardized Cursor Skills for the team. AI is treated as a powerful assistant, but **clear requirements and human communication** matter just as much: the real value is understanding what clients need and designing systems that work for real users, using AI to remove friction rather than replace judgment.
 
 ### 長版（可選，用於 CV 或 cover letter）
 
 **中文：**
 
-> 我是 5+ 年經驗的 full stack web developer，主要負責 Laravel、Vue、JavaScript production 系統開發。相比單純把自己包裝成「甚麼都懂」，我更想突出自己真正能為團隊帶來的價值：**前後端整合、backend problem-solving、以及在高壓項目中把事情交付出來**。我的經驗包括保良局幼稚園暨幼兒園服務管理系統 KNSM（服務 20+ 園校）、DrugInSport 萬級藥物資料庫、HKAB 16 部 on-premise server 營運流程重構等；當中 HKAB 的關鍵 procedure 由 20+ 分鐘縮短至 5–10 分鐘，操作文件亦獲客戶肯定清晰實用。
+> 我是 5+ 年經驗的 full stack developer，主要負責 Laravel、Vue、JavaScript production 系統開發。相比單純把自己包裝成「甚麼都懂」，我更想突出自己真正能為團隊帶來的價值：**前後端整合、backend problem-solving、以及在高壓項目中把事情交付出來**。我的經驗包括保良局幼稚園暨幼兒園服務管理系統 KNSM（服務 20+ 園校）、DrugInSport 萬級藥物資料庫、HKAB 16 部 on-premise server 營運流程重構等；當中 HKAB 的關鍵 procedure 由 20+ 分鐘縮短至 5–10 分鐘，操作文件亦獲客戶肯定清晰實用。
 >
 > KNSM 是最能代表我 full-stack 價值的項目之一，傳聞為 FirmStudio 史上最複雜項目之一，我擔當主力開發員，全端負責 Vue 3 + Laravel，服務 20+ 園校。項目初期我未被納入需求討論，功能流程策劃不清，PM 在進入開發後才更換；我採取見步行步，與 Designer、PM 密密釐清用法與文件，在異常緊迫的時間表上推進，靠每兩週 Demo 與透明溝通保住客戶信任，最終獲客戶及各校校長一致好評。
 >
@@ -109,7 +109,7 @@
 
 | 項目       | 內容                                                                                      |
 | -------- | --------------------------------------------------------------------------------------- |
-| 目標職位     | Full Stack Web Developer / 全端 Web 開發                                                    |
+| 目標職位     | Full Stack Developer / 全端 Web 開發                                                        |
 | 目標公司（例）  | [Apricot Medical Technology — Full-Stack Developer](https://hk.jobsdb.com/job/93067547) |
 | 目標行業     | IT / 軟件開發公司                                                                             |
 | 工作性質     | 全職                                                                                      |

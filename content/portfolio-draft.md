@@ -12,7 +12,7 @@
 | 欄位 | 內容 |
 |------|------|
 | Name | Lee Ho Sing Cyrus |
-| Title | Full Stack Web Developer |
+| Title | Full Stack Developer |
 | Tagline | Full-stack developer who excels where frontend and backend must work as one — integration, business logic, and delivery under pressure. |
 
 **CTA：**
@@ -25,7 +25,7 @@
 
 **正文（約 80–120 字）：**
 
-> Full-stack web developer with 6 years of experience building production systems in Laravel, Vue, and JavaScript. Core strengths include **FE/BE integration and delivery under pressure**.
+> Full-stack developer with 6 years of experience building production systems in Laravel, Vue, and JavaScript. Core strengths include **FE/BE integration and delivery under pressure**.
 >
 > Selected work includes KNSM, a Po Leung Kuk kindergarten platform used by 20+ schools; DrugInSport's 10k+ drug-data import workflows; and HKAB's 16-server operations revamp, cutting key procedures from 20+ minutes to 5–10 minutes.
 >
