@@ -135,6 +135,26 @@ function setupThemeToggle() {
       mql.addListener?.((e) => applyTheme(e.matches ? 'dark' : 'light', false));
     }
   }
+
+  setupThemeToggleScrollHide(button);
+}
+
+function setupThemeToggleScrollHide(button) {
+  const container = document.getElementById('content-scroll');
+  if (!container) return;
+
+  const SCROLL_THRESHOLD = 24;
+
+  const updateVisibility = () => {
+    const hideOnMobile = !isDesktopViewport() && container.scrollTop > SCROLL_THRESHOLD;
+    button.classList.toggle('is-scrolled-away', hideOnMobile);
+    button.setAttribute('aria-hidden', hideOnMobile ? 'true' : 'false');
+    button.tabIndex = hideOnMobile ? -1 : 0;
+  };
+
+  container.addEventListener('scroll', updateVisibility, { passive: true });
+  window.addEventListener('resize', updateVisibility, { passive: true });
+  updateVisibility();
 }
 
 function isDesktopViewport() {

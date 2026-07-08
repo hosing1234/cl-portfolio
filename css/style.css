@@ -136,7 +136,7 @@ button {
   border-radius: 0;
   background: var(--bg);
   color: var(--text);
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
   font-size: var(--text-label);
   font-family: var(--font-mono);
   letter-spacing: 0.12em;
@@ -1628,6 +1628,13 @@ body[data-theme='dark'] .theme-toggle:hover {
 
   .work-panel-nav--next {
     right: 0.35rem;
+  }
+
+  .theme-toggle.is-scrolled-away {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-0.5rem);
   }
 }
 
