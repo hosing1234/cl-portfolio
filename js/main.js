@@ -204,6 +204,8 @@ function renderIntro(lines) {
         document.getElementById('right-nav-line').classList.add('is-drawn');
         document.querySelectorAll('.nav-link').forEach((link) => link.classList.add('is-visible'));
         syncNavInset();
+
+        revealContentSection(document.getElementById('about'));
       }, 1600);
       return;
     }
@@ -851,7 +853,7 @@ function setupNavInset() {
 
 function setupSectionReveal() {
   const container = document.getElementById('content-scroll');
-  const sections = document.querySelectorAll('.content-section:not(:first-child)');
+  const sections = document.querySelectorAll('.content-section');
 
   if (!container || !sections.length) return;
 
@@ -879,7 +881,9 @@ function setupSectionReveal() {
     }
   );
 
-  sections.forEach((section) => {
+  sections.forEach((section, index) => {
+    // First section is revealed after intro; observer rootMargin skips it on desktop.
+    if (index === 0) return;
     const trigger = section.querySelector('.section-index') || section;
     observer.observe(trigger);
   });
@@ -890,7 +894,7 @@ function setupSectionFocusReveal() {
   if (!container) return;
 
   container.addEventListener('focusin', (event) => {
-    const section = event.target.closest('.content-section:not(:first-child)');
+    const section = event.target.closest('.content-section');
     if (!section) return;
 
     revealContentSection(section);
