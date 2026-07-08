@@ -66,11 +66,12 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 
 - **KNSM (2024 — maintenance)** — full-stack development of an internal Po Leung Kuk kindergarten platform used by **20+ schools** (no public URL); Vue 3 frontend + Laravel backend
 - **DrugInSport (2025)** — [druginsport.hk](https://www.druginsport.hk/en) for ADOHK (`fs-anti-doping`); UI by design team, **all JavaScript (jQuery) and backend (Laravel) by me**; **10,000+** drugs; Excel import with **chunked processing** and **memory** optimization
+- **Wellcome Lucky Draw (2025–2026)** — took over and revamped a legacy lucky draw codebase; reorganized duplicated coding, fixed vulnerabilities, integrated **Google OCR**, and created **AI-friendly technical documentation** later generalized into Cursor Skills
 - **1O1O Corporate CMS (2025)** — [1010corporate.com](https://www.1010corporate.com/); CMS revamp with a colleague; **CMS UI/UX**, component-based page editor, version compare/approval, form builder, and detail refinements
 - **HKAB member area (2022–2023; maintenance; ops script revamp in 2025)** — CMS integration + complex permissions; **16-node on-premise infra**; revamped ops scripts cut key procedures from **20+ min to 5–10 min**; operation guide praised by client
 - **Led AI agent adoption (2026)** — evaluated AI agent solutions, gathered team feedback, rolled out **Cursor Skills** for code scanning, document generation, and plan mode optimization; built internal batch tools (e.g. FTP access testing)
 
-**Technologies:** PHP, Laravel, Vue 3, TypeScript, Inertia.js, MySQL, MS SQL, Oracle accounting integration
+**Technologies:** PHP, Laravel, Vue 3, TypeScript, Inertia.js, MySQL, MS SQL, Oracle accounting integration, Google OCR, Cursor Skills
 
 ---
 
@@ -80,13 +81,27 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 > Full-stack web development across loyalty, e-commerce, and booking for multiple clients.
 
 - Built **[DentalMiles](https://www.dentalmiles.com/)** — dental loyalty and **booking platform** (single web system); points redemption (DentalMiles ↔ CDE), online booking, Miles Rewards & eShop
-- Developed **HIPPOS online shop module** — multi-tenant e-commerce with POS API integration, auto-discounts, promo codes, inventory sync, and online payments ([live](https://hippos.systems/login) · [product info](https://leaflet.hippos.systems/))
+- Developed **HIPPOS POS and online shop modules** — configurable multi-tenant platform connecting iPad POS, Online POS, membership, points redemption, complex discounts, online payments, member cards, and quota-based booking ([live](https://hippos.systems/login) · [product info](https://leaflet.hippos.systems/))
 
 **Technologies:** PHP, Laravel, JavaScript, Vue.js, MySQL, REST API
 
 ---
 
 ## Projects
+
+### Wellcome Lucky Draw — Legacy Revamp, OCR Integration & AI-Ready Development Workflow
+
+**Period:** 2025 — 2026
+
+**描述（1–2 句）：**
+> Took over the Wellcome Lucky Draw project in 2025, then reviewed and revamped the legacy codebase in 2026. Reorganized scattered duplicate coding, fixed security issues, integrated **Google OCR**, and produced **AI-friendly technical documentation** so both frontend and backend changes could be completed reliably with AI assistance.
+
+**Technologies:** PHP, JavaScript, jQuery, CSS, Google OCR, MySQL, SQL, Cursor Skills, AI agent evaluation, AI-assisted development, technical documentation
+
+- GitHub: N/A (company project)
+- Live: N/A
+
+---
 
 ### KNSM — Po Leung Kuk Kindergarten Management System
 
@@ -130,12 +145,14 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 
 ---
 
-### HIPPOS — Online Shop Module
+### HIPPOS — iPad POS, Online POS & E-Commerce Platform
 
 **描述（1–2 句）：**
-> Online shop module for [HIPPOS](https://hippos.systems/login), an iPad retail management platform (Apple Mobility Partner). Built multi-tenant storefronts with POS API integration, synced inventory/membership, discount rules, and payment processing.
+> [HIPPOS](https://hippos.systems/login) connects iPad POS and online shop operations for multiple clients. Beyond inventory, it covers membership, points redemption, supermarket-level configurable discounts, online payment, member cards, and quota-based schedule booking; adding a new client could be handled mainly through configuration instead of hardcoded rules.
 
-**Technologies:** PHP, Laravel, JavaScript, Vue.js, MySQL, REST API
+**My scope:** POS APIs, Online POS UI/UX and features, online shop backend, database design, and member card system. Core inventory and product-entry basics were outside my main scope.
+
+**Technologies:** PHP, Laravel, JavaScript, Vue.js, MySQL, REST API, POS API integration, payment gateway integration, database design
 
 - GitHub: N/A (company project)
 - Live: https://hippos.systems/login

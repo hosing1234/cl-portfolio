@@ -128,6 +128,64 @@
   ],
   "projects": [
     {
+      "id": "wellcome-lucky-draw",
+      "company": "firmstudio",
+      "period": "2025 — 2026",
+      "title": "Wellcome Lucky Draw",
+      "subtitle": "Legacy Revamp, OCR Integration & AI-Ready Development Workflow",
+      "summary": "Took over and revamped a legacy lucky draw codebase, added Google OCR integration, and turned the documentation approach into reusable Cursor Skills for AI-assisted delivery.",
+      "description": "Took over the Wellcome Lucky Draw project in 2025, then reviewed and revamped the legacy codebase in 2026. The work reorganized scattered duplicate coding patterns, fixed security issues, integrated Google OCR for new requirements, and produced AI-friendly technical documentation so frontend and backend changes could be completed reliably with AI assistance.",
+      "highlights": [
+        "Reviewed and revamped a legacy PHP, JavaScript, jQuery, CSS, and MySQL codebase with duplicated logic and security weaknesses.",
+        "Integrated Google OCR to support new business requirements around receipt or document handling.",
+        "Created AI-friendly technical documentation that changed the project from AI-error-prone legacy code into a codebase AI agents could safely work on across frontend and backend.",
+        "Turned the documentation method into Cursor Skills, influencing the team's development workflow across other projects."
+      ],
+      "caseStudy": {
+        "context": "Wellcome Lucky Draw is a campaign project maintained across 2025 and 2026, built on a legacy PHP, JavaScript, jQuery, CSS, MySQL, and SQL stack.",
+        "problem": "The inherited codebase had scattered, repeated coding patterns and security issues. Its structure also made AI-assisted development risky: agents could easily misunderstand frontend and backend behavior and produce incorrect changes.",
+        "role": "Took over the project in 2025, then led the 2026 code review and revamp. I reorganized duplicated logic, fixed vulnerabilities, connected OCR according to new requirements, and wrote the technical documentation needed for AI-assisted development.",
+        "solution": "Refactored the legacy codebase into clearer frontend and backend patterns, integrated Google OCR, and documented requirements, flows, and implementation details in a way AI agents could follow. The documentation approach was later generalized into reusable Cursor Skills.",
+        "impact": "Changed the project from legacy code that often confused AI into a codebase where frontend and backend work could be completed by AI with much higher reliability. The same documentation method then affected the team's wider development process through Cursor Skills.",
+        "visual": {
+          "type": "flow",
+          "caption": "Wellcome Lucky Draw: from legacy code to AI-assisted delivery",
+          "steps": [
+            {
+              "label": "01",
+              "title": "Takeover",
+              "text": "Inherited the campaign project and learned the existing legacy behavior."
+            },
+            {
+              "label": "02",
+              "title": "Review & revamp",
+              "text": "Reorganized duplicated code and fixed vulnerabilities."
+            },
+            {
+              "label": "03",
+              "title": "OCR requirement",
+              "text": "Integrated Google OCR into the existing PHP and JavaScript flow."
+            },
+            {
+              "label": "04",
+              "title": "AI-friendly docs",
+              "text": "Documented frontend, backend, and workflow details so agents could work reliably."
+            },
+            {
+              "label": "05",
+              "title": "Reusable skill",
+              "text": "Generalized the documentation method into Cursor Skills for other projects."
+            }
+          ]
+        }
+      },
+      "technologies": ["PHP", "JavaScript", "jQuery", "CSS", "Google OCR", "MySQL", "SQL", "Cursor Skills", "AI agent evaluation", "AI-assisted development", "Technical documentation"],
+      "links": {
+        "github": null,
+        "live": null
+      }
+    },
+    {
       "id": "druginsport",
       "company": "firmstudio",
       "period": "2025",
@@ -422,17 +480,19 @@
       "company": "echk",
       "period": "2020 — 2022",
       "title": "HIPPOS",
-      "subtitle": "Online Shop Module",
-      "summary": "Multi-tenant storefronts with POS API integration, inventory sync, and payments.",
-      "description": "Online shop module for HIPPOS, an iPad retail management platform. Built multi-tenant storefronts with POS API integration, inventory and membership sync, discount rules, promo codes, and payment processing.",
+      "subtitle": "iPad POS, Online POS & E-Commerce Platform",
+      "summary": "Configurable multi-tenant POS and online shop platform with membership, points redemption, complex discounts, payments, member cards, and quota-based booking.",
+      "description": "HIPPOS is a platform connecting iPad POS and online shop operations. Beyond inventory, it covers membership, points redemption, supermarket-level configurable discount rules, online payment, member cards, and quota-based schedule booking. New client onboarding could be handled mainly through configuration instead of hardcoded rules. My ownership covered POS APIs, Online POS UI/UX and features, online shop backend, database design, and member card functionality, excluding only the core inventory and product-entry basics.",
       "highlights": [
-        "Integrated POS APIs for inventory and membership sync.",
-        "Built discount rules, promo codes, and online payment processing for multiple retailers."
+        "Built POS APIs and Online POS UI/UX features connecting iPad POS operations with the online shop.",
+        "Designed online shop backend and database structures for multi-tenant client configuration.",
+        "Implemented membership, points redemption, online payment, and member card functionality.",
+        "Supported user-configurable discount rules and quota-based schedule booking without hardcoded client logic."
       ],
       "caseStudy": {
         "collapsed": true
       },
-      "technologies": ["PHP", "Laravel", "JavaScript", "Vue.js", "MySQL", "REST API", "Payment gateway integration"],
+      "technologies": ["PHP", "Laravel", "JavaScript", "Vue.js", "MySQL", "REST API", "POS API integration", "Payment gateway integration", "Database design"],
       "links": {
         "github": null,
         "live": null
