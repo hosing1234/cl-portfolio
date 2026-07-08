@@ -25,8 +25,8 @@ I am excited by Apricot's emphasis on AI-assisted engineering and mentorship-dri
 
 Sincerely,  
 Lee Ho Sing Cyrus  
-hosing1234@gmail.com  
-https://github.com/fs-cyrus-lee
+lhs.cyrus@gmail.com  
+https://github.com/lhscyrus-work
 
 ---
 
@@ -56,7 +56,7 @@ Full-stack web developer with 5+ years of experience in PHP, Laravel, Vue, and J
 
 ### 極短版（~350 characters — 字數限制時）
 
-Full-stack developer, 5+ yrs (PHP/Laravel/Vue/JS). Developed KNSM, a platform for 20+ schools; 10k+ drug records; 16-node on-premise infra (ops cut from 20+ to 5–10 min). Lead AI agent adoption at FirmStudio — Cursor Skills, code scanning, AI-assisted workflow. IVE Software Engineering. GitHub: fs-cyrus-lee
+Full-stack developer, 5+ yrs (PHP/Laravel/Vue/JS). Developed KNSM, a platform for 20+ schools; 10k+ drug records; 16-node on-premise infra (ops cut from 20+ to 5–10 min). Lead AI agent adoption at FirmStudio — Cursor Skills, code scanning, AI-assisted workflow. IVE Software Engineering. GitHub: lhscyrus-work
 
 ### 中文短版（JobsDB profile 中文摘要 — 通用）
 

@@ -185,8 +185,8 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 
 | 欄位 | 內容 |
 |------|------|
-| Email | hosing1234@gmail.com |
-| GitHub | https://github.com/fs-cyrus-lee |
+| Email | lhs.cyrus@gmail.com |
+| GitHub | https://github.com/lhscyrus-work |
 | Location | Hong Kong |
 
 ---

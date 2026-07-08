@@ -4,7 +4,7 @@
     "language": "en",
     "fallbackLanguage": "zh",
     "theme": "light",
-    "lastUpdated": "2026-07-06"
+    "lastUpdated": "2026-07-08"
   },
   "intro": {
     "lines": [
@@ -447,8 +447,8 @@
     }
   ],
   "contact": {
-    "email": "hosing1234@gmail.com",
-    "github": "https://github.com/fs-cyrus-lee",
+    "email": "lhs.cyrus@gmail.com",
+    "github": "https://github.com/lhscyrus-work",
     "location": "Hong Kong"
   }
 }

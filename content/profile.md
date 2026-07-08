@@ -33,9 +33,9 @@
 | 姓名          | 李皓聲                                                                                                                    | Lee Ho Sing Cyrus                                   |
 | 職稱 / Title  | 全端 Web 開發人員                                                                                                            | Full Stack Web Developer                            |
 | 所在地         | 香港                                                                                                                     | Hong Kong SAR                                       |
-| Email（見工用）  | [hosing1234@gmail.com](mailto:hosing1234@gmail.com)                                                                    | [hosing1234@gmail.com](mailto:hosing1234@gmail.com) |
+| Email（見工用）  | [lhs.cyrus@gmail.com](mailto:lhs.cyrus@gmail.com)                                                                    | [lhs.cyrus@gmail.com](mailto:lhs.cyrus@gmail.com) |
 | 電話          | `67622353`                                                                                                             |                                                     |
-| GitHub      | [https://github.com/fs-cyrus-lee](https://github.com/fs-cyrus-lee)                                                     |                                                     |
+| GitHub      | [https://github.com/lhscyrus-work](https://github.com/lhscyrus-work)                                                     |                                                     |
 | LinkedIn    | 無                                                                                                                      | —                                                   |
 | JobsDB      | [https://hk.jobsdb.com/profiles/hosingcyrus-lee-92dNl5GWds](https://hk.jobsdb.com/profiles/hosingcyrus-lee-92dNl5GWds) |                                                     |
 | 個人網站 / Blog | `[待填，如有]`                                                                                                              |                                                     |
