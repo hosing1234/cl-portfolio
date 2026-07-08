@@ -100,11 +100,11 @@
     },
     {
       "category": "Database & Integration",
-      "items": ["MySQL", "SQL Server", "REST APIs", "POS API integration", "Payment gateway integration", "Oracle accounting integration"]
+      "items": ["MySQL", "SQL Server", "REST APIs", "Payment gateway integration", "Oracle accounting integration"]
     },
     {
       "category": "AI & Workflow",
-      "items": ["Cursor", "AI-assisted development", "Cursor Skills", "AI agent evaluation", "Code scanning automation"]
+      "items": ["Cursor", "AI-assisted development", "Cursor Skills", "AI agent evaluation"]
     },
     {
       "category": "Tools & Operations",
