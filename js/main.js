@@ -122,15 +122,21 @@ function buildSectionPreviews(data) {
 function renderIntro(lines) {
   const screen = document.getElementById('intro-screen');
   const container = document.getElementById('intro-lines');
+  const appShell = document.getElementById('app-shell');
   const introLines = lines;
   const rendered = introLines.map(() => '');
-  container.innerHTML = rendered.map((line) => `<div class="intro-line">${line}</div>`).join('');
+  container.innerHTML = rendered
+    .map((line) => `<div class="intro-line">${line}</div>`)
+    .join('');
 
   const lineEls = [...container.querySelectorAll('.intro-line')];
   const totalChars = introLines.reduce((sum, line) => sum + line.length, 0);
-  const charInterval = 2000 / totalChars;
+  const charInterval = totalChars ? 2000 / totalChars : 30;
   let lineIndex = 0;
   let charIndex = 0;
+
+  // Show caret on the currently typing line (instead of relying on :last-child).
+  if (lineEls[0]) lineEls[0].classList.add('has-caret');
 
   const typeNext = () => {
     if (lineIndex >= introLines.length) {
@@ -138,12 +144,17 @@ function renderIntro(lines) {
       window.setTimeout(() => {
         screen.classList.add('is-hidden');
         document.getElementById('app-shell').classList.add('is-ready');
+        appShell?.removeAttribute('inert');
         document.getElementById('right-nav-line').classList.add('is-drawn');
         document.querySelectorAll('.nav-link').forEach((link) => link.classList.add('is-visible'));
         syncNavInset();
       }, 1600);
       return;
     }
+
+    // Keep caret anchored to the line we're about to type.
+    lineEls.forEach((el) => el.classList.remove('has-caret'));
+    lineEls[lineIndex]?.classList.add('has-caret');
 
     const current = introLines[lineIndex];
     if (charIndex < current.length) {
@@ -153,12 +164,9 @@ function renderIntro(lines) {
       return;
     }
 
+    // Line finished: move caret to next line.
     lineIndex += 1;
     charIndex = 0;
-    if (lineIndex < introLines.length) {
-      container.insertAdjacentHTML('beforeend', '<div class="intro-line"></div>');
-      lineEls.push(container.lastElementChild);
-    }
     window.setTimeout(typeNext, charInterval * 3);
   };
 
@@ -665,6 +673,14 @@ function setLeftPanel(section, previewItems) {
     .join('');
 }
 
+function revealContentSection(sectionEl, { delay = 0 } = {}) {
+  if (!sectionEl || sectionEl.classList.contains('is-in-view')) return;
+
+  const apply = () => sectionEl.classList.add('is-in-view');
+  if (delay > 0) window.setTimeout(apply, delay);
+  else apply();
+}
+
 function scrollToSection(sectionLabel) {
   const section = SECTION_CONFIG.find((item) => item.label === sectionLabel);
   const target = document.getElementById(section?.id || sectionLabel.toLowerCase());
@@ -678,9 +694,7 @@ function scrollToSection(sectionLabel) {
   });
   if (!isDesktopViewport()) closeNav();
 
-  if (!target.classList.contains('is-in-view')) {
-    window.setTimeout(() => target.classList.add('is-in-view'), 500);
-  }
+  revealContentSection(target, { delay: 500 });
 }
 
 function openKnowMore() {
@@ -795,6 +809,7 @@ function setupSectionReveal() {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         const section = entry.target.closest('.content-section');
+
         if (section) reveal(section);
         observer.unobserve(entry.target);
       });
@@ -812,6 +827,18 @@ function setupSectionReveal() {
   });
 }
 
+function setupSectionFocusReveal() {
+  const container = document.getElementById('content-scroll');
+  if (!container) return;
+
+  container.addEventListener('focusin', (event) => {
+    const section = event.target.closest('.content-section:not(:first-child)');
+    if (!section) return;
+
+    revealContentSection(section);
+  });
+}
+
 function setupInteractions(sectionPreviews) {
   document.querySelectorAll('.nav-link').forEach((link) => {
     const section = link.dataset.section;
@@ -820,6 +847,7 @@ function setupInteractions(sectionPreviews) {
     link.addEventListener('mouseenter', () => setLeftPanel(section, previewItems));
     link.addEventListener('mouseleave', () => setLeftPanel(null));
     link.addEventListener('click', () => scrollToSection(section));
+    link.addEventListener('focus', () => scrollToSection(section));
   });
 
   document.getElementById('rail-toggle').addEventListener('click', (event) => {
@@ -873,6 +901,8 @@ function setupInteractions(sectionPreviews) {
 
 async function init() {
   try {
+    // Prevent Tab from jumping into hidden buttons during the intro animation.
+    document.getElementById('app-shell')?.setAttribute('inert', '');
     portfolioData = await loadPortfolio();
     const sectionPreviews = buildSectionPreviews(portfolioData);
 
@@ -886,6 +916,7 @@ async function init() {
     initNavState();
     setupNavInset();
     setupSectionReveal();
+    setupSectionFocusReveal();
     setupInteractions(sectionPreviews);
     renderIntro(portfolioData.intro?.lines || [
       '> initializing...',
@@ -894,6 +925,7 @@ async function init() {
     ]);
   } catch (error) {
     console.error(error);
+    document.getElementById('app-shell')?.removeAttribute('inert');
     document.body.innerHTML =
       '<div class="load-error">Failed to load portfolio. Please check data/portfolio.json.</div>';
   }

@@ -106,7 +106,7 @@ button {
   line-height: 1.8;
 }
 
-.intro-line:last-child::after {
+.intro-line.has-caret::after {
   content: '';
   display: inline-block;
   width: 7px;
@@ -117,8 +117,8 @@ button {
   animation: blink 0.8s step-end infinite;
 }
 
-.intro-screen.is-fading .intro-line:last-child::after,
-.intro-screen.is-hidden .intro-line:last-child::after {
+.intro-screen.is-fading .intro-line.has-caret::after,
+.intro-screen.is-hidden .intro-line.has-caret::after {
   display: none;
 }
 
