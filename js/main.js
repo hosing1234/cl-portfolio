@@ -756,7 +756,9 @@ function applyNavState() {
 }
 
 function initNavState() {
-  navOpen = true;
+  // Desktop: show section navigation by default.
+  // Mobile: hide by default to match expected UX.
+  navOpen = isDesktopViewport();
   applyNavState();
 }
 
