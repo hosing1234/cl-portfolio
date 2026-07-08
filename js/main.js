@@ -81,6 +81,62 @@ let workPanelOpen = false;
 let activeWorkProjectId = null;
 let navOpen = false;
 
+function getInitialThemeState() {
+  const stored = window.localStorage?.getItem('theme');
+  if (stored === 'light' || stored === 'dark') {
+    return { theme: stored, forced: true };
+  }
+
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  return { theme: prefersDark ? 'dark' : 'light', forced: false };
+}
+
+function applyTheme(theme, forced = false) {
+  if (forced) {
+    document.body.dataset.theme = theme;
+  } else {
+    delete document.body.dataset.theme;
+  }
+
+  const button = document.getElementById('theme-toggle');
+  if (button) {
+    const isDark = theme === 'dark';
+    button.setAttribute('aria-pressed', String(isDark));
+    button.textContent = isDark ? 'Light' : 'Dark';
+  }
+
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) {
+    meta.setAttribute('content', theme === 'dark' ? '#0f0f10' : '#f8f8f8');
+  }
+}
+
+function setupThemeToggle() {
+  const button = document.getElementById('theme-toggle');
+  if (!button) return;
+
+  const initial = getInitialThemeState();
+  applyTheme(initial.theme, initial.forced);
+
+  button.addEventListener('click', () => {
+    const currentTheme = document.body.dataset.theme
+      || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    window.localStorage?.setItem('theme', nextTheme);
+    applyTheme(nextTheme, true);
+  });
+
+  // Auto mode: keep label in sync with OS changes.
+  if (!initial.forced) {
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+    if (mql.addEventListener) {
+      mql.addEventListener('change', (e) => applyTheme(e.matches ? 'dark' : 'light', false));
+    } else {
+      mql.addListener?.((e) => applyTheme(e.matches ? 'dark' : 'light', false));
+    }
+  }
+}
+
 function isDesktopViewport() {
   return window.matchMedia('(min-width: 901px)').matches;
 }
@@ -903,6 +959,7 @@ function setupInteractions(sectionPreviews) {
 
 async function init() {
   try {
+    setupThemeToggle();
     // Prevent Tab from jumping into hidden buttons during the intro animation.
     document.getElementById('app-shell')?.setAttribute('inert', '');
     portfolioData = await loadPortfolio();

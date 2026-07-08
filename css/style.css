@@ -22,6 +22,41 @@
   --text-label: 0.8125rem;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f0f10;
+    --text: #f5f5f5;
+    --text-muted: #bdbdbd;
+    --text-light: var(--text-muted);
+    --border: rgba(255, 255, 255, 0.18);
+    --border-strong: #f5f5f5;
+    --scrollbar-thumb: var(--text-muted);
+    --scrollbar-thumb-hover: var(--text-muted);
+  }
+}
+
+body[data-theme='dark'] {
+  --bg: #0f0f10;
+  --text: #f5f5f5;
+  --text-muted: #bdbdbd;
+  --text-light: var(--text-muted);
+  --border: rgba(255, 255, 255, 0.18);
+  --border-strong: #f5f5f5;
+  --scrollbar-thumb: var(--text-muted);
+  --scrollbar-thumb-hover: var(--text-muted);
+}
+
+body[data-theme='light'] {
+  --bg: #f8f8f8;
+  --text: #000000;
+  --text-muted: #3d3d3d;
+  --text-light: var(--text-muted);
+  --border: rgba(61, 61, 61, 0.2);
+  --border-strong: #000000;
+  --scrollbar-thumb: var(--text-muted);
+  --scrollbar-thumb-hover: var(--text-muted);
+}
+
 *,
 *::before,
 *::after {
@@ -42,6 +77,7 @@ body {
   font-size: 16px;
   background: var(--bg);
   color: var(--text);
+  color-scheme: light dark;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -86,6 +122,39 @@ button {
 .styled-scrollbar::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-thumb-hover);
   border-radius: 0;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.2s ease, border-color 0.2s ease;
+  font-size: var(--text-label);
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 1rem 0 2rem;
+}
+
+.theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+}
+
+body[data-theme='dark'] .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 /* Intro */
@@ -640,7 +709,6 @@ button {
   color: var(--text-light);
   margin-bottom: 1.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border);
 }
 
 .timeline-event {
