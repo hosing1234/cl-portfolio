@@ -60,7 +60,7 @@
 
 **英文：**
 
-> Full-stack web developer with 5+ years of experience in PHP, Laravel, Vue, and JavaScript. I build production systems including KNSM, a Po Leung Kuk kindergarten platform used by 20+ schools (full-stack ownership), a 10,000+ drug-record database, and a 16-server on-premise member portal — where I cut key ops procedures from 20+ minutes to 5–10 minutes. Since 2026, I lead AI agent adoption at FirmStudio: evaluating tools, building Cursor Skills for code scanning and documentation, and using AI daily while verifying outputs critically. Diploma in Software Engineering (IVE, GPA 3.23). Portfolio and GitHub available on request.
+> Full-stack web developer with 6 years of experience in PHP, Laravel, Vue, and JavaScript. I build production systems including KNSM, a Po Leung Kuk kindergarten platform used by 20+ schools (full-stack ownership), a 10,000+ drug-record database, and a 16-server on-premise member portal — where I cut key ops procedures from 20+ minutes to 5–10 minutes. Since 2026, I lead AI agent adoption at FirmStudio: evaluating tools, building Cursor Skills for code scanning and documentation, and using AI daily while verifying outputs critically. Diploma in Software Engineering (IVE, GPA 3.23). Portfolio and GitHub available on request.
 
 ### 中版（約 100–200 字，用於 About section）
 
@@ -70,7 +70,7 @@
 
 **英文：**
 
-> Full-stack web developer with 5+ years of experience building production systems with PHP / Laravel, Vue, and JavaScript. Core strengths include **tight FE/BE integration and delivery under pressure**: KNSM, a Po Leung Kuk kindergarten platform used by 20+ schools; large-scale drug-data imports for DrugInSport; and HKAB's 16-server on-premise operations revamp, cutting key procedures from 20+ minutes to 5–10 minutes. At FirmStudio, often the go-to backend developer for unclear requirements or delayed projects — rebuilding client trust through honest communication, frequent updates, and fast execution. Since 2026, responsibilities also include AI agent evaluation and standardized Cursor Skills for the team. AI is treated as a powerful assistant, but **clear requirements and human communication** matter just as much: the real value is understanding what clients need and designing systems that work for real users, using AI to remove friction rather than replace judgment.
+> Full-stack web developer with 6 years of experience building production systems with PHP / Laravel, Vue, and JavaScript. Core strengths include **tight FE/BE integration and delivery under pressure**: KNSM, a Po Leung Kuk kindergarten platform used by 20+ schools; large-scale drug-data imports for DrugInSport; and HKAB's 16-server on-premise operations revamp, cutting key procedures from 20+ minutes to 5–10 minutes. At FirmStudio, often the go-to backend developer for unclear requirements or delayed projects — rebuilding client trust through honest communication, frequent updates, and fast execution. Since 2026, responsibilities also include AI agent evaluation and standardized Cursor Skills for the team. AI is treated as a powerful assistant, but **clear requirements and human communication** matter just as much: the real value is understanding what clients need and designing systems that work for real users, using AI to remove friction rather than replace judgment.
 
 ### 長版（可選，用於 CV 或 cover letter）
 

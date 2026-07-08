@@ -9,13 +9,13 @@
 
 Dear Hiring Manager,
 
-I am writing to apply for the Full-Stack Developer position at Apricot Medical Technology. With over five years of experience building and maintaining production web applications — and a growing focus on AI-assisted engineering — I believe my background aligns closely with what you are looking for.
+I am writing to apply for the Full-Stack Developer position at Apricot Medical Technology. With 6 years of experience building and maintaining production web applications — and a growing focus on AI-assisted engineering — I believe my background aligns closely with what you are looking for.
 
 ---
 
 ## Main paragraph（核心段落 — 可直接使用）
 
-I am a full-stack web developer with five years of experience delivering reliable features across Laravel, Vue, and JavaScript in production environments. At FirmStudio, I developed KNSM, a multi-tenant kindergarten management platform used by 20+ schools, and I build backend systems handling 10,000+ drug records with performance-critical import pipelines. I also revamp complex on-premise infrastructure — for Hong Kong Accreditation Body, I redesigned operation scripts and guides for a 16-server architecture, cutting key procedures from over 20 minutes to 5–10 minutes, with documentation praised by the client for clarity. Since 2026, I have led FirmStudio's adoption of AI coding assistants: evaluating agent solutions, gathering team feedback, and creating standardized Cursor Skills for code scanning, document generation, and plan-mode workflows. I use AI daily to accelerate development, but I believe its value depends on clear requirements and honest communication — our job is to clarify what users need and design workflows that work for them, not only to write code by hand. I verify AI outputs critically and know when to build custom tooling instead. This portfolio site was built with an AI-assisted, content-driven workflow, which I am happy to walk through in an interview.
+I am a full-stack web developer with 6 years of experience delivering reliable features across Laravel, Vue, and JavaScript in production environments. At FirmStudio, I developed KNSM, a multi-tenant kindergarten management platform used by 20+ schools, and I build backend systems handling 10,000+ drug records with performance-critical import pipelines. I also revamp complex on-premise infrastructure — for Hong Kong Accreditation Body, I redesigned operation scripts and guides for a 16-server architecture, cutting key procedures from over 20 minutes to 5–10 minutes, with documentation praised by the client for clarity. Since 2026, I have led FirmStudio's adoption of AI coding assistants: evaluating agent solutions, gathering team feedback, and creating standardized Cursor Skills for code scanning, document generation, and plan-mode workflows. I use AI daily to accelerate development, but I believe its value depends on clear requirements and honest communication — our job is to clarify what users need and design workflows that work for them, not only to write code by hand. I verify AI outputs critically and know when to build custom tooling instead. This portfolio site was built with an AI-assisted, content-driven workflow, which I am happy to walk through in an interview.
 
 ---
 
@@ -40,7 +40,7 @@ https://github.com/lhscyrus-work
 | AI-Built Portfolio | "This portfolio site itself was built with AI-assisted workflow" |
 | Critical Evaluation | Clear requirements + communication; verify AI outputs; custom tooling when needed |
 | Human + AI philosophy | "clarify what users need... not only to write code by hand" |
-| 2–3 years experience | "five years of experience" |
+| 2–3 years experience | "6 years of experience" |
 | Reliability & execution | HKAB ops 20+ min → 5–10 min; production systems |
 
 ---
@@ -52,7 +52,7 @@ https://github.com/lhscyrus-work
 
 ### 標準版（Recommended — English）
 
-Full-stack web developer with 5+ years of experience in PHP, Laravel, Vue, and JavaScript. I build production systems including KNSM, a Po Leung Kuk kindergarten platform used by 20+ schools (full-stack ownership), a 10,000+ drug-record database, and a 16-server on-premise member portal — where I cut key ops procedures from 20+ minutes to 5–10 minutes. Since 2026, I lead AI agent adoption at FirmStudio: evaluating tools, building Cursor Skills for code scanning and documentation, and using AI daily while verifying outputs critically. Diploma in Software Engineering (IVE, GPA 3.23). Portfolio and GitHub available on request.
+Full-stack web developer with 6 years of experience in PHP, Laravel, Vue, and JavaScript. I build production systems including KNSM, a Po Leung Kuk kindergarten platform used by 20+ schools (full-stack ownership), a 10,000+ drug-record database, and a 16-server on-premise member portal — where I cut key ops procedures from 20+ minutes to 5–10 minutes. Since 2026, I lead AI agent adoption at FirmStudio: evaluating tools, building Cursor Skills for code scanning and documentation, and using AI daily while verifying outputs critically. Diploma in Software Engineering (IVE, GPA 3.23). Portfolio and GitHub available on request.
 
 ### 極短版（~350 characters — 字數限制時）
 

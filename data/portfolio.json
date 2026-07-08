@@ -4,7 +4,7 @@
     "language": "en",
     "fallbackLanguage": "zh",
     "theme": "light",
-    "lastUpdated": "2026-07-08"
+    "lastUpdated": "2026-07-09"
   },
   "intro": {
     "lines": [
@@ -25,31 +25,36 @@
   "about": {
     "subhead": ["Integrator.", "Builder.", "Problem solver."],
     "paragraphs": [
-      "Full-stack web developer with 5+ years of experience building production systems in Laravel, Vue, and JavaScript. Core strengths include FE/BE integration and delivery under pressure."
+      "Full-stack web developer with 6 years of experience building production systems in Laravel, Vue, and JavaScript. Core strengths include FE/BE integration and delivery under pressure.",
+      "Since 2026, I have led team AI adoption at FirmStudio — evaluating agent solutions, gathering colleague feedback, and rolling out company-wide AI-assisted workflows, with clear requirements and human communication at the centre."
     ],
     "highlights": [
       "Full-stack integration — developed KNSM, a multi-campus platform serving 20+ schools",
       "Backend & crisis delivery — HKAB ops turnaround (20+ min to 5–10 min); DrugInSport 10k+ import",
-      "AI with judgment — lead AI agent rollout; clear requirements and communication over blind automation"
+      "Led team AI adoption — evaluated tools, gathered feedback, and rolled out AI-assisted workflows company-wide"
     ],
     "longForm": {
       "title": "More about the work",
       "sections": [
         {
           "title": "Where the value sits",
-          "text": "Full-stack web developer with 5+ years of experience in Laravel, Vue, and JavaScript production systems. The clearest value lies in FE/BE integration, backend problem-solving, and delivery under pressure — not in competing with specialists on depth alone. Selected work includes KNSM, a Po Leung Kuk kindergarten platform serving 20+ schools; DrugInSport's 10,000+ drug-record import pipeline; and HKAB's 16-server on-premise operations revamp, where key procedures were cut from 20+ minutes to 5–10 minutes."
+          "text": "Full-stack web developer with 6 years of experience in Laravel, Vue, and JavaScript production systems. The clearest value lies in FE/BE integration, backend problem-solving, and delivery under pressure — not in competing with specialists on depth alone. Selected work includes KNSM, a Po Leung Kuk kindergarten platform serving 20+ schools; DrugInSport's 10,000+ drug-record import pipeline; and HKAB's 16-server on-premise operations revamp, where key procedures were cut from 20+ minutes to 5–10 minutes."
         },
         {
-          "title": "A complex school platform",
-          "text": "KNSM is one of the strongest full-stack examples in the portfolio: a Po Leung Kuk kindergarten platform built with Vue 3 and Laravel, serving 20+ schools. Reportedly one of FirmStudio's most complex projects, it required turning unclear early requirements into workable flows with designers and PMs, then maintaining client trust through frequent demos and steady delivery — earning praise from the client and school principals."
+          "title": "Turning ambiguity into working systems",
+          "text": "I do my best work when requirements are not yet fully clear and the system needs someone who can connect UI flow, backend logic, and real user operations. KNSM was the clearest example: a Vue 3 and Laravel platform serving 20+ schools, where I helped turn unclear early requirements into workable flows with designers and PMs, then kept delivery moving through frequent demos and steady communication."
         },
         {
-          "title": "Backend depth & crisis delivery",
-          "text": "In recent FirmStudio projects, frontend colleagues usually own the UI while my work focuses more on backend logic, integration, operations, and delivery risk. That built deep backend experience over time: DrugInSport's large-scale import pipeline, HKAB's on-premise ops work, and production deployment scripts. HKAB was a troubled takeover — severely behind, close to legal escalation — restored through fast execution, tight PM reporting, and candid client communication."
+          "title": "Reliable when delivery gets difficult",
+          "text": "Over time, I have become the developer trusted with backend-heavy or difficult delivery work: large imports, production operations, deployment scripts, and troubled project takeovers. DrugInSport, HKAB, and similar work built my backend depth because the problems were not only technical — they required fast execution, clear reporting, and honest communication when trust was at risk."
         },
         {
-          "title": "AI adoption at FirmStudio",
-          "text": "Since 2026, responsibilities at FirmStudio have also included AI agent evaluation and standardized Cursor Skills for the team, bringing AI-assisted workflows into daily development and collaboration."
+          "title": "Designing for people who operate the system",
+          "text": "A recurring part of my work is turning complex business rules into systems that non-technical users can operate with confidence. Whether it is a CMS editor, school administrator, operations team, or POS user, I care about clear flows, visible feedback, sensible defaults, and documentation that supports real work instead of becoming a workaround for poor design."
+        },
+        {
+          "title": "Led team AI adoption",
+          "text": "Since 2026, I have led FirmStudio's team AI adoption — evaluating agent solutions, gathering colleague feedback, and recommending Cursor for stable regional support in Hong Kong. The rollout built on practical wins such as AI-ready documentation from the Wellcome Lucky Draw revamp, extending AI-assisted workflows across daily development and team collaboration."
         }
       ]
     }
@@ -110,7 +115,7 @@
     {
       "id": "firmstudio",
       "company": "FirmStudio",
-      "role": "Web Developer",
+      "role": "Web Developer (Full Stack)",
       "period": "Oct 2022",
       "summary": "Full-stack developer building multi-tenant internal systems, client web applications, CMS platforms, and production operation tooling.",
       "otherWork": "Alongside the highlighted projects below, ongoing work includes CMS development & integration (HKAB is one example), internal tooling, client web maintenance, production deployment scripts, and AI workflow adoption across the team.",
@@ -119,7 +124,7 @@
     {
       "id": "echk",
       "company": "ECHK",
-      "role": "Web Developer",
+      "role": "Web Developer (Full Stack)",
       "period": "Aug 2020 — May 2022",
       "summary": "Full-stack web development across loyalty, e-commerce, booking, and POS-integrated online shop modules.",
       "otherWork": "Additional loyalty, CMS, and client-specific web modules across the ECHK product suite.",
@@ -394,64 +399,6 @@
       "links": {
         "github": null,
         "live": "https://www.1010corporate.com/"
-      }
-    },
-    {
-      "id": "ai-adoption",
-      "company": "firmstudio",
-      "kind": "initiative",
-      "period": "2026",
-      "title": "AI Agent Adoption",
-      "subtitle": "FirmStudio internal initiative",
-      "summary": "Led AI agent adoption: evaluated solutions, gathered team feedback, and rolled out Cursor Skills for code scanning, document generation, and plan-mode workflows.",
-      "description": "Led FirmStudio's AI agent evaluation and rollout — gathering team feedback, selecting tooling, and creating standardized Cursor Skills for code scanning, document generation, and plan-mode workflows.",
-      "highlights": [
-        "Evaluated AI agent solutions and aligned rollout with team needs.",
-        "Built standardized Cursor Skills for code scanning and document generation.",
-        "Introduced plan-mode workflows to improve accuracy and reduce review overhead."
-      ],
-      "caseStudy": {
-        "context": "FirmStudio began evaluating AI agents to keep pace with the industry and understand their real impact on daily work.",
-        "problem": "The decision was not only about price. Claude was strong, but Hong Kong was outside its supported region, so we needed a stable solution instead of a grey-area workaround.",
-        "role": "I was asked to lead the rollout: gather team feedback, compare agents, recommend tooling, and turn early trials into a repeatable workflow.",
-        "solution": "After the first trial day, I studied Cursor Skills and built ways to make AI output more stable, reusable, and easier to review.",
-        "impact": "I shared skills, tools, and findings across the company, because AI adoption only matters when the whole team improves together.",
-        "visual": {
-          "type": "flow",
-          "caption": "AI Agent Adoption rollout flow",
-          "steps": [
-            {
-              "label": "01",
-              "title": "Business question",
-              "text": "How much can AI change daily work?"
-            },
-            {
-              "label": "02",
-              "title": "Team feedback",
-              "text": "Gather needs, concerns, and trial feedback."
-            },
-            {
-              "label": "03",
-              "title": "Tool decision",
-              "text": "Choose Cursor for stable regional support."
-            },
-            {
-              "label": "04",
-              "title": "Skills & workflow",
-              "text": "Stabilize outputs with reusable Cursor Skills."
-            },
-            {
-              "label": "05",
-              "title": "Team rollout",
-              "text": "Share tools and findings company-wide."
-            }
-          ]
-        }
-      },
-      "technologies": ["Cursor", "AI Agents", "Cursor Skills", "MCP"],
-      "links": {
-        "github": null,
-        "live": null
       }
     },
     {

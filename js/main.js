@@ -156,7 +156,7 @@ function buildSectionPreviews(data) {
     About: [
       data.hero.title,
       `Based in ${data.contact.location}`,
-      '5+ years production experience',
+      '6 years of production experience',
       'Know more for full story',
     ],
     'AI Era': [
@@ -164,7 +164,6 @@ function buildSectionPreviews(data) {
     ],
     Skills: topSkills,
     Work: [...data.projects]
-      .filter((project) => project.id !== 'ai-adoption')
       .sort((a, b) => parseTimelineSortYear(b.period) - parseTimelineSortYear(a.period))
       .map(formatWorkPreviewLabel),
     Contact: [

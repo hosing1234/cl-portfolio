@@ -25,16 +25,16 @@
 
 **正文（約 80–120 字）：**
 
-> Full-stack web developer with 5+ years of experience building production systems in Laravel, Vue, and JavaScript. Core strengths include **FE/BE integration and delivery under pressure**.
+> Full-stack web developer with 6 years of experience building production systems in Laravel, Vue, and JavaScript. Core strengths include **FE/BE integration and delivery under pressure**.
 >
 > Selected work includes KNSM, a Po Leung Kuk kindergarten platform used by 20+ schools; DrugInSport's 10k+ drug-data import workflows; and HKAB's 16-server operations revamp, cutting key procedures from 20+ minutes to 5–10 minutes.
 >
-> Current work also includes leading AI agent adoption at FirmStudio, using AI to remove friction while keeping clear requirements and human communication at the centre of delivery.
+> Since 2026, I have led team AI adoption at FirmStudio — evaluating agent solutions, gathering colleague feedback, and rolling out company-wide AI-assisted workflows, with clear requirements and human communication at the centre.
 
 **Highlights（3 點）：**
 1. **Full-stack integration** — developed KNSM, a multi-campus platform serving 20+ schools
 2. **Backend & crisis delivery** — HKAB ops turnaround (20+ min → 5–10 min); DrugInSport 10k+ import; restored client trust on troubled projects
-3. **AI with judgment** — lead AI agent rollout; clear requirements & communication over blind automation
+3. **Led team AI adoption** — evaluated tools, gathered feedback, and rolled out AI-assisted workflows company-wide
 
 ---
 
@@ -59,7 +59,7 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 
 ## Experience
 
-### FirmStudio — Web Developer | Oct 2022
+### FirmStudio — Web Developer (Full Stack) | Oct 2022
 
 **一句概述：**
 > Full stack developer building multi-tenant internal systems, client web applications, and CMS platforms — owning both frontend and backend.
@@ -69,13 +69,12 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 - **Wellcome Lucky Draw (2025–2026)** — took over and revamped a legacy lucky draw codebase; reorganized duplicated coding, fixed vulnerabilities, integrated **Google OCR**, and created **AI-friendly technical documentation** later generalized into Cursor Skills
 - **1O1O Corporate CMS (2025)** — [1010corporate.com](https://www.1010corporate.com/); CMS revamp with a colleague; **CMS UI/UX**, component-based page editor, version compare/approval, form builder, and detail refinements
 - **HKAB member area (2022–2023; maintenance; ops script revamp in 2025)** — CMS integration + complex permissions; **16-node on-premise infra**; revamped ops scripts cut key procedures from **20+ min to 5–10 min**; operation guide praised by client
-- **Led AI agent adoption (2026)** — evaluated AI agent solutions, gathered team feedback, rolled out **Cursor Skills** for code scanning, document generation, and plan mode optimization; built internal batch tools (e.g. FTP access testing)
 
 **Technologies:** PHP, Laravel, Vue 3, TypeScript, Inertia.js, MySQL, SQL Server, Oracle accounting integration, Google OCR, Cursor Skills
 
 ---
 
-### ECHK — Web Developer | Aug 2020 — May 2022
+### ECHK — Web Developer (Full Stack) | Aug 2020 — May 2022
 
 **一句概述：**
 > Full-stack web development across loyalty, e-commerce, and booking for multiple clients.
