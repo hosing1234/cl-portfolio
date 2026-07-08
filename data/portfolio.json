@@ -95,7 +95,7 @@
     },
     {
       "category": "Database & Integration",
-      "items": ["MySQL", "MS SQL", "REST APIs", "POS API integration", "Payment gateway integration", "Oracle accounting integration"]
+      "items": ["MySQL", "SQL Server", "REST APIs", "POS API integration", "Payment gateway integration", "Oracle accounting integration"]
     },
     {
       "category": "AI & Workflow",
@@ -114,7 +114,7 @@
       "period": "Oct 2022",
       "summary": "Full-stack developer building multi-tenant internal systems, client web applications, CMS platforms, and production operation tooling.",
       "otherWork": "Alongside the highlighted projects below, ongoing work includes CMS development & integration (HKAB is one example), internal tooling, client web maintenance, production deployment scripts, and AI workflow adoption across the team.",
-      "technologies": ["PHP", "Laravel", "Vue 3", "TypeScript", "Inertia.js", "MySQL", "MS SQL", "Oracle accounting integration", "Cursor"]
+      "technologies": ["PHP", "Laravel", "Vue 3", "TypeScript", "Inertia.js", "MySQL", "SQL Server", "Oracle accounting integration", "Cursor"]
     },
     {
       "id": "echk",
@@ -266,7 +266,7 @@
           ]
         }
       },
-      "technologies": ["PHP 8", "Laravel 10", "Vue 3", "TypeScript", "Inertia.js", "Vuetify", "MS SQL", "Oracle accounting integration"],
+      "technologies": ["PHP 8", "Laravel 10", "Vue 3", "TypeScript", "Inertia.js", "Vuetify", "SQL Server", "Oracle accounting integration"],
       "links": {
         "github": null,
         "live": null

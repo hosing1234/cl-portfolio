@@ -71,7 +71,7 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 - **HKAB member area (2022–2023; maintenance; ops script revamp in 2025)** — CMS integration + complex permissions; **16-node on-premise infra**; revamped ops scripts cut key procedures from **20+ min to 5–10 min**; operation guide praised by client
 - **Led AI agent adoption (2026)** — evaluated AI agent solutions, gathered team feedback, rolled out **Cursor Skills** for code scanning, document generation, and plan mode optimization; built internal batch tools (e.g. FTP access testing)
 
-**Technologies:** PHP, Laravel, Vue 3, TypeScript, Inertia.js, MySQL, MS SQL, Oracle accounting integration, Google OCR, Cursor Skills
+**Technologies:** PHP, Laravel, Vue 3, TypeScript, Inertia.js, MySQL, SQL Server, Oracle accounting integration, Google OCR, Cursor Skills
 
 ---
 
@@ -110,7 +110,7 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 **描述（1–2 句）：**
 > **Full stack** internal platform for Po Leung Kuk kindergartens and nurseries — **no public URL**. Built and maintained **both frontend (Vue 3 + TypeScript) and backend (Laravel)**; serving **20+ campuses** with student management, fee billing, and **Oracle accounting integration** via AR/RA export files.
 
-**Technologies:** PHP, Laravel, Vue 3, TypeScript, Inertia.js, Vuetify, MS SQL, Oracle accounting integration
+**Technologies:** PHP, Laravel, Vue 3, TypeScript, Inertia.js, Vuetify, SQL Server, Oracle accounting integration
 
 - GitHub: N/A (company project)
 - Live: N/A — internal use only

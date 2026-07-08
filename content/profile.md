@@ -412,7 +412,7 @@
 > KNSM（Kindergarten & Nursery Service Management）為保良局屬下園校的一站式內部管理平台。本人**獨立負責全端開發**：backend 以 Laravel 處理業務邏輯、資料庫、報表及 Oracle 會計系統匯出檔（AR/RA integration）；frontend 以 Vue 3 + TypeScript + Inertia.js 建構管理介面。系統以多校架構部署，每間園校獨立路由及權限，並支援跨校管理。功能包括：學生搜尋及 profile、入學/輪候、點名、暫託服務（OCCS/EHS）、學費及服務費管理、帳項處理及批量收款、Oracle AR/RA 匯出檔、37+ 報表（R01–R37）等。
 
 **技術棧：**
-`PHP 8, Laravel 10, Vue 3, TypeScript, Inertia.js, Vuetify, Vite, MS SQL, Oracle accounting integration, Aliyun OSS`
+`PHP 8, Laravel 10, Vue 3, TypeScript, Inertia.js, Vuetify, Vite, SQL Server, Oracle accounting integration, Aliyun OSS`
 
 **亮點（2–3 bullet）：**
 
