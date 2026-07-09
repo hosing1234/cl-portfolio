@@ -847,7 +847,7 @@ body[data-theme='dark'] .theme-toggle:hover {
 }
 
 .timeline-event-period {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--text-label);
   font-weight: 500;
   letter-spacing: 0.2em;
