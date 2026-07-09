@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lee Ho Sing Cyrus — Full Stack Developer Portfolio">
+  <meta name="description" content="Cyrus Lee — Full Stack Developer Portfolio">
   <meta name="theme-color" content="#f8f8f8">
-  <title>Lee Ho Sing Cyrus — Portfolio</title>
+  <title>Cyrus Lee — Portfolio</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,9 +19,10 @@
   <div class="app-shell" id="app-shell">
     <aside class="left-panel" id="left-panel" aria-label="Portfolio identity">
       <div class="left-panel-default" id="left-panel-default">
-        <p class="panel-label">Portfolio</p>
-        <p class="panel-name-light">Lee Ho Sing</p>
-        <p class="panel-name-strong">Cyrus</p>
+        <div class="panel-identity">
+          <p class="panel-identity-name" id="panel-identity-name">Cyrus Lee</p>
+          <p class="panel-identity-label">Portfolio</p>
+        </div>
       </div>
       <div class="left-panel-hover hidden" id="left-panel-hover">
         <p class="panel-label" id="left-panel-section"></p>
@@ -30,7 +31,27 @@
     </aside>
 
     <main class="content-scroll styled-scrollbar" id="content-scroll">
-      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light/dark mode" aria-pressed="false">Dark</button>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light/dark mode" aria-pressed="false">
+        <span class="theme-toggle-icon theme-toggle-icon--sun" aria-hidden="true">
+          <svg viewBox="0 0 22 22" role="img" focusable="false">
+            <circle cx="11" cy="11" r="4.25"></circle>
+            <line x1="11" y1="1.5" x2="11" y2="4"></line>
+            <line x1="11" y1="18" x2="11" y2="20.5"></line>
+            <line x1="1.5" y1="11" x2="4" y2="11"></line>
+            <line x1="18" y1="11" x2="20.5" y2="11"></line>
+            <line x1="4.1" y1="4.1" x2="5.9" y2="5.9"></line>
+            <line x1="16.1" y1="16.1" x2="17.9" y2="17.9"></line>
+            <line x1="4.1" y1="17.9" x2="5.9" y2="16.1"></line>
+            <line x1="16.1" y1="5.9" x2="17.9" y2="4.1"></line>
+          </svg>
+        </span>
+        <span class="theme-toggle-icon theme-toggle-icon--moon" aria-hidden="true">
+          <svg viewBox="0 0 20 20" role="img" focusable="false">
+            <path d="M13.18 1.35A8.82 8.82 0 1 0 18.68 15.2 7.85 7.85 0 1 1 13.18 1.35Z"></path>
+          </svg>
+        </span>
+        <span class="sr-only" id="theme-toggle-label">Switch to dark mode</span>
+      </button>
       <section id="about" class="content-section" data-section="About">
         <p class="section-index">01 / About</p>
         <div class="about-header">
@@ -39,21 +60,23 @@
           <p class="about-subhead" id="about-subhead"></p>
         </div>
         <div class="about-intro" id="about-text"></div>
-        <button type="button" class="know-more-btn" id="know-more-btn">Know more</button>
+        <button type="button" class="know-more-btn" id="know-more-btn">Discover</button>
       </section>
 
       <section id="ai-era" class="content-section" data-section="AI Era">
         <p class="section-index" id="ai-era-index">02 / AI Era</p>
-        <div class="about-header">
-          <h2 class="about-subhead" id="ai-era-title"></h2>
-          <p class="about-role" id="ai-era-kicker"></p>
+        <div class="section-title-block ai-era-header">
+          <h2 class="section-title" id="ai-era-title"></h2>
+          <p class="section-kicker" id="ai-era-kicker"></p>
         </div>
         <div class="ai-era-body" id="ai-era-body"></div>
       </section>
 
       <section id="work" class="content-section work-section" data-section="Work">
         <p class="section-index">03 / Work</p>
-        <h2 class="section-headline work-headline">Experience<br>&amp; projects</h2>
+        <div class="section-title-block">
+          <h2 class="section-title">Experience<br>&amp; projects</h2>
+        </div>
         <div class="timeline" id="timeline"></div>
       </section>
 
@@ -64,7 +87,9 @@
 
       <section id="contact" class="content-section" data-section="Contact">
         <p class="section-index">05 / Contact</p>
-        <h2 class="section-headline contact-headline">Let's build<br>something.</h2>
+        <div class="section-title-block">
+          <h2 class="section-title">Let's build<br>something.</h2>
+        </div>
         <div class="contact-list" id="contact-list"></div>
       </section>
     </main>
@@ -95,6 +120,9 @@
         <button type="button" class="know-more-close" id="know-more-close" aria-label="Close">Close</button>
       </div>
       <div class="know-more-content" id="know-more-content"></div>
+      <div class="know-more-footer-actions">
+        <button type="button" class="know-more-close" id="know-more-content-close" aria-label="Close">Close</button>
+      </div>
     </div>
   </div>
 

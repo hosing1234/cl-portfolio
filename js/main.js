@@ -9,31 +9,31 @@ const SECTION_CONFIG = [
 const CASE_STUDY_SECTIONS = [
   {
     key: 'context',
-    label: '01 / Context',
+    label: '01 Context',
     title: 'What this was',
     placeholder: 'Add: what the system was, who used it, scale, and public/private constraints.',
   },
   {
     key: 'problem',
-    label: '02 / Problem',
+    label: '02 Problem',
     title: 'What made it difficult',
     placeholder: 'Add: unclear requirements, data complexity, timeline pressure, legacy constraints, or operational risk.',
   },
   {
     key: 'role',
-    label: '03 / My Role',
+    label: '03 My Role',
     title: 'What I owned',
     placeholder: 'Add: your concrete responsibilities, boundaries with PM/design/other developers, and ownership level.',
   },
   {
     key: 'solution',
-    label: '04 / Solution',
+    label: '04 Solution',
     title: 'How I approached it',
     placeholder: 'Add: how you broke down the work, designed the flow, handled integration, and shipped safely.',
   },
   {
     key: 'impact',
-    label: '05 / Impact',
+    label: '05 Impact',
     title: 'What changed',
     placeholder: 'Add: measurable result, client/team feedback, risk reduced, speed improved, or production outcome.',
   },
@@ -47,12 +47,22 @@ function parseTimelineSortYear(period = '') {
 }
 
 function formatTimelinePeriod(period = '') {
-  return period.replace(/\s*[—–]\s*present/gi, '').trim();
+  return period.replace(/\s*[—–]\s*/g, ' - ').trim();
 }
 
 function parseTimelineDisplayYear(period = '') {
-  const match = formatTimelinePeriod(period).match(/\d{4}/);
-  return match ? match[0] : formatTimelinePeriod(period);
+  const years = (period.match(/\d{4}/g) || []).map(Number);
+  if (years.length) return String(Math.max(...years));
+  return formatTimelinePeriod(period);
+}
+
+function formatEmploymentPeriod(employment) {
+  const normalized = formatTimelinePeriod(employment.period);
+  if (/[—–-]/.test(employment.period) || /current|present/i.test(employment.period)) {
+    return normalized.replace(/present/gi, 'Current');
+  }
+
+  return `${normalized} - Current`;
 }
 
 function formatWorkPreviewLabel(item) {
@@ -102,7 +112,12 @@ function applyTheme(theme, forced = false) {
   if (button) {
     const isDark = theme === 'dark';
     button.setAttribute('aria-pressed', String(isDark));
-    button.textContent = isDark ? 'Light' : 'Dark';
+    const nextThemeLabel = isDark ? 'light' : 'dark';
+    button.setAttribute('aria-label', `Switch to ${nextThemeLabel} mode`);
+    const srLabel = document.getElementById('theme-toggle-label');
+    if (srLabel) {
+      srLabel.textContent = `Switch to ${nextThemeLabel} mode`;
+    }
   }
 
   const meta = document.querySelector('meta[name="theme-color"]');
@@ -177,7 +192,7 @@ function buildSectionPreviews(data) {
       data.hero.title,
       `Based in ${data.contact.location}`,
       '6 years of production experience',
-      'Know more for full story',
+      'Discover for full story',
     ],
     'AI Era': [
       data.aiEra?.kicker || 'On work, tools, and what remains human',
@@ -253,10 +268,11 @@ function renderIntro(lines) {
 function renderAbout(data) {
   document.title = data.meta.siteTitle;
 
-  document.getElementById('about-name').innerHTML = `
-    <span class="about-name-main">${data.hero.name}</span>
-    <span class="about-name-suffix">Portfolio</span>
-  `;
+  document.getElementById('about-name').textContent = data.hero.name;
+  const panelIdentityName = document.getElementById('panel-identity-name');
+  if (panelIdentityName) {
+    panelIdentityName.textContent = data.hero.name;
+  }
   document.getElementById('about-role').textContent = data.hero.title;
 
   const subhead = data.about.subhead || data.about.headline || [
@@ -299,9 +315,14 @@ function renderAiEra(data) {
     : '';
   const flowMarkup = (aiEra.flow || []).length
     ? `
-      <ol class="ai-era-flow" aria-label="AI Era working flow">
-        ${aiEra.flow.map((step) => `<li>${step}</li>`).join('')}
-      </ol>
+      <p class="ai-era-flow" aria-label="AI Era working flow">
+        ${aiEra.flow.map((step, index, flow) => `
+          <span class="ai-era-flow-step${index === flow.length - 1 ? ' is-final' : ''}">${step}</span>
+          ${index < flow.length - 1
+            ? `<span class="ai-era-flow-operator">${index === flow.length - 2 ? '=' : '+'}</span>`
+            : ''}
+        `).join('')}
+      </p>
     `
     : '';
 
@@ -370,11 +391,12 @@ function renderTimeline(data) {
             data-project-id="${project.id}"
             aria-expanded="false"
           >
-            <p class="timeline-event-period">${formatTimelinePeriod(project.period)}</p>
+            <p class="timeline-event-period">${parseTimelineDisplayYear(project.period)}</p>
             <h4 class="timeline-event-title">${project.title}</h4>
             <p class="timeline-event-subtitle">${project.subtitle}</p>
             <p class="timeline-event-summary">${project.summary}</p>
-            <span class="timeline-event-cta">View details</span>
+            <span class="timeline-event-cta" aria-hidden="true"></span>
+            <span class="sr-only">View details</span>
           </button>
         </div>`
         )
@@ -382,7 +404,7 @@ function renderTimeline(data) {
 
       return `
       <article class="timeline-employment">
-        <p class="timeline-employment-period">${formatTimelinePeriod(employment.period)}</p>
+        <p class="timeline-employment-period">${formatEmploymentPeriod(employment)}</p>
         <h3 class="timeline-employment-role">${employment.role}</h3>
         <p class="timeline-employment-company">${employment.company}</p>
         <p class="timeline-employment-summary section-lead">${employment.summary}</p>
@@ -550,7 +572,7 @@ function renderWorkPanel(project, slideDirection = 0) {
     : '';
 
   content.innerHTML = `
-    <p class="work-panel-period">${formatTimelinePeriod(project.period)}</p>
+    <p class="work-panel-period">${parseTimelineDisplayYear(project.period)}</p>
     <h3 class="work-panel-title">${project.title}</h3>
     <p class="work-panel-subtitle">${project.subtitle}</p>
     <p class="work-panel-description">${project.description}</p>
@@ -569,6 +591,9 @@ function renderWorkPanel(project, slideDirection = 0) {
       ${(project.technologies || []).map((tech) => `<span class="project-tag">${tech}</span>`).join('')}
     </div>
     ${liveLink}
+    <div class="work-panel-footer-actions">
+      <button type="button" class="work-panel-close" id="work-panel-content-close" aria-label="Close">Close</button>
+    </div>
   `;
 
   if (slideDirection) {
@@ -602,6 +627,10 @@ function openWorkPanel(projectId, slideDirection = 0) {
   closeKnowMore();
   activeWorkProjectId = projectId;
   renderWorkPanel(project, slideDirection);
+  if (slideDirection) {
+    const panelInner = document.getElementById('work-panel-inner');
+    if (panelInner) panelInner.scrollTop = 0;
+  }
   updateWorkPanelNav();
 
   const panel = document.getElementById('work-panel');
@@ -938,11 +967,17 @@ function setupInteractions(sectionPreviews) {
 
   document.getElementById('know-more-btn').addEventListener('click', openKnowMore);
   document.getElementById('know-more-close').addEventListener('click', closeKnowMore);
+  document.getElementById('know-more-content-close').addEventListener('click', closeKnowMore);
   document.getElementById('know-more-panel').addEventListener('click', (event) => {
     if (event.target.id === 'know-more-panel') closeKnowMore();
   });
 
   document.getElementById('work-panel-close').addEventListener('click', closeWorkPanel);
+  document.getElementById('work-panel-content').addEventListener('click', (event) => {
+    if (event.target.closest('#work-panel-content-close')) {
+      closeWorkPanel();
+    }
+  });
   document.getElementById('work-panel-prev').addEventListener('click', () => navigateWorkPanel(-1));
   document.getElementById('work-panel-next').addEventListener('click', () => navigateWorkPanel(1));
   document.getElementById('work-panel').addEventListener('click', (event) => {
