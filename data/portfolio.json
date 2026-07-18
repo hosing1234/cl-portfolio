@@ -335,7 +335,7 @@
       "period": "2025",
       "title": "1O1O Corporate",
       "subtitle": "CMS Revamp",
-      "detailLevel": "compact",
+      "detailLevel": "featured",
       "summary": "CMS revamp that made publishing clearer through a component editor, approval workflow, version comparison, and form builder.",
       "description": "A CMS revamp for 1O1O Corporate Solutions, delivered with another backend developer. I led the CMS UI/UX and built its component editor, version comparison, approval workflow, and form builder—making publishing choices clearer for content editors and setting a stronger standard for day-to-day publishing.",
       "highlights": [
@@ -344,6 +344,16 @@
         "Version compare and approval workflow for safer content publishing.",
         "Form builder and detail-level polish across the CMS admin."
       ],
+      "caseStudy": {
+        "challengeApproach": "The client expected a CMS that content editors could use confidently without relying on a manual. I shaped the admin experience around clear component choices, visible editing context, and safer publishing controls, while collaborating with another backend developer on the wider CMS revamp.",
+        "role": "I owned the CMS UI and editor experience, and delivered roughly half of the backend scope: the component-based page editor, form builder, version comparison, approval workflow, and the in-context details that make content easier to understand before publishing.",
+        "outcome": "The revised CMS gave editors a clearer, more guided publishing workflow. Its UI patterns and CMS guidance received strong feedback and became a reference point for future company CMS and design-system standards.",
+        "visual": {
+          "type": "image",
+          "caption": "1O1O Corporate CMS editor",
+          "src": "assets/projects/1010-corporate/cms_screen.png"
+        }
+      },
       "technologies": ["PHP", "Laravel", "Vue.js", "JavaScript", "CMS"],
       "links": {
         "github": null,
