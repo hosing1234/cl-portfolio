@@ -9,31 +9,31 @@ const SECTION_CONFIG = [
 const CASE_STUDY_SECTIONS = [
   {
     key: 'context',
-    label: '01 Context',
+    label: '01 / Context',
     title: 'What this was',
     placeholder: 'Add: what the system was, who used it, scale, and public/private constraints.',
   },
   {
     key: 'problem',
-    label: '02 Problem',
+    label: '02 / Problem',
     title: 'What made it difficult',
     placeholder: 'Add: unclear requirements, data complexity, timeline pressure, legacy constraints, or operational risk.',
   },
   {
     key: 'role',
-    label: '03 My Role',
+    label: '03 / My Role',
     title: 'What I owned',
     placeholder: 'Add: your concrete responsibilities, boundaries with PM/design/other developers, and ownership level.',
   },
   {
     key: 'solution',
-    label: '04 Solution',
+    label: '04 / Solution',
     title: 'How I approached it',
     placeholder: 'Add: how you broke down the work, designed the flow, handled integration, and shipped safely.',
   },
   {
     key: 'impact',
-    label: '05 Impact',
+    label: '05 / Impact',
     title: 'What changed',
     placeholder: 'Add: measurable result, client/team feedback, risk reduced, speed improved, or production outcome.',
   },
@@ -47,22 +47,18 @@ function parseTimelineSortYear(period = '') {
 }
 
 function formatTimelinePeriod(period = '') {
-  return period.replace(/\s*[—–]\s*/g, ' - ').trim();
+  return period.replace(/\s*[—–]\s*present/gi, '').trim();
+}
+
+function formatEmploymentPeriod(period = '') {
+  if (!period) return '';
+  if (!/[—–-]/.test(period)) return `${period} - Current`;
+  return period.replace(/\s*[—–]\s*/g, ' - ');
 }
 
 function parseTimelineDisplayYear(period = '') {
-  const years = (period.match(/\d{4}/g) || []).map(Number);
-  if (years.length) return String(Math.max(...years));
-  return formatTimelinePeriod(period);
-}
-
-function formatEmploymentPeriod(employment) {
-  const normalized = formatTimelinePeriod(employment.period);
-  if (/[—–-]/.test(employment.period) || /current|present/i.test(employment.period)) {
-    return normalized.replace(/present/gi, 'Current');
-  }
-
-  return `${normalized} - Current`;
+  const match = formatTimelinePeriod(period).match(/\d{4}/);
+  return match ? match[0] : formatTimelinePeriod(period);
 }
 
 function formatWorkPreviewLabel(item) {
@@ -91,6 +87,16 @@ let workPanelOpen = false;
 let activeWorkProjectId = null;
 let navOpen = false;
 
+const POPUP_PULL_THRESHOLD = 100;
+const POPUP_PULL_MAX = 125;
+const POPUP_PULL_HINT_THRESHOLD = 42;
+const POPUP_PULL_EDGE_EPSILON = 2;
+const POPUP_EDGE_SETTLE_MS = 360;
+const POPUP_WHEEL_SEQUENCE_GAP_MS = 280;
+const POPUP_BACKGROUND_SCROLL_LOCK_MS = 1000;
+const popupPullStates = new WeakMap();
+let popupBackgroundScrollLockUntil = 0;
+
 function getInitialThemeState() {
   const stored = window.localStorage?.getItem('theme');
   if (stored === 'light' || stored === 'dark') {
@@ -101,7 +107,31 @@ function getInitialThemeState() {
   return { theme: prefersDark ? 'dark' : 'light', forced: false };
 }
 
-function applyTheme(theme, forced = false) {
+function getThemeBackground(theme) {
+  return theme === 'dark' ? '#0d0d0d' : '#ffffff';
+}
+
+function playThemeWipe(theme, originEl) {
+  if (!originEl || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const rect = originEl.getBoundingClientRect();
+  const x = rect.left + rect.width / 2;
+  const y = rect.top + rect.height / 2;
+  const maxX = Math.max(x, window.innerWidth - x);
+  const maxY = Math.max(y, window.innerHeight - y);
+  const radius = Math.hypot(maxX, maxY);
+  const wipe = document.createElement('span');
+
+  wipe.className = 'theme-wipe';
+  wipe.style.setProperty('--wipe-x', `${x}px`);
+  wipe.style.setProperty('--wipe-y', `${y}px`);
+  wipe.style.setProperty('--wipe-scale', String(Math.ceil(radius * 2)));
+  wipe.style.setProperty('--wipe-color', getThemeBackground(theme));
+  document.body.appendChild(wipe);
+  wipe.addEventListener('animationend', () => wipe.remove(), { once: true });
+}
+
+function commitTheme(theme, forced = false) {
   if (forced) {
     document.body.dataset.theme = theme;
   } else {
@@ -112,18 +142,38 @@ function applyTheme(theme, forced = false) {
   if (button) {
     const isDark = theme === 'dark';
     button.setAttribute('aria-pressed', String(isDark));
-    const nextThemeLabel = isDark ? 'light' : 'dark';
-    button.setAttribute('aria-label', `Switch to ${nextThemeLabel} mode`);
-    const srLabel = document.getElementById('theme-toggle-label');
-    if (srLabel) {
-      srLabel.textContent = `Switch to ${nextThemeLabel} mode`;
-    }
+    button.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
+    button.dataset.icon = isDark ? 'sun' : 'moon';
   }
 
   const meta = document.querySelector('meta[name="theme-color"]');
   if (meta) {
     meta.setAttribute('content', theme === 'dark' ? '#0f0f10' : '#f8f8f8');
   }
+}
+
+function applyTheme(theme, forced = false, originEl = null) {
+  if (
+    originEl
+    && document.startViewTransition
+    && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  ) {
+    const rect = originEl.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+    const maxX = Math.max(x, window.innerWidth - x);
+    const maxY = Math.max(y, window.innerHeight - y);
+    const radius = Math.ceil(Math.hypot(maxX, maxY));
+
+    document.documentElement.style.setProperty('--theme-x', `${x}px`);
+    document.documentElement.style.setProperty('--theme-y', `${y}px`);
+    document.documentElement.style.setProperty('--theme-radius', `${radius}px`);
+    document.startViewTransition(() => commitTheme(theme, forced));
+    return;
+  }
+
+  playThemeWipe(theme, originEl);
+  commitTheme(theme, forced);
 }
 
 function setupThemeToggle() {
@@ -138,7 +188,7 @@ function setupThemeToggle() {
       || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
     window.localStorage?.setItem('theme', nextTheme);
-    applyTheme(nextTheme, true);
+    applyTheme(nextTheme, true, button);
   });
 
   // Auto mode: keep label in sync with OS changes.
@@ -192,7 +242,7 @@ function buildSectionPreviews(data) {
       data.hero.title,
       `Based in ${data.contact.location}`,
       '6 years of production experience',
-      'Discover for full story',
+      'Know more for full story',
     ],
     'AI Era': [
       data.aiEra?.kicker || 'On work, tools, and what remains human',
@@ -268,11 +318,10 @@ function renderIntro(lines) {
 function renderAbout(data) {
   document.title = data.meta.siteTitle;
 
-  document.getElementById('about-name').textContent = data.hero.name;
-  const panelIdentityName = document.getElementById('panel-identity-name');
-  if (panelIdentityName) {
-    panelIdentityName.textContent = data.hero.name;
-  }
+  document.getElementById('about-name').innerHTML = `
+    <span class="about-name-main">${data.hero.displayName || data.hero.name}</span>
+    <span class="about-name-suffix">Portfolio</span>
+  `;
   document.getElementById('about-role').textContent = data.hero.title;
 
   const subhead = data.about.subhead || data.about.headline || [
@@ -294,7 +343,7 @@ function renderAiEra(data) {
 
   document.getElementById('ai-era-index').textContent = aiEra.indexLabel;
   document.getElementById('ai-era-title').textContent = aiEra.title;
-  document.getElementById('ai-era-kicker').textContent = aiEra.kicker;
+  document.getElementById('ai-era-kicker').innerHTML = aiEra.kicker.replace(', and ', ',<br>and ');
 
   const paragraphs = aiEra.paragraphs || [];
   const statementMarkup = aiEra.statement
@@ -315,14 +364,9 @@ function renderAiEra(data) {
     : '';
   const flowMarkup = (aiEra.flow || []).length
     ? `
-      <p class="ai-era-flow" aria-label="AI Era working flow">
-        ${aiEra.flow.map((step, index, flow) => `
-          <span class="ai-era-flow-step${index === flow.length - 1 ? ' is-final' : ''}">${step}</span>
-          ${index < flow.length - 1
-            ? `<span class="ai-era-flow-operator">${index === flow.length - 2 ? '=' : '+'}</span>`
-            : ''}
-        `).join('')}
-      </p>
+      <ol class="ai-era-flow" aria-label="AI Era working flow">
+        ${aiEra.flow.map((step) => `<li>${step}</li>`).join('')}
+      </ol>
     `
     : '';
 
@@ -335,7 +379,7 @@ function renderKnowMore(data) {
   const longForm = data.about.longForm;
   if (!longForm) return;
 
-  document.getElementById('know-more-label').textContent = longForm.title || 'About';
+  document.getElementById('know-more-label').textContent = 'About';
 
   const sections = longForm.sections
     || (longForm.paragraphs || []).map((paragraph) => ({ title: '', text: paragraph }));
@@ -349,6 +393,8 @@ function renderKnowMore(data) {
       </div>`
     )
     .join('');
+
+  requestAnimationFrame(updateAllPopupScrollbars);
 }
 
 function renderSkills(data) {
@@ -391,11 +437,15 @@ function renderTimeline(data) {
             data-project-id="${project.id}"
             aria-expanded="false"
           >
-            <p class="timeline-event-period">${parseTimelineDisplayYear(project.period)}</p>
+            <p class="timeline-event-period">${formatTimelinePeriod(project.period)}</p>
             <h4 class="timeline-event-title">${project.title}</h4>
             <p class="timeline-event-subtitle">${project.subtitle}</p>
             <p class="timeline-event-summary">${project.summary}</p>
-            <span class="timeline-event-cta" aria-hidden="true"></span>
+            <span class="timeline-event-cta" aria-hidden="true">
+              <svg viewBox="0 0 62 14" width="62" height="14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 7h60M54 1l6 6-6 6" stroke="currentColor" stroke-linecap="round"/>
+              </svg>
+            </span>
             <span class="sr-only">View details</span>
           </button>
         </div>`
@@ -404,7 +454,7 @@ function renderTimeline(data) {
 
       return `
       <article class="timeline-employment">
-        <p class="timeline-employment-period">${formatEmploymentPeriod(employment)}</p>
+        <p class="timeline-employment-period">${formatEmploymentPeriod(employment.period)}</p>
         <h3 class="timeline-employment-role">${employment.role}</h3>
         <p class="timeline-employment-company">${employment.company}</p>
         <p class="timeline-employment-summary section-lead">${employment.summary}</p>
@@ -415,6 +465,29 @@ function renderTimeline(data) {
     .join('');
 
   document.getElementById('timeline').innerHTML = html;
+}
+
+// The vertical timeline line ends at the last employment marker (the
+// oldest role, e.g. Aug 2020) rather than running to the bottom of the
+// section or through that role's individual projects.
+function updateTimelineLine() {
+  const timeline = document.getElementById('timeline');
+  if (!timeline) return;
+
+  const employments = timeline.querySelectorAll('.timeline-employment');
+  if (!employments.length) {
+    timeline.style.removeProperty('--timeline-line-height');
+    return;
+  }
+
+  const rootFont = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+  const lastEmployment = employments[employments.length - 1];
+  const timelineRect = timeline.getBoundingClientRect();
+  const dotRect = lastEmployment.getBoundingClientRect();
+  // Employment dot sits at top: 0.4rem, 0.7rem tall → centre ≈ 0.75rem.
+  const dotCentre = dotRect.top - timelineRect.top + 0.75 * rootFont;
+  const startTop = 0.5 * rootFont;
+  timeline.style.setProperty('--timeline-line-height', `${Math.max(0, dotCentre - startTop)}px`);
 }
 
 function getProjectById(projectId) {
@@ -561,7 +634,7 @@ function renderWorkPanel(project, slideDirection = 0) {
   const content = document.getElementById('work-panel-content');
   content.classList.remove('is-enter-left', 'is-enter-right', 'is-enter-active');
 
-  document.getElementById('work-panel-label').textContent = 'Work';
+  document.getElementById('work-panel-label').textContent = project.title || 'Project';
   const caseStudyHtml = shouldRenderCaseStudy(project)
     ? `
     ${renderCaseStudyVisual(project)}
@@ -572,7 +645,7 @@ function renderWorkPanel(project, slideDirection = 0) {
     : '';
 
   content.innerHTML = `
-    <p class="work-panel-period">${parseTimelineDisplayYear(project.period)}</p>
+    <p class="work-panel-period">${formatTimelinePeriod(project.period)}</p>
     <h3 class="work-panel-title">${project.title}</h3>
     <p class="work-panel-subtitle">${project.subtitle}</p>
     <p class="work-panel-description">${project.description}</p>
@@ -591,10 +664,9 @@ function renderWorkPanel(project, slideDirection = 0) {
       ${(project.technologies || []).map((tech) => `<span class="project-tag">${tech}</span>`).join('')}
     </div>
     ${liveLink}
-    <div class="work-panel-footer-actions">
-      <button type="button" class="work-panel-close" id="work-panel-content-close" aria-label="Close">Close</button>
-    </div>
   `;
+
+  requestAnimationFrame(updateAllPopupScrollbars);
 
   if (slideDirection) {
     content.classList.add(slideDirection > 0 ? 'is-enter-right' : 'is-enter-left');
@@ -627,18 +699,16 @@ function openWorkPanel(projectId, slideDirection = 0) {
   closeKnowMore();
   activeWorkProjectId = projectId;
   renderWorkPanel(project, slideDirection);
-  if (slideDirection) {
-    const panelInner = document.getElementById('work-panel-inner');
-    if (panelInner) panelInner.scrollTop = 0;
-  }
   updateWorkPanelNav();
 
   const panel = document.getElementById('work-panel');
+  resetPopupPull(panel);
   workPanelOpen = true;
   panel.classList.add('is-open');
   panel.setAttribute('aria-hidden', 'false');
   panel.removeAttribute('inert');
   document.body.classList.add('work-panel-open');
+  requestAnimationFrame(updateAllPopupScrollbars);
 
   setActiveWorkTimelineButton(projectId);
 }
@@ -655,12 +725,261 @@ function navigateWorkPanel(delta) {
   openWorkPanel(order[nextIndex], delta);
 }
 
-function closeWorkPanel() {
+function getPopupPullState(panel) {
+  if (popupPullStates.has(panel)) return popupPullStates.get(panel);
+
+  const state = {
+    distance: 0,
+    direction: 0,
+    resetTimer: null,
+    lastScrollAt: 0,
+    lastWheelAt: 0,
+    wheelStartedAtTop: false,
+    wheelStartedAtBottom: false,
+    touchStartY: 0,
+    touchLastY: 0,
+    touchPulling: false,
+    touchStartedAtTop: false,
+    touchStartedAtBottom: false,
+  };
+  popupPullStates.set(panel, state);
+  return state;
+}
+
+function setPopupPull(panel, distance, direction) {
+  const state = getPopupPullState(panel);
+  const clampedDistance = Math.min(Math.max(distance, 0), POPUP_PULL_MAX);
+  const pullY = clampedDistance * direction;
+  const ready = clampedDistance >= POPUP_PULL_THRESHOLD;
+  const hint = panel.querySelector('.popup-pull-hint');
+
+  state.distance = clampedDistance;
+  state.direction = direction;
+  panel.style.setProperty('--popup-pull-y', `${pullY}px`);
+  panel.style.setProperty('--popup-hint-y', `${pullY * -0.12}px`);
+  panel.classList.toggle('is-pulling', clampedDistance >= POPUP_PULL_HINT_THRESHOLD);
+  panel.classList.toggle('is-pull-ready', ready);
+  hint?.setAttribute('data-label', ready ? 'Release to close' : 'Keep scrolling');
+}
+
+function resetPopupPull(panel) {
+  if (!panel) return;
+
+  const state = getPopupPullState(panel);
+  if (state.resetTimer) {
+    window.clearTimeout(state.resetTimer);
+    state.resetTimer = null;
+  }
+
+  state.distance = 0;
+  state.direction = 0;
+  state.touchPulling = false;
+  state.wheelStartedAtTop = false;
+  state.wheelStartedAtBottom = false;
+  state.touchStartedAtTop = false;
+  state.touchStartedAtBottom = false;
+  panel.style.setProperty('--popup-pull-y', '0px');
+  panel.style.setProperty('--popup-hint-y', '0px');
+  panel.classList.remove('is-pulling', 'is-pull-ready');
+}
+
+function preparePopupDismiss(panel) {
+  const state = getPopupPullState(panel);
+  if (state.resetTimer) {
+    window.clearTimeout(state.resetTimer);
+    state.resetTimer = null;
+  }
+
+  panel.classList.remove('is-pulling', 'is-pull-ready');
+}
+
+function schedulePopupPullReset(panel) {
+  const state = getPopupPullState(panel);
+  if (state.resetTimer) window.clearTimeout(state.resetTimer);
+  state.resetTimer = window.setTimeout(() => resetPopupPull(panel), 220);
+}
+
+function isPopupContentAtEdge(content, direction) {
+  if (direction < 0) return content.scrollTop <= POPUP_PULL_EDGE_EPSILON;
+  return content.scrollTop + content.clientHeight >= content.scrollHeight - POPUP_PULL_EDGE_EPSILON;
+}
+
+function isPopupContentSettledAtEdge(content, panel, direction) {
+  if (!isPopupContentAtEdge(content, direction)) return false;
+
+  const state = getPopupPullState(panel);
+  return performance.now() - state.lastScrollAt >= POPUP_EDGE_SETTLE_MS;
+}
+
+function addPopupPullHint(panel) {
+  const inner = panel.querySelector('.know-more-inner, .work-panel-inner');
+  if (!inner || inner.querySelector('.popup-pull-hint')) return;
+
+  const hint = document.createElement('div');
+  hint.className = 'popup-pull-hint';
+  hint.setAttribute('aria-hidden', 'true');
+  hint.setAttribute('data-label', 'Keep scrolling');
+  inner.appendChild(hint);
+}
+
+function closePopupWithDirection(panel, direction, closePanel) {
+  preparePopupDismiss(panel);
+  lockBackgroundScrollAfterPopupClose();
+  panel.classList.toggle('is-dismiss-up', direction < 0);
+  closePanel(direction);
+
+  window.setTimeout(() => {
+    panel.classList.remove('is-dismiss-up');
+    panel.style.removeProperty('--popup-pull-y');
+    panel.style.removeProperty('--popup-hint-y');
+  }, 680);
+}
+
+function setupPopupPullDismiss({ panelId, contentId, isOpen, closePanel }) {
+  const panel = document.getElementById(panelId);
+  const content = document.getElementById(contentId);
+  if (!panel || !content) return;
+
+  addPopupPullHint(panel);
+
+  content.addEventListener(
+    'scroll',
+    () => {
+      const state = getPopupPullState(panel);
+      state.lastScrollAt = performance.now();
+    },
+    { passive: true }
+  );
+
+  content.addEventListener(
+    'wheel',
+    (event) => {
+      if (!isOpen()) return;
+
+      const direction = event.deltaY < 0 ? -1 : event.deltaY > 0 ? 1 : 0;
+      const state = getPopupPullState(panel);
+      const now = performance.now();
+
+      if (now - state.lastWheelAt > POPUP_WHEEL_SEQUENCE_GAP_MS) {
+        state.wheelStartedAtTop = isPopupContentAtEdge(content, -1);
+        state.wheelStartedAtBottom = isPopupContentAtEdge(content, 1);
+      }
+      state.lastWheelAt = now;
+
+      const startedAtTargetEdge = direction < 0 ? state.wheelStartedAtTop : state.wheelStartedAtBottom;
+      if (!direction || !startedAtTargetEdge || !isPopupContentSettledAtEdge(content, panel, direction)) {
+        resetPopupPull(panel);
+        return;
+      }
+
+      event.preventDefault();
+      const nextDistance = state.direction === direction
+        ? state.distance + Math.abs(event.deltaY) * 0.26
+        : Math.abs(event.deltaY) * 0.26;
+
+      if (nextDistance >= POPUP_PULL_THRESHOLD && state.distance >= POPUP_PULL_HINT_THRESHOLD) {
+        closePopupWithDirection(panel, direction, closePanel);
+        return;
+      }
+
+      setPopupPull(panel, Math.min(nextDistance, POPUP_PULL_THRESHOLD - 1), direction);
+      schedulePopupPullReset(panel);
+    },
+    { passive: false }
+  );
+
+  content.addEventListener(
+    'touchstart',
+    (event) => {
+      if (!isOpen() || !event.touches.length) return;
+      const state = getPopupPullState(panel);
+      state.touchStartY = event.touches[0].clientY;
+      state.touchLastY = state.touchStartY;
+      state.touchPulling = false;
+      state.touchStartedAtTop = isPopupContentAtEdge(content, -1);
+      state.touchStartedAtBottom = isPopupContentAtEdge(content, 1);
+    },
+    { passive: true }
+  );
+
+  content.addEventListener(
+    'touchmove',
+    (event) => {
+      if (!isOpen() || !event.touches.length) return;
+
+      const state = getPopupPullState(panel);
+      const currentY = event.touches[0].clientY;
+      const deltaY = currentY - state.touchLastY;
+      state.touchLastY = currentY;
+
+      const direction = deltaY < 0 ? 1 : deltaY > 0 ? -1 : 0;
+      const startedAtTargetEdge = direction < 0 ? state.touchStartedAtTop : state.touchStartedAtBottom;
+      if (!direction || !startedAtTargetEdge || !isPopupContentAtEdge(content, direction)) {
+        if (!state.touchPulling) resetPopupPull(panel);
+        return;
+      }
+
+      event.preventDefault();
+      state.touchPulling = true;
+
+      const nextDistance = state.direction === direction
+        ? state.distance + Math.abs(deltaY) * 0.62
+        : Math.abs(deltaY) * 0.62;
+
+      setPopupPull(panel, nextDistance, direction);
+    },
+    { passive: false }
+  );
+
+  content.addEventListener(
+    'touchend',
+    () => {
+      if (!isOpen()) return;
+
+      const state = getPopupPullState(panel);
+      if (state.distance >= POPUP_PULL_THRESHOLD) {
+        closePopupWithDirection(panel, state.direction || 1, closePanel);
+        return;
+      }
+
+      resetPopupPull(panel);
+    },
+    { passive: true }
+  );
+}
+
+function lockBackgroundScrollAfterPopupClose(duration = POPUP_BACKGROUND_SCROLL_LOCK_MS) {
+  popupBackgroundScrollLockUntil = Math.max(
+    popupBackgroundScrollLockUntil,
+    performance.now() + duration
+  );
+}
+
+function preventBackgroundScrollDuringPopupClose(event) {
+  if (performance.now() >= popupBackgroundScrollLockUntil) return;
+  event.preventDefault();
+}
+
+function setupPopupBackgroundScrollGuard() {
+  document.addEventListener('wheel', preventBackgroundScrollDuringPopupClose, {
+    capture: true,
+    passive: false,
+  });
+  document.addEventListener('touchmove', preventBackgroundScrollDuringPopupClose, {
+    capture: true,
+    passive: false,
+  });
+}
+
+function closeWorkPanel(direction = 1) {
   if (!workPanelOpen) return;
 
   const panel = document.getElementById('work-panel');
   workPanelOpen = false;
   activeWorkProjectId = null;
+  preparePopupDismiss(panel);
+  lockBackgroundScrollAfterPopupClose();
+  panel.classList.toggle('is-dismiss-up', direction < 0);
   panel.classList.remove('is-open');
   panel.setAttribute('aria-hidden', 'true');
   panel.setAttribute('inert', '');
@@ -669,6 +988,13 @@ function closeWorkPanel() {
   document.getElementById('work-panel-prev').disabled = true;
   document.getElementById('work-panel-next').disabled = true;
   setActiveWorkTimelineButton(null);
+
+  window.setTimeout(() => {
+    panel.classList.remove('is-dismiss-up');
+    panel.style.removeProperty('--popup-pull-y');
+    panel.style.removeProperty('--popup-hint-y');
+    resetPopupPull(panel);
+  }, 680);
 }
 
 function setupWorkPanelSwipe() {
@@ -709,6 +1035,60 @@ function closeAllPanels() {
   closeWorkPanel();
 }
 
+function updatePopupScrollbar(contentEl) {
+  if (!contentEl) return;
+
+  const inner = contentEl.closest('.know-more-inner, .work-panel-inner');
+  if (!inner) return;
+
+  const maxScroll = contentEl.scrollHeight - contentEl.clientHeight;
+  const trackTop = contentEl.offsetTop;
+  const trackHeight = contentEl.clientHeight;
+  const thumbHeight = maxScroll > 0
+    ? Math.max(56, trackHeight * (contentEl.clientHeight / contentEl.scrollHeight))
+    : trackHeight;
+  const thumbTop = trackTop + (maxScroll > 0
+    ? (trackHeight - thumbHeight) * (contentEl.scrollTop / maxScroll)
+    : 0);
+
+  inner.style.setProperty('--popup-track-top', `${trackTop}px`);
+  inner.style.setProperty('--popup-track-height', `${trackHeight}px`);
+  inner.style.setProperty('--popup-thumb-top', `${thumbTop}px`);
+  inner.style.setProperty('--popup-thumb-height', `${thumbHeight}px`);
+  inner.style.setProperty('--popup-scrollbar-opacity', maxScroll > 0 ? '1' : '0');
+}
+
+function updateAllPopupScrollbars() {
+  updatePopupScrollbar(document.getElementById('know-more-content'));
+  updatePopupScrollbar(document.getElementById('work-panel-content'));
+}
+
+function setupPopupScrollbars() {
+  ['know-more-content', 'work-panel-content'].forEach((id) => {
+    const content = document.getElementById(id);
+    content?.addEventListener('scroll', () => updatePopupScrollbar(content), { passive: true });
+  });
+
+  window.addEventListener('resize', updateAllPopupScrollbars, { passive: true });
+  document.fonts?.ready.then(updateAllPopupScrollbars);
+}
+
+function setupPopupPullDismissHandlers() {
+  setupPopupPullDismiss({
+    panelId: 'know-more-panel',
+    contentId: 'know-more-content',
+    isOpen: () => knowMoreOpen,
+    closePanel: closeKnowMore,
+  });
+
+  setupPopupPullDismiss({
+    panelId: 'work-panel',
+    contentId: 'work-panel-content',
+    isOpen: () => workPanelOpen,
+    closePanel: closeWorkPanel,
+  });
+}
+
 function renderContact(data) {
   const { contact } = data;
   const rows = [
@@ -718,7 +1098,7 @@ function renderContact(data) {
       value: contact.github.replace('https://', ''),
       href: contact.github,
     },
-    { label: 'Location', value: contact.location },
+    { label: 'Location', value: 'Hong Kong & Anywhere' },
   ];
 
   document.getElementById('contact-list').innerHTML = rows
@@ -806,23 +1186,35 @@ function scrollToSection(sectionLabel) {
 function openKnowMore() {
   closeWorkPanel();
   const panel = document.getElementById('know-more-panel');
+  resetPopupPull(panel);
   knowMoreOpen = true;
   panel.classList.add('is-open');
   panel.setAttribute('aria-hidden', 'false');
   panel.removeAttribute('inert');
   document.body.classList.add('know-more-open');
   document.getElementById('know-more-btn').setAttribute('aria-expanded', 'true');
+  requestAnimationFrame(updateAllPopupScrollbars);
 }
 
-function closeKnowMore() {
+function closeKnowMore(direction = 1) {
   if (!knowMoreOpen) return;
   const panel = document.getElementById('know-more-panel');
   knowMoreOpen = false;
+  preparePopupDismiss(panel);
+  lockBackgroundScrollAfterPopupClose();
+  panel.classList.toggle('is-dismiss-up', direction < 0);
   panel.classList.remove('is-open');
   panel.setAttribute('aria-hidden', 'true');
   panel.setAttribute('inert', '');
   document.body.classList.remove('know-more-open');
   document.getElementById('know-more-btn').setAttribute('aria-expanded', 'false');
+
+  window.setTimeout(() => {
+    panel.classList.remove('is-dismiss-up');
+    panel.style.removeProperty('--popup-pull-y');
+    panel.style.removeProperty('--popup-hint-y');
+    resetPopupPull(panel);
+  }, 680);
 }
 
 function updateActiveSection() {
@@ -839,6 +1231,17 @@ function updateActiveSection() {
   document.querySelectorAll('.nav-link').forEach((link) => {
     link.classList.toggle('is-active', link.dataset.section === current);
   });
+
+  // The CyrUS logo is hidden on the hero (About) and appears once the
+  // reader scrolls past it, matching the Figma frames.
+  document.getElementById('left-panel')?.classList.toggle('is-hero', current === 'About');
+
+  // Scroll progress thumb on the right nav line (replaces the native scrollbar).
+  const line = document.getElementById('right-nav-line');
+  if (line) {
+    const maxScroll = container.scrollHeight - container.clientHeight;
+    line.style.setProperty('--progress', maxScroll > 0 ? scrollTop / maxScroll : 0);
+  }
 }
 
 function syncNavInset() {
@@ -862,10 +1265,20 @@ function applyNavState() {
 }
 
 function initNavState() {
-  // Desktop: show section navigation by default.
+  // Desktop: navigation is always visible (no close menu).
   // Mobile: hide by default to match expected UX.
   navOpen = isDesktopViewport();
   applyNavState();
+
+  window.addEventListener('resize', handleViewportResize, { passive: true });
+}
+
+function handleViewportResize() {
+  navOpen = isDesktopViewport();
+  applyNavState();
+  syncNavInset();
+  updateActiveSection();
+  updateTimelineLine();
 }
 
 function openNav() {
@@ -916,9 +1329,7 @@ function setupSectionReveal() {
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        const section = entry.target.closest('.content-section');
-
-        if (section) reveal(section);
+        reveal(entry.target);
         observer.unobserve(entry.target);
       });
     },
@@ -932,8 +1343,9 @@ function setupSectionReveal() {
   sections.forEach((section, index) => {
     // First section is revealed after intro; observer rootMargin skips it on desktop.
     if (index === 0) return;
-    const trigger = section.querySelector('.section-index') || section;
-    observer.observe(trigger);
+    // Observe the section itself: the index label is absolutely positioned at
+    // the section top and can skip the observer band on fast scrolls.
+    observer.observe(section);
   });
 }
 
@@ -952,10 +1364,7 @@ function setupSectionFocusReveal() {
 function setupInteractions(sectionPreviews) {
   document.querySelectorAll('.nav-link').forEach((link) => {
     const section = link.dataset.section;
-    const previewItems = link.dataset.preview.split('|');
 
-    link.addEventListener('mouseenter', () => setLeftPanel(section, previewItems));
-    link.addEventListener('mouseleave', () => setLeftPanel(null));
     link.addEventListener('click', () => scrollToSection(section));
     link.addEventListener('focus', () => scrollToSection(section));
   });
@@ -967,17 +1376,11 @@ function setupInteractions(sectionPreviews) {
 
   document.getElementById('know-more-btn').addEventListener('click', openKnowMore);
   document.getElementById('know-more-close').addEventListener('click', closeKnowMore);
-  document.getElementById('know-more-content-close').addEventListener('click', closeKnowMore);
   document.getElementById('know-more-panel').addEventListener('click', (event) => {
     if (event.target.id === 'know-more-panel') closeKnowMore();
   });
 
   document.getElementById('work-panel-close').addEventListener('click', closeWorkPanel);
-  document.getElementById('work-panel-content').addEventListener('click', (event) => {
-    if (event.target.closest('#work-panel-content-close')) {
-      closeWorkPanel();
-    }
-  });
   document.getElementById('work-panel-prev').addEventListener('click', () => navigateWorkPanel(-1));
   document.getElementById('work-panel-next').addEventListener('click', () => navigateWorkPanel(1));
   document.getElementById('work-panel').addEventListener('click', (event) => {
@@ -1035,6 +1438,15 @@ async function init() {
     setupSectionReveal();
     setupSectionFocusReveal();
     setupInteractions(sectionPreviews);
+    setupPopupScrollbars();
+    setupPopupPullDismissHandlers();
+    setupPopupBackgroundScrollGuard();
+
+    updateTimelineLine();
+    requestAnimationFrame(updateTimelineLine);
+    window.addEventListener('resize', updateTimelineLine, { passive: true });
+    document.fonts?.ready.then(updateTimelineLine);
+
     renderIntro(portfolioData.intro?.lines || [
       '> initializing...',
       '> loading portfolio...',

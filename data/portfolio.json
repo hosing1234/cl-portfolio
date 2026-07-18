@@ -1,6 +1,6 @@
 {
   "meta": {
-    "siteTitle": "Cyrus Lee — Portfolio",
+    "siteTitle": "Hello. I am Cyrus",
     "language": "en",
     "fallbackLanguage": "zh",
     "theme": "light",
@@ -14,7 +14,8 @@
     ]
   },
   "hero": {
-    "name": "Cyrus Lee",
+    "name": "Lee Ho Sing Cyrus",
+    "displayName": "Cyrus Lee",
     "title": "Full Stack Developer",
     "tagline": "Full-stack developer who excels where frontend and backend must work as one — integration, business logic, and delivery under pressure.",
     "cta": {
@@ -67,17 +68,17 @@
     "statement": "AI changes how fast we can build, but the work itself has not changed. The real work is still understanding people, asking the right questions, shaping clear requirements, and designing systems that help non-technical users work better.",
     "principles": [
       {
-        "label": "01 Listen",
+        "label": "01 / Listen",
         "title": "Start with the human need",
         "text": "Before choosing tools or writing code, the important work is understanding what clients are actually trying to solve."
       },
       {
-        "label": "02 Shape",
+        "label": "02 / Shape",
         "title": "Turn ambiguity into workflow",
         "text": "Clear requirements, UI flow, and business logic give AI the direction it needs to produce useful work."
       },
       {
-        "label": "03 Build",
+        "label": "03 / Build",
         "title": "Use AI with judgment",
         "text": "AI removes friction, but responsibility stays human: verify outputs, design sound systems, and make the final call."
       }
@@ -100,11 +101,11 @@
     },
     {
       "category": "Database & Integration",
-      "items": ["MySQL", "SQL Server", "REST APIs", "Payment gateway integration", "Oracle accounting integration"]
+      "items": ["MySQL", "SQL Server", "REST APIs", "POS API integration", "Payment gateway integration", "Oracle accounting integration"]
     },
     {
       "category": "AI & Workflow",
-      "items": ["Cursor", "AI-assisted development", "Cursor Skills", "AI agent evaluation"]
+      "items": ["Cursor", "AI-assisted development", "Cursor Skills", "AI agent evaluation", "Code scanning automation"]
     },
     {
       "category": "Tools & Operations",
@@ -302,7 +303,7 @@
           "intro": "HKAB was not a single clean delivery story. It had two separate moments where trust was at risk: first before launch, then again two years later during operations.",
           "phases": [
             {
-              "label": "01 Delivery recovery",
+              "label": "Phase 01",
               "title": "Delivery recovery",
               "prologue": "The first recovery was about credibility. We could not change the fact that the project was late, so the only way forward was to make progress visible every week.",
               "description": "The project was already late when I joined. Before solving features, we had to prove to the client that the team could still deliver.",
@@ -326,7 +327,7 @@
               ]
             },
             {
-              "label": "02 Ops recovery",
+              "label": "Phase 02",
               "title": "Ops recovery",
               "prologue": "The second recovery was quieter but more dangerous. A hidden operations issue had stayed buried for two years, and the fix had to rebuild confidence with the people running the system.",
               "description": "Two years later, a hidden operation flaw surfaced. The work shifted from feature delivery to root-cause fixing and operator-safe tooling.",

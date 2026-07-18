@@ -50,10 +50,10 @@ Laravel, Vue.js, Node.js, jQuery, Bootstrap
 MySQL
 
 ### Integration
-REST APIs, API Integration (payment gateways)
+REST APIs, API Integration (POS, payment gateways)
 
 ### AI & Workflow
-Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rollout
+Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rollout, code scanning automation
 
 ---
 
