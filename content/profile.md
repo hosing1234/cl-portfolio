@@ -145,8 +145,9 @@
 | ---------- | --- | --- | ------------- |
 | PHP        | 進階  | 5+  | 主要 backend 語言 |
 | JavaScript | 進階  | 5+  |               |
-| HTML / CSS | 進階  | 5+  |               |
-| SQL        | 中級  | 5+  | 主要配合 MySQL    |
+| TypeScript | 中級  | 2+  | Vue 3 / KNSM 專案使用 |
+| HTML / CSS | 進階  | 5+  | Web fundamentals，不列作程式語言 |
+| SQL        | 中級  | 5+  | MySQL、SQL Server 查詢及資料處理 |
 
 
 ### 框架 / 函式庫
@@ -166,7 +167,8 @@
 
 | 技能    | 程度  | 年資  | 備注  |
 | ----- | --- | --- | --- |
-| MySQL | 進階  | 5+  |     |
+| MySQL      | 進階  | 5+  |     |
+| SQL Server | 中級  | 2+  | KNSM 專案使用 |
 
 
 ### API / 整合
@@ -174,22 +176,16 @@
 
 | 技能              | 程度  | 年資  | 備注              |
 | --------------- | --- | --- | --------------- |
-| REST APIs       | 進階  | 5+  |                 |
-| API Integration | 進階  | 5+  | 含 POS API、支付閘道等 |
+| REST API 設計及整合 | 進階  | 5+  | 含 POS API、支付閘道、Oracle AR/RA export、Google OCR 等 |
 
-
-### 領域
-
-- Web Development
-- Web Applications
 
 ### 工具 / 平台
 
 
 | 技能                       | 程度  | 年資   | 備注        |
 | ------------------------ | --- | ---- | --------- |
-| Git / GitHub             | 中級  | `5+` |           |
-| Cursor / AI-assisted dev | 進階  | 1+   | 日常開發及內部推廣 |
+| Git / GitHub             | 中級  | `5+` | 日常 version control 與 collaboration |
+| Linux / SSH deployment   | 中級  | 3+   | on-premise 維護及部署 |
 
 
 ### AI / Developer Tooling
@@ -197,11 +193,11 @@
 
 | 技能                                 | 程度  | 備注                                 |
 | ---------------------------------- | --- | ---------------------------------- |
-| AI Agent 方案選型及推廣                   | 中級  | FirmStudio 2026 內部 initiative 負責人  |
-| Cursor Skills 設計及標準化               | 進階  | code scanning、document、plan mode 等 |
-| AI-assisted code review / planning | 進階  | 提高準確度、減輕 review 負擔                 |
-| 內部自動化工具開發                          | 中級  | 例：FTP batch access test（機密環境）      |
-| MCP / tool chain 概念                | 初級  | 方案評估及推廣過程中接觸                       |
+| AI-assisted engineering                 | 進階  | Cursor 日常開發、code review 及 planning；會驗證輸出 |
+| AI agent 方案選型及團隊推廣               | 中級  | FirmStudio 2026 內部 initiative 負責人 |
+| Cursor Skills 設計及標準化                | 進階  | 將 code scanning、文件及 planning workflow 變成可重用方法 |
+| 內部自動化工具開發                         | 中級  | 例：FTP batch access test（機密環境） |
+| MCP / tool chain 概念                   | 初級  | 僅作內部學習紀錄；不建議放對外 portfolio |
 
 
 ### 軟技能

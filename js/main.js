@@ -8,32 +8,20 @@ const SECTION_CONFIG = [
 
 const CASE_STUDY_SECTIONS = [
   {
-    key: 'context',
-    label: '01 / Context',
-    title: 'What this was',
-    placeholder: 'Add: what the system was, who used it, scale, and public/private constraints.',
-  },
-  {
-    key: 'problem',
-    label: '02 / Problem',
-    title: 'What made it difficult',
-    placeholder: 'Add: unclear requirements, data complexity, timeline pressure, legacy constraints, or operational risk.',
+    key: 'challengeApproach',
+    label: '01 / Challenge & approach',
+    title: 'What made it difficult — and how I responded',
+    placeholder: 'Add the constraints, key decisions, and delivery approach.',
   },
   {
     key: 'role',
-    label: '03 / My Role',
+    label: '02 / My role',
     title: 'What I owned',
     placeholder: 'Add: your concrete responsibilities, boundaries with PM/design/other developers, and ownership level.',
   },
   {
-    key: 'solution',
-    label: '04 / Solution',
-    title: 'How I approached it',
-    placeholder: 'Add: how you broke down the work, designed the flow, handled integration, and shipped safely.',
-  },
-  {
-    key: 'impact',
-    label: '05 / Impact',
+    key: 'outcome',
+    label: '03 / Outcome',
     title: 'What changed',
     placeholder: 'Add: measurable result, client/team feedback, risk reduced, speed improved, or production outcome.',
   },
@@ -510,9 +498,8 @@ function hasCaseStudyContent(caseStudy = {}) {
 }
 
 function shouldRenderCaseStudy(project) {
-  const caseStudy = project.caseStudy || {};
-  if (caseStudy.collapsed) return false;
-  return hasCaseStudyContent(caseStudy);
+  if (project.detailLevel !== 'featured') return false;
+  return hasCaseStudyContent(project.caseStudy || {});
 }
 
 function renderCaseStudySections(project) {
@@ -523,7 +510,7 @@ function renderCaseStudySections(project) {
     const isPlaceholder = !text;
 
     return `
-      <article class="work-case-section${isPlaceholder ? ' is-placeholder' : ''}">
+      <article class="work-case-section work-case-section--${section.key}${isPlaceholder ? ' is-placeholder' : ''}">
         <p class="work-case-label">${section.label}</p>
         <h4 class="work-case-title">${section.title}</h4>
         <p class="work-case-text">${text || section.placeholder}</p>

@@ -92,24 +92,20 @@
   },
   "skills": [
     {
-      "category": "Languages",
-      "items": ["PHP", "JavaScript", "TypeScript", "HTML", "CSS", "SQL"]
+      "category": "Core Development",
+      "items": ["PHP", "Laravel", "JavaScript", "TypeScript", "Vue.js", "HTML/CSS"]
     },
     {
-      "category": "Frameworks",
-      "items": ["Laravel", "Vue.js", "Node.js", "jQuery", "Bootstrap"]
+      "category": "Data & Integration",
+      "items": ["MySQL", "SQL Server", "SQL", "REST API design", "Third-party integrations"]
     },
     {
-      "category": "Database & Integration",
-      "items": ["MySQL", "SQL Server", "REST APIs", "POS API integration", "Payment gateway integration", "Oracle accounting integration"]
+      "category": "Engineering Workflow",
+      "items": ["Git/GitHub", "Linux/SSH deployment", "Operation scripting", "Technical documentation"]
     },
     {
-      "category": "AI & Workflow",
-      "items": ["Cursor", "AI-assisted development", "Cursor Skills", "AI agent evaluation", "Code scanning automation"]
-    },
-    {
-      "category": "Tools & Operations",
-      "items": ["Git", "GitHub", "Linux servers", "SSH deployment", "Operation scripts", "Technical documentation"]
+      "category": "AI-Assisted Engineering",
+      "items": ["Cursor", "AI-assisted development", "Cursor Skills design", "AI agent evaluation & rollout", "Internal automation tooling"]
     }
   ],
   "experience": [
@@ -139,8 +135,9 @@
       "period": "2025 — 2026",
       "title": "Wellcome Lucky Draw",
       "subtitle": "Legacy Revamp, OCR Integration & AI-Ready Development Workflow",
-      "summary": "Took over and revamped a legacy lucky draw codebase, added Google OCR integration, and turned the documentation approach into reusable Cursor Skills for AI-assisted delivery.",
-      "description": "Took over the Wellcome Lucky Draw project in 2025, then reviewed and revamped the legacy codebase in 2026. The work reorganized scattered duplicate coding patterns, fixed security issues, integrated Google OCR for new requirements, and produced AI-friendly technical documentation so frontend and backend changes could be completed reliably with AI assistance.",
+      "detailLevel": "featured",
+      "summary": "Legacy campaign codebase transformed into a safer AI-assisted delivery workflow through refactoring, Google OCR integration, and reusable technical documentation.",
+      "description": "A legacy campaign project maintained across 2025–2026. I took over its PHP and JavaScript codebase, removed duplicated and unsafe patterns, integrated Google OCR, and documented the real frontend and backend flows so AI-assisted changes could be made reliably and future delivery safer.",
       "highlights": [
         "Reviewed and revamped a legacy PHP, JavaScript, jQuery, CSS, and MySQL codebase with duplicated logic and security weaknesses.",
         "Integrated Google OCR to support new business requirements around receipt or document handling.",
@@ -148,11 +145,9 @@
         "Turned the documentation method into Cursor Skills, influencing the team's development workflow across other projects."
       ],
       "caseStudy": {
-        "context": "Wellcome Lucky Draw is a campaign project maintained across 2025 and 2026, built on a legacy PHP, JavaScript, jQuery, CSS, MySQL, and SQL stack.",
-        "problem": "The inherited codebase had scattered, repeated coding patterns and security issues. Its structure also made AI-assisted development risky: agents could easily misunderstand frontend and backend behavior and produce incorrect changes.",
-        "role": "Took over the project in 2025, then led the 2026 code review and revamp. I reorganized duplicated logic, fixed vulnerabilities, connected OCR according to new requirements, and wrote the technical documentation needed for AI-assisted development.",
-        "solution": "Refactored the legacy codebase into clearer frontend and backend patterns, integrated Google OCR, and documented requirements, flows, and implementation details in a way AI agents could follow. The documentation approach was later generalized into reusable Cursor Skills.",
-        "impact": "Changed the project from legacy code that often confused AI into a codebase where frontend and backend work could be completed by AI with much higher reliability. The same documentation method then affected the team's wider development process through Cursor Skills.",
+        "challengeApproach": "The inherited code had repeated logic, security weaknesses, and implicit behaviour that made AI-generated changes risky. I first mapped the real flows, then reorganized the code, fixed vulnerabilities, integrated OCR for the new requirement, and wrote implementation documentation that agents could follow safely.",
+        "role": "I took over the project in 2025 and led its 2026 review and revamp: frontend and backend code changes, OCR integration, security fixes, and the technical documentation for AI-assisted development.",
+        "outcome": "The project moved from a legacy codebase that often confused AI agents to one where changes could be completed with much higher reliability. The documentation method was later generalized into Cursor Skills for the wider team.",
         "visual": {
           "type": "flow",
           "caption": "Wellcome Lucky Draw: from legacy code to AI-assisted delivery",
@@ -197,37 +192,14 @@
       "period": "2025",
       "title": "DrugInSport",
       "subtitle": "Anti-Doping Drug Database",
-      "summary": "Public anti-doping drug lookup for ADOHK with a 10,000+ drug-record import pipeline.",
-      "description": "Public anti-doping drug lookup for ADOHK. UI by design team; I built all JavaScript and backend logic, including a 10,000+ drug-record import pipeline with chunked processing, memory tuning, approval flow, and scheduled launch.",
+      "detailLevel": "compact",
+      "summary": "Public ADOHK drug lookup with a 10,000+ record import workflow, built end to end across JavaScript and Laravel backend.",
+      "description": "A public anti-doping drug lookup for ADOHK. I built the JavaScript and Laravel workflow behind 10,000+ drug records, using chunked import, memory tuning, validation, approval, and scheduled launch controls to keep complex updates reliable; the public UI was supplied by the design team.",
       "highlights": [
         "Built all JavaScript (jQuery) and Laravel 11 backend logic end to end.",
         "Designed chunked Excel import for 10,000+ drug records with memory optimization.",
         "Implemented approval flow and scheduled launch for production release."
       ],
-      "caseStudy": {
-        "context": "DrugInSport is a drug database where admins import large batches of drugs, ingredients, and their relationships through an online portal.",
-        "problem": "Each import could process 10,000+ creates, updates, and deletes, while also checking relationship data, input errors, confirmation steps, and approval flow.",
-        "role": "Built the JavaScript and Laravel backend logic for the import workflow, validation flow, confirmation page, and approval handling.",
-        "solution": "Added memory-related logging, release-memory handling, chunked processing, and frontend handling for an environment that would otherwise time out.",
-        "impact": "Stabilized a repeated high-volume import process so the system could handle complex drug and ingredient updates reliably.",
-        "visual": {
-          "type": "imagePair",
-          "layout": "equal",
-          "caption": "DrugInSport portal and frontend visual reference",
-          "images": [
-            {
-              "label": "Portal",
-              "src": "assets/projects/druginsport/portal.png",
-              "alt": "DrugInSport admin portal"
-            },
-            {
-              "label": "Frontend",
-              "src": "assets/projects/druginsport/frontend.png",
-              "alt": "DrugInSport public frontend"
-            }
-          ]
-        }
-      },
       "technologies": ["PHP 8.2", "Laravel 11", "jQuery", "Blade", "Vite", "MySQL", "PhpSpreadsheet"],
       "links": {
         "github": null,
@@ -240,8 +212,9 @@
       "period": "2024",
       "title": "KNSM",
       "subtitle": "Po Leung Kuk Kindergarten Management System",
-      "summary": "FirmStudio's most complex project — interconnected student, billing, and subsidy flows across 20+ schools, with Oracle accounting integration and 30+ reports.",
-      "description": "Multi-campus internal platform for Po Leung Kuk kindergartens and nurseries — reportedly FirmStudio's most complex project. Student management, fee records and settings, subsidies, refunds, enrollment and waitlist flows, temporary care, and extension services are all interconnected, with money logic spanning every module. Export files integrate with the Oracle accounting system; 30+ styled reports support daily school operations.",
+      "detailLevel": "featured",
+      "summary": "Multi-campus kindergarten platform for 20+ schools, where I owned cross-module money logic, Oracle exports, and more than half of 30+ operational reports.",
+      "description": "A multi-campus internal platform for Po Leung Kuk kindergartens and nurseries. I delivered the interconnected billing, subsidy, refund, and reporting work across 20+ schools, with Oracle accounting exports and 30+ reports supporting daily operations; the platform remains in maintenance for schools to use daily.",
       "highlights": [
         "Owned UI implementation and all money-related features — billing, subsidies, refunds, and fee settings across interconnected modules.",
         "Built more than half of 30+ styled operational reports and Oracle AR/RA export integration.",
@@ -249,11 +222,9 @@
         "Maintained client trust through biweekly demos; praised by client and school principals."
       ],
       "caseStudy": {
-        "context": "KNSM is a multi-campus internal platform for Po Leung Kuk kindergartens and nurseries — reportedly FirmStudio's most complex project. It connects student management, fee records and settings, subsidies, refunds, enrollment and waitlist flows, temporary care, and extension services into one system where every feature relates to the others. Export files feed the Oracle accounting system; 30+ styled reports support day-to-day school operations.",
-        "problem": "Development began after the original project manager left, leaving requirements vague and early documentation incomplete. The replacement PM was still learning the domain, while 20+ schools each handled the same processes differently. The schedule was unreasonably tight for a system where money logic cuts across enrollment, student records, temporary care, and finance exports — isolated ticket work would not have been enough.",
-        "role": "I owned UI implementation, everything money-related — fee records, fee settings, subsidies, refunds — usage-flow adjustments, and more than half of the 30+ reports. Because billing touched nearly every module, my work had to stay aligned with enrollment, student management, temporary care, and Oracle export paths, not just a single backend area.",
-        "solution": "Success depended on team collaboration, not siloed delivery. We realigned understanding every other day, called out what did not fit the plan, and filled gaps the early specs missed. Developers became part of system design; the PM made final calls, but flows were shaped together. I implemented money logic end to end, adjusted usage flows as schools' real practices surfaced, and built reports schools could run their finance on.",
-        "impact": "Delivered a production platform serving 20+ campuses under extreme pressure, keeping client trust through biweekly demos. The client and school principals praised the outcome. The clearest lesson: on a system this interconnected, communication and clarified requirements mattered more than dividing work into isolated tasks.",
+        "challengeApproach": "Requirements were incomplete after a PM change, schools handled the same processes differently, and the schedule was tight for money logic spanning enrollment, student records, care services, and finance exports. We realigned understanding every other day, surfaced gaps early, and shaped workable flows together as real school practices emerged.",
+        "role": "I owned the UI implementation, fee settings and records, subsidies, refunds, usage-flow adjustments, Oracle AR/RA exports, and more than half of the 30+ reports. Because billing touched nearly every module, I coordinated the logic end to end rather than treating it as an isolated backend task.",
+        "outcome": "Delivered a production platform serving 20+ campuses under extreme pressure, while biweekly demos kept client trust intact. The client and school principals praised the outcome.",
         "visual": {
           "type": "imagePair",
           "layout": "equal",
@@ -284,19 +255,18 @@
       "period": "2022–2023 · ops revamp 2025",
       "title": "HKAB",
       "subtitle": "Member Area & On-Premise Operations",
-      "summary": "Member portal, CMS integration, and 16-server on-premise ops; key procedures cut from 20+ min to 5–10 min.",
-      "description": "Member portal with granular permissions and CMS integration, plus 16-server on-premise operations covering CMS file sync, DB replication, backup, failover, restart procedures, and operation guide documentation. A troubled takeover restored through fast execution and candid client communication.",
+      "detailLevel": "featured",
+      "summary": "Member portal and 16-server operations recovery: restored delivery confidence, then reduced a critical procedure from 20+ minutes to about 5.",
+      "description": "A member portal with granular permissions, CMS integration, and 16-server on-premise operations. I helped recover a delayed delivery, then rebuilt fragile operating procedures with clearer tooling and guides—cutting the main procedure from 20+ minutes to around 5; the portal remains in maintenance.",
       "highlights": [
         "Built member area permissions and core portal features.",
         "Revamped 16-server operation scripts in 2025, cutting key procedures from 20+ minutes to 5–10 minutes.",
         "Restored a severely delayed project close to legal escalation through tight PM reporting."
       ],
       "caseStudy": {
-        "context": "Joined HKAB in the middle-to-late stage, when the project was already too delayed to launch on time. The first priority was to regain client trust through visible progress.",
-        "problem": "In 2025, a serious hidden flaw was found in the operation scripts and procedures, damaging trust with the hosting-side team. The root cause had stayed unnoticed for two years.",
-        "role": "Worked with the PM to recover delivery momentum through daily extra hours and weekend focus, then later owned maintenance and the operation recovery work.",
-        "solution": "Found and fixed the root cause, then rebuilt the operation scripts from slow PHP scripts into clearer shell-based menu tools with status display, logs, warnings, and operator-focused guides.",
-        "impact": "Weekly delivery rebuilt client confidence for launch, while the 2025 ops revamp cut the main procedure from 20+ minutes to around 5 minutes and produced guides operators could actually follow.",
+        "challengeApproach": "HKAB had two trust-critical moments: a late-stage takeover before launch, then a hidden operations flaw found two years later. We made recovery visible through weekly delivery and tight PM reporting; for operations, I traced the root cause and replaced slow PHP scripts with operator-focused shell menus, status, logs, warnings, and guides.",
+        "role": "I built member-area permissions and core portal features, worked with the PM to restore delivery momentum, and later owned the maintenance and operations recovery work across the on-premise environment.",
+        "outcome": "The 2025 ops revamp cut the main procedure from 20+ minutes to around 5 minutes, with guides operators could follow. Earlier weekly delivery also rebuilt client confidence through launch.",
         "visual": {
           "type": "phaseFlow",
           "caption": "HKAB: two recoveries, one trust problem",
@@ -365,37 +335,15 @@
       "period": "2025",
       "title": "1O1O Corporate",
       "subtitle": "CMS Revamp",
-      "summary": "CMS revamp for 1O1O Corporate Solutions — component page editor, version compare/approval, and form builder.",
-      "description": "Collaborated with a colleague to revamp the CMS behind 1O1O Corporate Solutions. Led CMS UI/UX, a component-based page editor, version compare and approval workflows, form builder, and ongoing refinements across the admin experience.",
+      "detailLevel": "compact",
+      "summary": "CMS revamp that made publishing clearer through a component editor, approval workflow, version comparison, and form builder.",
+      "description": "A CMS revamp for 1O1O Corporate Solutions, delivered with another backend developer. I led the CMS UI/UX and built its component editor, version comparison, approval workflow, and form builder—making publishing choices clearer for content editors and setting a stronger standard for day-to-day publishing.",
       "highlights": [
         "Designed and built CMS UI/UX for editors managing the corporate marketing site.",
         "Component-based page editor for flexible page composition from reusable blocks.",
         "Version compare and approval workflow for safer content publishing.",
         "Form builder and detail-level polish across the CMS admin."
       ],
-      "caseStudy": {
-        "context": "Revamped an in-house CMS for the 1O1O Corporate website, working with another backend developer and integrating the CMS output into a frontend-built website.",
-        "problem": "The client had a high expectation for user-friendliness. My view was: if users must read a guide before they can use the CMS, the CMS design has already failed.",
-        "role": "Worked as a backend developer with roughly half of the backend scope, while directly designing and implementing the CMS UI and editor experience.",
-        "solution": "Built the form builder, component-based page editor, version comparison, approval workflow, and inline remarks that made component choices and edited content easier to understand on screen.",
-        "impact": "The clearer CMS guidance received strong feedback and became a reference point for future company CMS and design system standards.",
-        "visual": {
-          "type": "imagePair",
-          "caption": "1O1O Corporate CMS visual reference",
-          "images": [
-            {
-              "label": "CMS Screen",
-              "src": "assets/projects/1010-corporate/cms_screen.png",
-              "alt": "1O1O Corporate CMS screen"
-            },
-            {
-              "label": "1010 Logo",
-              "src": "assets/projects/1010-corporate/logo.svg",
-              "alt": "1O1O Corporate Solutions logo"
-            }
-          ]
-        }
-      },
       "technologies": ["PHP", "Laravel", "Vue.js", "JavaScript", "CMS"],
       "links": {
         "github": null,
@@ -408,8 +356,9 @@
       "period": "2020",
       "title": "DentalMiles",
       "subtitle": "Loyalty & Booking Platform",
+      "detailLevel": "compact",
       "summary": "Dental loyalty and booking platform with points, rewards, and eShop in one system.",
-      "description": "Dental loyalty and booking platform combining points redemption, DentalMiles to CDE conversion, online booking with quota rules, Miles Rewards, and eShop features in one web system.",
+      "description": "A single dental loyalty and booking platform combining points redemption, DentalMiles-to-CDE conversion, quota-based online booking, Miles Rewards, and eShop features. I implemented the loyalty redemption and booking flows that connected these customer journeys in one web system, bringing rewards and booking into one consistent customer experience.",
       "highlights": [
         "Built points redemption and Miles Rewards flows.",
         "Implemented online booking with quota rules and eShop features."
@@ -429,8 +378,9 @@
       "period": "2020 — 2022",
       "title": "HIPPOS",
       "subtitle": "iPad POS, Online POS & E-Commerce Platform",
+      "detailLevel": "compact",
       "summary": "Configurable multi-tenant POS and online shop platform with membership, points redemption, complex discounts, payments, member cards, and quota-based booking.",
-      "description": "HIPPOS is a platform connecting iPad POS and online shop operations. Beyond inventory, it covers membership, points redemption, supermarket-level configurable discount rules, online payment, member cards, and quota-based schedule booking. New client onboarding could be handled mainly through configuration instead of hardcoded rules. My ownership covered POS APIs, Online POS UI/UX and features, online shop backend, database design, and member card functionality, excluding only the core inventory and product-entry basics.",
+      "description": "A configurable multi-tenant platform linking iPad POS and online-shop operations. I owned POS APIs, online POS UI/UX, shop backend, database design, and member cards; membership, points, payments, discounts, and quota-based booking could be configured for new clients without hardcoded rules.",
       "highlights": [
         "Built POS APIs and Online POS UI/UX features connecting iPad POS operations with the online shop.",
         "Designed online shop backend and database structures for multi-tenant client configuration.",

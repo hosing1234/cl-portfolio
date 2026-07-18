@@ -1327,15 +1327,21 @@ body[data-theme='dark'] .theme-toggle:hover {
 
 .work-case-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 1.25rem 2.5rem;
   margin-bottom: 3.5rem;
   max-width: var(--popup-content-width);
 }
 
 .work-case-section {
+  grid-column: span 6;
   padding-top: 2rem;
   border-top: 1px solid var(--border);
+}
+
+.work-case-section--outcome {
+  grid-column: 1 / -1;
+  border-top-color: var(--text-muted);
 }
 
 .work-case-section.is-placeholder {
@@ -1367,6 +1373,11 @@ body[data-theme='dark'] .theme-toggle:hover {
   font-size: var(--text-body);
   line-height: 1.5;
   color: var(--text-light);
+}
+
+.work-case-section--outcome .work-case-text {
+  max-width: 46rem;
+  color: var(--text);
 }
 
 .work-case-section.is-placeholder .work-case-title,
@@ -2219,6 +2230,11 @@ body[data-theme='dark'] .theme-toggle:hover {
   .work-case-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .work-case-section,
+  .work-case-section--outcome {
+    grid-column: auto;
   }
 
   .work-case-visual-frame {

@@ -40,20 +40,17 @@
 
 ## Skills
 
-### Languages
-PHP, JavaScript, HTML, CSS, SQL
+### Core Development
+PHP, Laravel, JavaScript, TypeScript, Vue.js, HTML/CSS
 
-### Frameworks
-Laravel, Vue.js, Node.js, jQuery, Bootstrap
+### Data & Integration
+MySQL, SQL Server, SQL, REST API design, third-party integrations (POS, payment gateways, Oracle exports, Google OCR)
 
-### Database
-MySQL
+### Engineering Workflow
+Git/GitHub, Linux/SSH deployment, operation scripting, technical documentation
 
-### Integration
-REST APIs, API Integration (POS, payment gateways)
-
-### AI & Workflow
-Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rollout, code scanning automation
+### AI-Assisted Engineering
+Cursor, AI-assisted development, Cursor Skills design & standardization, AI agent evaluation & rollout, internal automation tooling
 
 ---
 
@@ -88,12 +85,20 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 
 ## Projects
 
+**展示原則：** KNSM、HKAB 與 Wellcome Lucky Draw 為深入案例，依序呈現 Challenge & approach、My role、Outcome。DrugInSport 與 1O1O Corporate 為精簡案例，只保留摘要、成果重點、技術與公開連結。
+
 ### Wellcome Lucky Draw — Legacy Revamp, OCR Integration & AI-Ready Development Workflow
 
 **Period:** 2025 — 2026
 
 **描述（1–2 句）：**
-> Took over the Wellcome Lucky Draw project in 2025, then reviewed and revamped the legacy codebase in 2026. Reorganized scattered duplicate coding, fixed security issues, integrated **Google OCR**, and produced **AI-friendly technical documentation** so both frontend and backend changes could be completed reliably with AI assistance.
+> A legacy campaign project maintained across 2025–2026. I took over its PHP and JavaScript codebase, removed duplicated and unsafe patterns, integrated **Google OCR**, and documented real frontend and backend flows so AI-assisted changes could be made reliably and future delivery safer.
+
+**Challenge & approach:** The inherited code had implicit behaviour that made AI-generated changes risky. I mapped the real flows, reorganized code, fixed vulnerabilities, and created documentation that AI agents could follow safely.
+
+**My role:** Took over the project and led the frontend/backend revamp, OCR integration, security fixes, and AI-ready technical documentation.
+
+**Outcome:** Turned an AI-error-prone legacy codebase into one where changes could be completed with much higher reliability; the documentation method later became reusable Cursor Skills.
 
 **Technologies:** PHP, JavaScript, jQuery, CSS, Google OCR, MySQL, SQL, Cursor Skills, AI agent evaluation, AI-assisted development, technical documentation
 
@@ -107,7 +112,13 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 **Period:** 2024 — Present (maintenance)
 
 **描述（1–2 句）：**
-> **Full stack** internal platform for Po Leung Kuk kindergartens and nurseries — **no public URL**. Built and maintained **both frontend (Vue 3 + TypeScript) and backend (Laravel)**; serving **20+ campuses** with student management, fee billing, and **Oracle accounting integration** via AR/RA export files.
+> Multi-campus internal platform for Po Leung Kuk kindergartens and nurseries. I delivered interconnected billing, subsidy, refund, and reporting work for **20+ campuses**, with **Oracle accounting exports** and 30+ reports supporting daily operations; the platform remains in maintenance for schools to use daily.
+
+**Challenge & approach:** Requirements were incomplete after a PM change, schools worked differently, and money logic crossed many modules. We realigned every other day, surfaced gaps early, and shaped workable flows as real practices emerged.
+
+**My role:** Owned UI implementation, fee settings and records, subsidies, refunds, usage-flow adjustments, Oracle AR/RA exports, and more than half of 30+ reports.
+
+**Outcome:** Delivered a production platform for 20+ campuses under extreme pressure; biweekly demos kept client trust intact, and the client and school principals praised the outcome.
 
 **Technologies:** PHP, Laravel, Vue 3, TypeScript, Inertia.js, Vuetify, SQL Server, Oracle accounting integration
 
@@ -121,7 +132,7 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 **Period:** 2025
 
 **描述（1–2 句）：**
-> Public anti-doping drug lookup for [ADOHK](https://www.druginsport.hk/en). UI by design team (partial generated CSS); **I built all JavaScript (jQuery) and backend (Laravel 11)**. **10,000+** drug records; Excel import pipeline with **500-row chunks**, memory tuning, and approval workflow.
+> Public anti-doping drug lookup for [ADOHK](https://www.druginsport.hk/en). I built the JavaScript and Laravel workflow behind **10,000+** drug records, using chunked import, memory tuning, validation, approval, and scheduled launch controls to keep complex updates reliable; the public UI was supplied by the design team.
 
 **Technologies:** PHP 8.2, Laravel 11, jQuery, Blade, Vite, Tailwind CSS, MySQL, PhpSpreadsheet, Laravel Queue
 
@@ -135,7 +146,7 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 **Period:** 2025
 
 **描述（1–2 句）：**
-> CMS revamp for [1O1O Corporate Solutions](https://www.1010corporate.com/) — collaborated with a colleague. **Led CMS UI/UX**, component-based page editor, version compare/approval workflow, form builder, and ongoing detail refinements across the admin experience.
+> CMS revamp for [1O1O Corporate Solutions](https://www.1010corporate.com/), delivered with another backend developer. I led the CMS UI/UX and built its component editor, version comparison, approval workflow, and form builder—making publishing choices clearer for content editors and setting a stronger standard for day-to-day publishing.
 
 **Technologies:** PHP, Laravel, Vue.js, JavaScript, CMS
 
@@ -147,9 +158,7 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 ### HIPPOS — iPad POS, Online POS & E-Commerce Platform
 
 **描述（1–2 句）：**
-> [HIPPOS](https://hippos.systems/login) connects iPad POS and online shop operations for multiple clients. Beyond inventory, it covers membership, points redemption, supermarket-level configurable discounts, online payment, member cards, and quota-based schedule booking; adding a new client could be handled mainly through configuration instead of hardcoded rules.
-
-**My scope:** POS APIs, Online POS UI/UX and features, online shop backend, database design, and member card system. Core inventory and product-entry basics were outside my main scope.
+> Configurable multi-tenant platform linking iPad POS and online-shop operations. I owned POS APIs, Online POS UI/UX, shop backend, database design, and member cards; membership, points, payments, discounts, and quota-based booking could be configured for new clients without hardcoded rules.
 
 **Technologies:** PHP, Laravel, JavaScript, Vue.js, MySQL, REST API, POS API integration, payment gateway integration, database design
 
@@ -164,7 +173,7 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 **Period:** 2020
 
 **描述（1–2 句）：**
-> [DentalMiles](https://www.dentalmiles.com/) dental loyalty and booking platform (single web system). Points redemption (DentalMiles ↔ CDE), online booking with quota rules, Miles Rewards, and eShop.
+> A single dental loyalty and booking platform combining points redemption, DentalMiles-to-CDE conversion, quota-based online booking, Miles Rewards, and eShop features. I implemented the loyalty redemption and booking flows that connected these customer journeys in one web system, bringing rewards and booking into one consistent customer experience.
 
 **Technologies:** PHP, Laravel, JavaScript, Vue.js, MySQL, REST API
 
@@ -178,7 +187,13 @@ Cursor, AI-assisted development, Cursor Skills design, AI agent evaluation & rol
 **Period:** 2022–2023 development; maintenance ongoing; operation script revamp in 2025
 
 **描述（1–2 句）：**
-> Member portal for Hong Kong Accreditation Body with granular **role-based permissions**. Also documented and scripted **on-premise operations** for a **16-server architecture**: 4 groups (P1–P4), each with WEB, CMS, DB, and HIBOR nodes — **CMS file sync**, **DB replication**, daily backup, failover, and restart procedures. Operation guide praised by client.
+> Member portal with granular permissions, CMS integration, and **16-server** on-premise operations. I helped recover a delayed delivery, then rebuilt fragile operating procedures with clearer tooling and guides—cutting the main procedure from **20+ minutes to around 5**; the portal remains in maintenance.
+
+**Challenge & approach:** HKAB had two trust-critical moments: a late-stage delivery takeover, then a hidden operations flaw two years later. We made recovery visible through weekly delivery; I later traced the root cause and rebuilt the scripts as operator-focused shell menus with status, logs, warnings, and guides.
+
+**My role:** Built member-area permissions and portal features, worked with the PM to restore delivery momentum, and later owned maintenance and the operations recovery work.
+
+**Outcome:** The ops revamp reduced the main procedure from 20+ minutes to around 5 minutes and produced guides operators could follow; the earlier recovery rebuilt client confidence through launch.
 
 **Infrastructure:** P1–P4 × {WEB, CMS, DB, HIBOR} — CMS nodes handle file sync; DB nodes handle MySQL replication.
 
